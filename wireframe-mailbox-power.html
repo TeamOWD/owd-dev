@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Client Gifting & Direct Mail | Outwork'em Digital</title>
 <meta name="description" content="Automated gifts, cards, and direct mail for home service contractors. We set up and manage Mailbox Power to keep your clients loyal and referrals coming in.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 <style>
   /* ===========================================================
      MID-FIDELITY WIREFRAME — Service Page: Mailbox Power Gift
@@ -13,6 +15,10 @@
   :root{
     --ink:#2b2b2b;--muted:#6e6e6e;--line:#cfcfcf;--box:#e3e3e3;--box-2:#d6d6d6;
     --bg:#f4f3f1;--card:#fbfbfa;--accent:#9a9a9a;--radius:14px;
+    --orange:oklch(0.68 0.170 50);
+    --orange-text:oklch(0.50 0.145 46);
+    --orange-tint:oklch(0.955 0.040 62);
+    --head:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
     --serif:Georgia,'Times New Roman',serif;
     --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
@@ -32,15 +38,45 @@
   .lead{font-size:15px;color:var(--muted);max-width:520px}
 
   /* header */
-  header{border-bottom:1px solid var(--line)}
+  header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:var(--bg)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:24px}
-  .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:19px;font-weight:600}
-  .logo .mark{width:26px;height:26px;border-radius:7px;background:var(--box-2);border:1px solid var(--line)}
-  .nav-links{display:flex;gap:24px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;color:var(--muted)}
-  .nav-links a{display:inline-flex;align-items:center;gap:5px;cursor:pointer}
-  .nav-links .caret{font-weight:400;color:var(--accent)}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo img{height:34px;width:auto;display:block}
+  .nav-links{display:flex;align-items:center;gap:24px;font-family:var(--head);font-size:13px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  .nav-links>a{display:inline-flex;align-items:center;gap:5px;cursor:pointer}
+  .nav-links .caret{font-weight:400;color:var(--orange-text)}
+  .nav-actions{display:flex;align-items:center;gap:12px}
   .btn{font-size:14px;border-radius:999px;padding:10px 20px;border:1px solid var(--line);background:var(--card);cursor:pointer}
-  .btn-solid{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .btn-solid{background:var(--orange);color:#fff;border-color:var(--orange)}
+  /* nav dropdown */
+  .nav-item{position:relative;display:flex;align-items:center}
+  .nav-item>a{cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .nav-drop{
+    position:absolute;top:100%;left:50%;
+    transform:translateX(-50%) translateY(4px);
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);min-width:230px;
+    padding:16px 8px 8px;
+    box-shadow:0 16px 40px rgba(34,30,31,.13);
+    opacity:0;pointer-events:none;
+    transition:opacity .22s ease,transform .22s ease;
+    z-index:200}
+  .nav-item:hover .nav-drop,
+  .nav-item.open .nav-drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .nav-drop a{
+    display:flex;align-items:center;gap:8px;
+    padding:10px 14px;border-radius:8px;
+    font-family:var(--head);font-size:12px;letter-spacing:.05em;
+    text-transform:uppercase;font-weight:600;
+    color:var(--ink);text-decoration:none;
+    transition:background .15s,color .15s;white-space:nowrap}
+  .nav-drop a:hover{background:var(--orange-tint);color:var(--orange-text)}
+  .nav-drop a.current{color:var(--orange-text);background:var(--orange-tint)}
+  .drop-icon{font-size:16px;color:var(--orange-text);opacity:.8}
+  .material-symbols-outlined{font-family:'Material Symbols Outlined';font-weight:normal;
+    font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;
+    white-space:nowrap;direction:ltr;display:inline-block;vertical-align:middle;
+    font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
 
   .section-head{text-align:center;margin-bottom:48px}
   .section-head h2{font-size:clamp(28px,4.5vw,44px);margin:16px auto 14px;max-width:700px}
@@ -168,11 +204,45 @@
 <!-- ============ HEADER ============ -->
 <header>
   <div class="wrap nav">
-    <div class="logo"><span class="mark"></span> OUTWORK'EM DIGITAL</div>
+    <a class="logo" href="index.html">
+      <img src="img/outworkem-digital-logo-light-bg.webp" alt="Outwork'em Digital">
+    </a>
     <nav class="nav-links">
       <a>Pricing</a>
       <a>Case studies <span class="caret">+</span></a>
-      <a>Services <span class="caret">+</span></a>
+      <div class="nav-item">
+        <a>Services <span class="caret">+</span></a>
+        <div class="nav-drop">
+          <a href="media-content.html">
+            <span class="drop-icon material-symbols-outlined">videocam</span>
+            Media &amp; Content
+          </a>
+          <a href="hosting.html">
+            <span class="drop-icon material-symbols-outlined">dns</span>
+            Web Hosting
+          </a>
+          <a>
+            <span class="drop-icon material-symbols-outlined">language</span>
+            Website Design
+          </a>
+          <a>
+            <span class="drop-icon material-symbols-outlined">search</span>
+            Organic SEO
+          </a>
+          <a>
+            <span class="drop-icon material-symbols-outlined">pin_drop</span>
+            Local SEO
+          </a>
+          <a>
+            <span class="drop-icon material-symbols-outlined">ads_click</span>
+            Pay-Per-Click Ads
+          </a>
+          <a>
+            <span class="drop-icon material-symbols-outlined">storefront</span>
+            Local Services Ads
+          </a>
+        </div>
+      </div>
       <a>Our work</a>
       <a>Who we serve</a>
       <a>About us <span class="caret">+</span></a>
@@ -394,5 +464,28 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  /* sticky header */
+  var header = document.querySelector('header');
+  addEventListener('scroll', function(){
+    if(header) header.style.boxShadow = window.scrollY > 24 ? '0 4px 20px rgba(0,0,0,.08)' : '';
+  }, {passive:true});
+
+  /* nav dropdowns */
+  var navItems = [].slice.call(document.querySelectorAll('.nav-item'));
+  navItems.forEach(function(item){
+    item.querySelector(':scope > a').addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = item.classList.contains('open');
+      navItems.forEach(function(i){ i.classList.remove('open'); });
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(){
+    navItems.forEach(function(i){ i.classList.remove('open'); });
+  });
+})();
+</script>
 </body>
 </html>
