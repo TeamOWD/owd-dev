@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Website Design for Home Service Companies | Outwork'em Digital</title>
+<meta name="description" content="Custom, high-performance websites built for home service contractors. We design sites that load fast, rank on Google, and turn visitors into booked jobs. Get a free audit today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<style>
+
+/* =============================================================
+   DESIGN TOKENS  ·  Light
+   ============================================================= */
+:root {
+  --bg:          #F7F3EB;
+  --bg-2:        oklch(0.950 0.022 62);
+  --card:        oklch(0.995 0.005 70);
+  --line:        oklch(0.90  0.012 60);
+  --box:         oklch(0.93  0.014 58);
+  --box-2:       oklch(0.88  0.018 58);
+  --accent:      oklch(0.72  0.030 60);
+  --muted:       oklch(0.50  0.028 258);
+  --ink:         oklch(0.27  0.045 258);
+  --navy:        oklch(0.30  0.050 258);
+  --navy-deep:   oklch(0.21  0.045 260);
+  --orange:      oklch(0.68  0.170 50);
+  --orange-text: oklch(0.50  0.145 46);
+  --orange-tint: oklch(0.955 0.040 62);
+  --text:        #221E1F;
+  --copy:        #221E1F;
+  --blue:        #12407A;
+  --blue-soft:   #17498A;
+  --blue-deep:   #0D2E58;
+  --radius:      14px;
+  --head: 'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --body: 'Source Serif 4',Georgia,'Times New Roman',serif;
+  --sans: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --scrolled-bg:     oklch(0.985 0.010 70);
+  --scrolled-shadow: 0 10px 30px rgba(40,30,20,.10);
+  --hatch: repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(0,0,0,.03) 14px,rgba(0,0,0,.03) 28px);
+}
+html[data-theme="dark"] {
+  --bg:          oklch(0.145 0.008 55);
+  --bg-2:        oklch(0.198 0.009 55);
+  --card:        oklch(0.255 0.011 55);
+  --line:        oklch(0.320 0.010 55);
+  --box:         oklch(0.240 0.010 55);
+  --box-2:       oklch(0.300 0.012 55);
+  --accent:      oklch(0.520 0.020 60);
+  --muted:       oklch(0.720 0.014 72);
+  --ink:         oklch(0.115 0.008 55);
+  --navy:        oklch(0.185 0.010 55);
+  --navy-deep:   oklch(0.110 0.008 55);
+  --orange:      oklch(0.72  0.175 52);
+  --orange-text: oklch(0.80  0.155 60);
+  --orange-tint: oklch(0.30  0.060 48);
+  --text:        oklch(0.97  0.006 85);
+  --copy:        #F7F3EB;
+  --scrolled-bg:     oklch(0.165 0.010 55);
+  --scrolled-shadow: 0 12px 36px rgba(0,0,0,.55);
+  --hatch: repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.04) 14px,rgba(255,255,255,.04) 28px);
+}
+
+/* =============================================================
+   BASE
+   ============================================================= */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);color:var(--text);background:var(--bg);
+  line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.12;letter-spacing:-.015em;color:var(--text)}
+p{font-family:var(--body);color:var(--copy)}
+.ph{background:var(--box);border:1px dashed var(--accent);border-radius:var(--radius);position:relative;overflow:hidden}
+.ph::after{content:attr(data-label);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);background:var(--hatch)}
+.ph.filled{background-size:cover;background-position:center;border:none}
+.ph.filled::after{content:none}
+
+.kicker{display:flex;align-items:center;gap:18px;margin-bottom:20px}
+.kicker .label{font-family:var(--head);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--orange-text);white-space:nowrap}
+.kicker .rule{flex:1;height:1px;background:var(--line)}
+.section-head{margin-bottom:48px}
+.section-head h2{font-size:clamp(28px,4.5vw,44px);margin:0 0 14px}
+.section-head.center{text-align:center}
+.section-head.center .lead{margin:0 auto}
+.lead{font-family:var(--body);font-size:15px;color:var(--copy);max-width:520px}
+.center{text-align:center}
+.band{position:relative;isolation:isolate}
+.band::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:var(--bg-2);z-index:-1}
+.btn{font-family:var(--head);font-size:14px;border-radius:999px;padding:10px 20px;border:1px solid var(--line);background:var(--card);cursor:pointer;color:var(--copy)}
+.btn-solid{background:var(--orange);border-color:var(--orange);color:oklch(0.99 0.005 70)}
+.btn-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--head);font-size:14px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;background:var(--orange);color:oklch(0.99 0.005 70);border:1px solid var(--orange);border-radius:8px;padding:15px 32px;cursor:pointer}
+
+/* =============================================================
+   HEADER + NAV
+   ============================================================= */
+header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid transparent;transition:background .45s,border-color .45s,box-shadow .45s}
+header.scrolled{background:var(--scrolled-bg);border-bottom-color:var(--line);box-shadow:var(--scrolled-shadow)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo img{height:34px;width:auto;display:block;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+header.scrolled .logo img{transform:scale(.88)}
+.logo img.logo-dark{display:none}
+html[data-theme="dark"] .logo img.logo-light{display:none}
+html[data-theme="dark"] .logo img.logo-dark{display:block}
+.nav-links{display:flex;align-items:center;gap:24px;font-family:var(--head);font-size:13px;letter-spacing:.04em;text-transform:uppercase;font-weight:600;color:var(--copy)}
+.nav-links>a{display:inline-flex;align-items:center;gap:5px;cursor:pointer}
+.nav-links .caret{font-weight:400;color:var(--orange)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;color:var(--muted);transition:background .2s}
+.theme-toggle:hover{background:var(--box-2)}
+.theme-toggle .t-dark{display:none}
+html[data-theme="dark"] .theme-toggle .t-light{display:none}
+html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
+.theme-toggle .material-symbols-outlined{font-size:20px}
+/* dropdown */
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-item>a{cursor:pointer}
+.nav-drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(4px);background:var(--card);border:1px solid var(--line);border-radius:var(--radius);min-width:240px;padding:16px 8px 8px;box-shadow:0 16px 40px rgba(34,30,31,.13);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s cubic-bezier(.22,1,.36,1);z-index:200}
+.nav-item:hover .nav-drop,.nav-item.open .nav-drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav-drop a{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;font-family:var(--head);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;color:var(--copy);text-decoration:none;transition:background .15s,color .15s;white-space:nowrap}
+.nav-drop a:hover{background:var(--orange-tint);color:var(--orange-text)}
+.nav-drop a.current{color:var(--orange-text);background:var(--orange-tint)}
+.drop-icon{font-size:16px;color:var(--orange-text);opacity:.8;font-variation-settings:'FILL' 0,'wght' 300}
+
+/* =============================================================
+   PAGE HERO
+   ============================================================= */
+.page-hero{padding:72px 0 80px}
+.page-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.page-hero h1{font-size:clamp(30px,5vw,52px);margin-bottom:20px}
+.page-hero .lead{font-size:17px;max-width:100%;margin-bottom:32px}
+.page-hero-img{height:480px;border-radius:var(--radius);overflow:hidden}
+.svc-chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--head);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--orange-text);background:var(--orange-tint);border-radius:999px;padding:6px 14px;margin-bottom:22px}
+.svc-chip .material-symbols-outlined{font-size:14px}
+
+/* =============================================================
+   STATS BAR  (section 2 — orange strip)
+   ============================================================= */
+.stats-bar{background:var(--orange);padding:48px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{text-align:center;padding:0 24px;position:relative}
+.stat-item+.stat-item::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);height:48px;width:1px;background:rgba(255,255,255,.25)}
+.stat-num{font-family:var(--head);font-size:clamp(36px,5vw,56px);font-weight:800;color:#fff;line-height:1;margin-bottom:8px}
+.stat-label{font-family:var(--head);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.80)}
+
+/* =============================================================
+   WHY PROSE  (section 3 — centered text + pull-quote)
+   ============================================================= */
+.why-prose{padding:88px 0}
+.prose-wrap{max-width:780px;margin:0 auto}
+.prose-wrap p{font-family:var(--body);font-size:16px;line-height:1.85;color:var(--copy);margin-bottom:20px}
+.pull-quote{font-family:var(--head);font-size:22px;font-weight:700;line-height:1.35;color:var(--text);margin:40px 0;padding-left:28px;border-left:4px solid var(--orange)}
+
+/* =============================================================
+   PILLARS  (section 4 — alternating rows, NOT cards)
+   ============================================================= */
+.pillars{padding:80px 0}
+.pillar-row{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:48px 0;border-top:1px solid var(--line)}
+.pillar-row:first-child{border-top:none;padding-top:0}
+.pillar-row.reverse{direction:rtl}
+.pillar-row.reverse>*{direction:ltr}
+.pillar-img{height:400px;border-radius:var(--radius);overflow:hidden}
+.pillar-num{font-family:var(--head);font-size:64px;font-weight:800;line-height:1;color:var(--orange-tint);margin-bottom:-16px;display:block}
+html[data-theme="dark"] .pillar-num{color:oklch(0.25 0.060 50)}
+.pillar-content h3{font-size:clamp(22px,3.5vw,32px);margin-bottom:16px}
+.pillar-content .tag{display:inline-block;font-family:var(--head);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--orange-text);background:var(--orange-tint);border-radius:999px;padding:4px 12px;margin-bottom:16px}
+.pillar-content p{font-family:var(--body);font-size:15px;color:var(--copy);line-height:1.78;margin-bottom:14px}
+.pillar-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pillar-tag{font-family:var(--head);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:6px 14px;border-radius:999px;background:var(--box);border:1px solid var(--line);color:var(--muted)}
+
+/* =============================================================
+   ACCORDION  (section 5 — 5 Ways)
+   ============================================================= */
+.accordion-section{padding:80px 0}
+.accordion{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:0}
+.acc-item{border-top:1px solid var(--line)}
+.acc-item:last-child{border-bottom:1px solid var(--line)}
+.acc-trigger{display:flex;align-items:center;gap:20px;padding:22px 0;cursor:pointer;width:100%;background:none;border:none;text-align:left}
+.acc-trigger:hover .acc-head{color:var(--orange-text)}
+.acc-n{font-family:var(--head);font-size:13px;font-weight:700;color:var(--orange-text);width:28px;flex:none}
+.acc-head{font-family:var(--head);font-size:16px;font-weight:700;color:var(--text);flex:1;transition:color .2s}
+.acc-icon{font-size:22px;color:var(--muted);flex:none;transition:transform .3s ease;font-variation-settings:'FILL' 0,'wght' 300}
+.acc-item.open .acc-icon{transform:rotate(180deg)}
+.acc-body{overflow:hidden;max-height:0;transition:max-height .4s cubic-bezier(.22,1,.36,1)}
+.acc-item.open .acc-body{max-height:400px}
+.acc-inner{padding:0 0 24px 48px}
+.acc-inner p{font-family:var(--body);font-size:15px;color:var(--copy);line-height:1.78}
+
+/* =============================================================
+   TIMELINE  (section 6 — horizontal 3 phases)
+   ============================================================= */
+.timeline-section{padding:80px 0}
+.timeline-track{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;margin-top:56px}
+.timeline-track::before{content:"";position:absolute;top:28px;left:calc(16.66% + 8px);right:calc(16.66% + 8px);height:2px;background:var(--line);z-index:0}
+.phase{position:relative;padding:0 24px;text-align:center}
+.phase-dot{width:56px;height:56px;border-radius:50%;background:var(--card);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;z-index:1;transition:border-color .2s,background .2s}
+.phase-dot .material-symbols-outlined{font-size:24px;color:var(--muted)}
+.phase.active .phase-dot{background:var(--orange);border-color:var(--orange)}
+.phase.active .phase-dot .material-symbols-outlined{color:#fff}
+.phase-tag{font-family:var(--head);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--orange-text);margin-bottom:8px}
+.phase h3{font-family:var(--head);font-size:16px;font-weight:700;color:var(--text);margin-bottom:12px}
+.phase-body{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-align:left;margin-top:20px}
+.phase-body ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.phase-body li{font-family:var(--body);font-size:13px;color:var(--copy);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.phase-body li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);flex:none;margin-top:6px}
+
+/* =============================================================
+   PROGRAM TABLE  (section 7 — 3-col feature grid)
+   ============================================================= */
+.program-section{padding:80px 0}
+.program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prog-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:36px 30px}
+.prog-ic{width:52px;height:52px;border-radius:14px;background:var(--orange-tint);border:1px solid var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.prog-ic .material-symbols-outlined{font-size:26px;color:var(--orange-text)}
+.prog-card h3{font-family:var(--head);font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--text);margin-bottom:20px}
+.prog-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.prog-list li{font-family:var(--body);font-size:14px;color:var(--copy);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.prog-list li .material-symbols-outlined{font-size:16px;color:var(--orange-text);flex:none;margin-top:2px;font-variation-settings:'FILL' 1}
+
+/* =============================================================
+   ROI BAND  (section 8 — dark band, big numbers)
+   ============================================================= */
+.roi-band{padding:80px 0;background:linear-gradient(140deg,var(--blue-soft) 0%,var(--blue-deep) 100%)}
+.roi-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.roi-stats{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.roi-stat .roi-num{font-family:var(--head);font-size:clamp(40px,6vw,64px);font-weight:800;color:#fff;line-height:1;margin-bottom:8px}
+.roi-stat .roi-num span{font-size:.45em;font-weight:600;color:rgba(255,255,255,.7)}
+.roi-stat p{font-family:var(--head);font-size:12px;letter-spacing:.10em;text-transform:uppercase;color:rgba(255,255,255,.70);font-weight:600}
+.roi-copy h2{font-family:var(--head);font-size:clamp(24px,3.5vw,36px);color:#fff;margin-bottom:20px}
+.roi-copy p{font-family:var(--body);font-size:15px;color:oklch(0.88 0.015 85);line-height:1.78;margin-bottom:16px}
+.roi-copy .btn-cta{background:var(--orange);border-color:var(--orange);color:oklch(0.99 0.005 70)}
+
+/* =============================================================
+   HOW WE WORK  (section 9 — 2×2 grid)
+   ============================================================= */
+.how-section{padding:80px 0}
+.how-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:0}
+.how-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px;display:flex;gap:24px;align-items:flex-start;transition:border-color .2s,box-shadow .2s}
+.how-card:hover{border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-tint)}
+.how-num{font-family:var(--head);font-size:13px;font-weight:700;color:var(--orange-text);background:var(--orange-tint);border:1px solid var(--orange);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.how-card h3{font-family:var(--head);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text);margin-bottom:10px}
+.how-card p{font-family:var(--body);font-size:14px;color:var(--muted);line-height:1.70}
+
+/* =============================================================
+   FINANCIAL + GUARANTEE  (section 10 — 2 cols)
+   ============================================================= */
+.financial-section{padding:80px 0}
+.financial-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.fin-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:40px}
+.fin-card.guarantee{border-color:var(--orange)}
+.fin-card h3{font-family:var(--head);font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;color:var(--text);margin-bottom:20px}
+.fin-card p{font-family:var(--body);font-size:15px;color:var(--copy);line-height:1.78;margin-bottom:14px}
+.fin-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.fin-list li{font-family:var(--body);font-size:14px;color:var(--copy);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.fin-list li .material-symbols-outlined{font-size:16px;color:var(--orange-text);flex:none;margin-top:2px;font-variation-settings:'FILL' 1}
+.guarantee-badge{display:flex;align-items:center;gap:14px;background:var(--orange-tint);border:1px solid var(--orange);border-radius:12px;padding:18px 20px;margin-bottom:20px}
+.guarantee-badge .material-symbols-outlined{font-size:32px;color:var(--orange-text);flex:none;font-variation-settings:'FILL' 1}
+.guarantee-badge p{font-family:var(--head);font-size:14px;font-weight:700;color:var(--orange-text);margin:0}
+
+/* =============================================================
+   FINAL CTA
+   ============================================================= */
+.final-cta{padding:0 0 90px}
+.cta-band{background:linear-gradient(140deg,var(--blue-soft) 0%,var(--blue-deep) 100%);border:1px solid rgba(255,255,255,.10);border-radius:var(--radius);text-align:center;padding:72px 32px}
+.cta-band h2{font-family:var(--head);font-size:clamp(28px,4.5vw,44px);color:#fff;margin-bottom:16px}
+.cta-band p{font-family:var(--body);font-size:16px;color:oklch(0.92 0.020 85);max-width:620px;margin:0 auto 32px}
+.cta-band .btn-cta{background:var(--orange);border-color:var(--orange);color:oklch(0.99 0.005 70);font-size:15px;padding:17px 38px}
+
+/* =============================================================
+   FOOTER
+   ============================================================= */
+.site-footer{background:var(--ink);color:#e6e6e6}
+.site-footer .wrap{padding-top:60px}
+.footer-top{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;padding-bottom:36px}
+.f-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.f-logo img{height:30px;width:auto;display:block}
+.f-phone{font-family:var(--head);font-size:26px;font-weight:700;color:#fff;margin-bottom:18px}
+.f-cta{display:inline-block;font-family:var(--head);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;background:var(--orange);color:oklch(0.99 0.005 70);border:none;border-radius:8px;padding:14px 28px;cursor:pointer}
+.f-socials{display:flex;gap:10px;margin-top:24px}
+.f-social{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px}
+.f-head{font-family:var(--head);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.footer-contact p{font-family:var(--body);font-size:14px;color:oklch(0.80 0.012 70);line-height:1.75;margin-bottom:14px}
+.footer-links{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:36px 0;border-top:1px solid rgba(255,255,255,.12)}
+.f-col ul{list-style:none}
+.f-col li{margin-bottom:13px}
+.f-col a{font-family:var(--head);font-size:14px;color:oklch(0.82 0.012 70);cursor:pointer}
+.services-list{columns:2;column-gap:32px}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 0 36px;border-top:1px solid rgba(255,255,255,.12);font-family:var(--head);font-size:13px;color:oklch(0.66 0.012 70)}
+.footer-bottom .legal{display:flex;gap:22px;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.footer-bottom .legal a{color:oklch(0.66 0.012 70);cursor:pointer}
+
+/* =============================================================
+   MATERIAL SYMBOLS
+   ============================================================= */
+.material-symbols-outlined{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;vertical-align:middle;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+
+/* =============================================================
+   MOBILE NAV
+   ============================================================= */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:1px solid var(--line);border-radius:8px;cursor:pointer;padding:8px;flex:none}
+.hamburger span{display:block;width:100%;height:2px;background:var(--text);border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-nav{position:fixed;inset:0;z-index:150;pointer-events:none}
+.mob-overlay{position:absolute;inset:0;background:rgba(34,30,31,.55);opacity:0;transition:opacity .3s ease}
+.mob-panel{position:absolute;top:0;right:0;width:min(300px,86vw);height:100%;background:var(--bg);border-left:1px solid var(--line);overflow-y:auto;transform:translateX(100%);transition:transform .35s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column}
+.mobile-nav.open{pointer-events:auto}
+.mobile-nav.open .mob-overlay{opacity:1}
+.mobile-nav.open .mob-panel{transform:translateX(0)}
+.mob-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.mob-head img{height:26px;width:auto}
+.mob-head img.logo-dark{display:none}
+html[data-theme="dark"] .mob-head img.logo-light{display:none}
+html[data-theme="dark"] .mob-head img.logo-dark{display:block}
+.mob-close{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--card);cursor:pointer;color:var(--muted);flex:none}
+.mob-close .material-symbols-outlined{font-size:20px}
+.mob-links{flex:1;padding:8px 0}
+.mob-link{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;font-family:var(--head);font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text);text-decoration:none;cursor:pointer;border-bottom:1px solid var(--line);transition:background .15s,color .15s}
+.mob-link:hover{background:var(--box)}
+.mob-link .mob-arr{font-size:18px;color:var(--accent);transition:transform .25s ease}
+.mob-svc-toggle.open .mob-arr{transform:rotate(180deg)}
+.mob-sub{display:none;background:var(--bg-2)}
+.mob-sub.open{display:block}
+.mob-sub a{display:flex;align-items:center;gap:10px;padding:11px 20px 11px 32px;font-family:var(--head);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);transition:color .15s,background .15s}
+.mob-sub a:hover,.mob-sub a.current{color:var(--orange-text);background:var(--orange-tint)}
+.mob-sub .drop-icon{font-size:15px;color:var(--orange-text)}
+.mob-footer{padding:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.mob-footer .btn-cta{justify-content:center;width:100%}
+.mob-theme-row{display:flex;align-items:center;justify-content:space-between;font-family:var(--head);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* =============================================================
+   CINEMATIC SCROLL
+   ============================================================= */
+@media (prefers-reduced-motion: no-preference){
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0ms);will-change:opacity,transform}
+  .js .reveal.in{opacity:1;transform:none}
+  .js .kicker .rule{transform:scaleX(0);transform-origin:left center;transition:transform 1s cubic-bezier(.22,1,.36,1) .18s}
+  .js .reveal.in .kicker .rule{transform:scaleX(1)}
+  .js .page-hero h1,.js .page-hero .lead,.js .page-hero .btn-cta{opacity:0;transform:translateY(22px);animation:od-in .9s cubic-bezier(.22,1,.36,1) forwards}
+  .js .page-hero h1{animation-delay:.10s}
+  .js .page-hero .lead{animation-delay:.22s}
+  .js .page-hero .btn-cta{animation-delay:.34s}
+  .js .page-hero-img{opacity:0;animation:od-fade 1s ease .40s forwards}
+  @keyframes od-in{to{opacity:1;transform:none}}
+  @keyframes od-fade{to{opacity:1}}
+}
+html.switching *,html.switching *::before,html.switching *::after{transition:background-color .35s ease,border-color .35s ease,color .25s ease !important}
+
+/* =============================================================
+   RESPONSIVE
+   ============================================================= */
+@media(max-width:1000px){
+  .page-hero-grid,.pillar-row,.roi-inner,.financial-grid{grid-template-columns:1fr}
+  .pillar-row.reverse{direction:ltr}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  .stat-item+.stat-item::before{display:none}
+  .timeline-track{grid-template-columns:1fr}
+  .timeline-track::before{display:none}
+  .program-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .page-hero-img,.pillar-img{height:320px}
+}
+@media(max-width:820px){
+  .how-grid,.program-grid{grid-template-columns:1fr}
+  .footer-top,.footer-links{grid-template-columns:1fr}
+  .services-list{columns:1}
+  .roi-stats{grid-template-columns:1fr 1fr}
+  .hamburger{display:flex}
+  .nav-links{display:none !important}
+  .nav-actions .theme-toggle,.nav-actions .btn-solid{display:none}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  .page-hero{padding:48px 0 56px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .roi-stats{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">
+      <img class="logo-light" src="img/outworkem-digital-logo-light-bg.webp" alt="Outwork'em Digital">
+      <img class="logo-dark"  src="img/outworkem-digital-logo-dark-bg.webp"  alt="Outwork'em Digital">
+    </a>
+    <nav class="nav-links">
+      <a>Pricing</a>
+      <a>Case studies <span class="caret">+</span></a>
+      <div class="nav-item">
+        <a>Services <span class="caret">+</span></a>
+        <div class="nav-drop">
+          <a href="media-content.html"><span class="drop-icon material-symbols-outlined">videocam</span>Media &amp; Content</a>
+          <a href="hosting.html"><span class="drop-icon material-symbols-outlined">dns</span>Web Hosting</a>
+          <a href="mailbox-power.html"><span class="drop-icon material-symbols-outlined">card_giftcard</span>Client Gifting</a>
+          <a href="web-design.html" class="current"><span class="drop-icon material-symbols-outlined">web</span>Website Design</a>
+          <a><span class="drop-icon material-symbols-outlined">search</span>Organic SEO</a>
+          <a><span class="drop-icon material-symbols-outlined">pin_drop</span>Local SEO</a>
+          <a><span class="drop-icon material-symbols-outlined">ads_click</span>Pay-Per-Click Ads</a>
+          <a><span class="drop-icon material-symbols-outlined">storefront</span>Local Services Ads</a>
+        </div>
+      </div>
+      <a>Our work</a>
+      <a>Who we serve</a>
+      <a>About us <span class="caret">+</span></a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="material-symbols-outlined t-light">dark_mode</span>
+        <span class="material-symbols-outlined t-dark">light_mode</span>
+      </button>
+      <button class="btn btn-solid">Let's Talk</button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE NAV ============ -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mob-overlay" id="mobOverlay"></div>
+  <div class="mob-panel">
+    <div class="mob-head">
+      <a href="index.html">
+        <img class="logo-light" src="img/outworkem-digital-logo-light-bg.webp" alt="Outwork'em Digital">
+        <img class="logo-dark"  src="img/outworkem-digital-logo-dark-bg.webp"  alt="Outwork'em Digital">
+      </a>
+      <button class="mob-close" id="mobClose" aria-label="Close"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div class="mob-links">
+      <a class="mob-link">Pricing</a>
+      <a class="mob-link">Case Studies <span class="material-symbols-outlined mob-arr">expand_more</span></a>
+      <div>
+        <div class="mob-link mob-svc-toggle" id="mobSvcToggle">Services <span class="material-symbols-outlined mob-arr">expand_more</span></div>
+        <div class="mob-sub" id="mobSub">
+          <a href="media-content.html"><span class="drop-icon material-symbols-outlined">videocam</span>Media &amp; Content</a>
+          <a href="hosting.html"><span class="drop-icon material-symbols-outlined">dns</span>Web Hosting</a>
+          <a href="mailbox-power.html"><span class="drop-icon material-symbols-outlined">card_giftcard</span>Client Gifting</a>
+          <a href="web-design.html" class="current"><span class="drop-icon material-symbols-outlined">web</span>Website Design</a>
+          <a><span class="drop-icon material-symbols-outlined">search</span>Organic SEO</a>
+          <a><span class="drop-icon material-symbols-outlined">pin_drop</span>Local SEO</a>
+          <a><span class="drop-icon material-symbols-outlined">ads_click</span>Pay-Per-Click Ads</a>
+          <a><span class="drop-icon material-symbols-outlined">storefront</span>Local Services Ads</a>
+        </div>
+      </div>
+      <a class="mob-link">Our Work</a>
+      <a class="mob-link">Who We Serve</a>
+      <a class="mob-link">About Us <span class="material-symbols-outlined mob-arr">expand_more</span></a>
+    </div>
+    <div class="mob-footer">
+      <button class="btn-cta">Let's Talk <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></button>
+      <div class="mob-theme-row">
+        <span>Dark Mode</span>
+        <button class="theme-toggle" id="themeToggleMob" aria-label="Toggle theme">
+          <span class="material-symbols-outlined t-light">dark_mode</span>
+          <span class="material-symbols-outlined t-dark">light_mode</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 1 · PAGE HERO ============ -->
+<section class="page-hero wrap">
+  <div class="page-hero-grid">
+    <div>
+      <div class="svc-chip">
+        <span class="material-symbols-outlined">web</span>
+        Website Design
+      </div>
+      <h1>Professional Website Design for Home Service Companies</h1>
+      <p class="lead">Your website is your top salesperson — and it works 24/7. We build contractor websites that load fast, rank on Google, and turn visitors into booked jobs.</p>
+      <button class="btn-cta">
+        Get a Free Website Audit
+        <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+      </button>
+    </div>
+    <div class="ph page-hero-img filled" style="background-image:url('img/ryan-jana167854.jpg');background-position:center center"></div>
+  </div>
+</section>
+
+<!-- ============ 2 · STATS BAR ============ -->
+<section class="stats-bar">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">100<span style="font-size:.55em">+</span></div>
+        <div class="stat-label">Contractor Websites Built</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">14<span style="font-size:.55em">+</span></div>
+        <div class="stat-label">Years Combined Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3<span style="font-size:.55em">x</span></div>
+        <div class="stat-label">Average Lead Increase</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">98<span style="font-size:.55em">%</span></div>
+        <div class="stat-label">Client Retention Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 · WHY PROFESSIONAL DESIGN ============ -->
+<section class="why-prose wrap">
+  <div class="prose-wrap">
+    <div class="kicker"><span class="label">Why It Matters</span><span class="rule"></span></div>
+    <h2 style="font-size:clamp(28px,4.5vw,44px);margin-bottom:32px">Why Choose Professional Website Design?</h2>
+
+    <p>Most contractors have a website. Very few have one that actually works. There's a real difference between a website that exists and a website that generates revenue — and that gap costs home service businesses thousands of dollars every month in missed leads and lost jobs.</p>
+
+    <p>A professionally designed website isn't a digital business card. It's a conversion engine. It's built around how your customers search, what makes them trust you, and what it takes to make them pick up the phone instead of clicking to your competitor.</p>
+
+    <div class="pull-quote">"The difference between a website that exists and one that generates revenue is strategy — and we build the second kind."</div>
+
+    <p>At Outwork'em Digital, we've built websites specifically for home service contractors — HVAC companies, plumbers, roofers, electricians, landscapers, and more. Every site we build is engineered around three fundamentals: user experience, conversion rate optimization, and search visibility. Skip any one of them and you're leaving money on the table.</p>
+  </div>
+</section>
+
+<!-- ============ 4 · THREE CORE PILLARS ============ -->
+<section class="pillars wrap">
+  <div class="section-head">
+    <div class="kicker"><span class="label">Our Framework</span><span class="rule"></span></div>
+    <h2>The Three Core Pillars of a Winning Contractor Website</h2>
+  </div>
+
+  <!-- Pillar 1: UXO — text left, image right -->
+  <div class="pillar-row">
+    <div class="pillar-content">
+      <span class="pillar-num">01</span>
+      <span class="tag">UXO</span>
+      <h3>User Experience Optimization</h3>
+      <p>If a visitor lands on your site and can't figure out what you do or how to contact you within five seconds, you've already lost them. UXO is about removing every obstacle between your visitor and your phone number.</p>
+      <p>We design clear visual hierarchies, intuitive navigation, and logical page flows that guide homeowners exactly where you want them to go — to a call, a form submission, or a booked appointment.</p>
+      <div class="pillar-tags">
+        <span class="pillar-tag">Clear CTAs</span>
+        <span class="pillar-tag">Mobile-First Layout</span>
+        <span class="pillar-tag">Fast Load Times</span>
+        <span class="pillar-tag">Trust Signals</span>
+      </div>
+    </div>
+    <div class="ph pillar-img filled" style="background-image:url('img/ryan-jana166659.jpg');background-position:center center"></div>
+  </div>
+
+  <!-- Pillar 2: CRO — image left, text right -->
+  <div class="pillar-row reverse">
+    <div class="pillar-content">
+      <span class="pillar-num">02</span>
+      <span class="tag">CRO</span>
+      <h3>Conversion Rate Optimization</h3>
+      <p>Getting traffic to your site is only half the battle. Conversion Rate Optimization is about turning that traffic into revenue. We study how visitors interact with your pages and engineer every element — headlines, forms, social proof, and CTAs — to maximize the percentage of visitors who contact you.</p>
+      <p>A 2% improvement in conversion rate can double your leads without spending another dollar on advertising.</p>
+      <div class="pillar-tags">
+        <span class="pillar-tag">A/B Testing</span>
+        <span class="pillar-tag">Heat Mapping</span>
+        <span class="pillar-tag">Form Optimization</span>
+        <span class="pillar-tag">Social Proof</span>
+      </div>
+    </div>
+    <div class="ph pillar-img filled" style="background-image:url('img/ryan-jana166584.jpg');background-position:center center"></div>
+  </div>
+
+  <!-- Pillar 3: SEO — text left, image right -->
+  <div class="pillar-row">
+    <div class="pillar-content">
+      <span class="pillar-num">03</span>
+      <span class="tag">SEO</span>
+      <h3>Search Engine Optimization</h3>
+      <p>A beautiful website that nobody can find is just an expensive brochure. Every site we build is structured from the ground up for search — with clean code, proper heading hierarchy, schema markup, optimized metadata, and page speed scores that Google rewards.</p>
+      <p>We build the technical foundation so that your SEO efforts — now or in the future — actually have a platform worth ranking.</p>
+      <div class="pillar-tags">
+        <span class="pillar-tag">On-Page SEO</span>
+        <span class="pillar-tag">Schema Markup</span>
+        <span class="pillar-tag">Core Web Vitals</span>
+        <span class="pillar-tag">Local Optimization</span>
+      </div>
+    </div>
+    <div class="ph pillar-img filled" style="background-image:url('img/ryan-jana166502.jpg');background-position:center center"></div>
+  </div>
+</section>
+
+<!-- ============ 5 · ACCORDION — 5 WAYS ============ -->
+<section class="accordion-section wrap band">
+  <div class="section-head center">
+    <div class="kicker" style="justify-content:center"><span class="label">The Hard Truth</span></div>
+    <h2>5 Ways a Non-Professional Website Is Costing You Revenue Right Now</h2>
+    <p class="lead" style="margin:0 auto">You may not feel it yet — but your current site is quietly losing you jobs every single day.</p>
+  </div>
+
+  <div class="accordion">
+
+    <div class="acc-item">
+      <button class="acc-trigger">
+        <span class="acc-n">01</span>
+        <span class="acc-head">Your site loads too slowly — and Google punishes you for it</span>
+        <span class="material-symbols-outlined acc-icon">expand_more</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <p>53% of mobile users abandon a site that takes longer than 3 seconds to load. Google knows this — and uses page speed as a direct ranking factor. A slow site means lower rankings, higher bounce rates, and fewer leads. Most DIY and budget websites fail Core Web Vitals, which means you're invisible before anyone even reads your headline.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger">
+        <span class="acc-n">02</span>
+        <span class="acc-head">You're invisible in local search — your competitor gets the call</span>
+        <span class="material-symbols-outlined acc-icon">expand_more</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <p>If your website wasn't built with local SEO in mind — proper service area pages, location signals, NAP consistency, and schema markup — you simply won't show up when homeowners in your city search for your services. That visibility goes to whoever built their site right. In most local markets, the top 3 results capture over 75% of all clicks.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger">
+        <span class="acc-n">03</span>
+        <span class="acc-head">Visitors can't tell what you do or where to call you</span>
+        <span class="material-symbols-outlined acc-icon">expand_more</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <p>A confused visitor doesn't convert — they leave. If your homepage doesn't immediately communicate what you do, who you serve, and what to do next, you're losing leads who were ready to hire. Poor hierarchy, buried phone numbers, weak CTAs, and generic copy all contribute to a leaky funnel that bleeds qualified traffic every day.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger">
+        <span class="acc-n">04</span>
+        <span class="acc-head">Your site looks broken on mobile — where 70% of your leads come from</span>
+        <span class="material-symbols-outlined acc-icon">expand_more</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <p>Homeowners search for contractors from their phones. If your site isn't built mobile-first — with tap-friendly buttons, readable text at every viewport, and a layout that actually works on a 375px screen — you're creating friction at the worst possible moment. A broken mobile experience signals an unprofessional operation, and your prospect hires someone else.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger">
+        <span class="acc-n">05</span>
+        <span class="acc-head">You're paying for ads that send traffic to a page that doesn't convert</span>
+        <span class="material-symbols-outlined acc-icon">expand_more</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <p>Running Google Ads or LSAs to a poorly designed website is like filling a bucket with a hole in it. You pay for every click — and most of them leave without contacting you. A high-converting landing page can turn the same ad spend into 2–3x more leads. Without it, you're paying for impressions, not results.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 6 · TIMELINE ============ -->
+<section class="timeline-section wrap">
+  <div class="section-head center">
+    <div class="kicker" style="justify-content:center"><span class="label">Expected Timeline</span></div>
+    <h2>What to Expect — and When</h2>
+    <p class="lead" style="margin:0 auto">A professional website isn't an overnight project. Here's the realistic roadmap from kickoff to measurable results.</p>
+  </div>
+
+  <div class="timeline-track">
+
+    <div class="phase active">
+      <div class="phase-dot"><span class="material-symbols-outlined">foundation</span></div>
+      <div class="phase-tag">Months 1–2</div>
+      <h3>Foundation Phase</h3>
+      <div class="phase-body">
+        <ul>
+          <li>Discovery call &amp; competitor audit</li>
+          <li>Brand strategy &amp; site architecture</li>
+          <li>Custom design mockups &amp; approval</li>
+          <li>WordPress development &amp; build</li>
+          <li>On-page SEO setup &amp; schema</li>
+          <li>Speed optimization &amp; QA testing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase active">
+      <div class="phase-dot"><span class="material-symbols-outlined">rocket_launch</span></div>
+      <div class="phase-tag">Months 3–4</div>
+      <h3>Acceleration Phase</h3>
+      <div class="phase-body">
+        <ul>
+          <li>Site launch &amp; DNS migration</li>
+          <li>Google Analytics &amp; Search Console setup</li>
+          <li>Heat mapping &amp; behavior tracking</li>
+          <li>Content expansion &amp; service pages</li>
+          <li>Initial ranking reports</li>
+          <li>First conversion rate review</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-dot"><span class="material-symbols-outlined">trending_up</span></div>
+      <div class="phase-tag">Months 5–6</div>
+      <h3>Breakthrough Phase</h3>
+      <div class="phase-body">
+        <ul>
+          <li>Measurable organic traffic growth</li>
+          <li>Lead volume increase vs. baseline</li>
+          <li>A/B testing &amp; CRO iteration</li>
+          <li>ROI reporting &amp; strategy review</li>
+          <li>Scale: additional pages &amp; markets</li>
+          <li>Long-term growth roadmap</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 7 · COMPREHENSIVE PROGRAM ============ -->
+<section class="program-section wrap band">
+  <div class="section-head center">
+    <div class="kicker" style="justify-content:center"><span class="label">What's Included</span></div>
+    <h2>Our Comprehensive Website Growth Program</h2>
+    <p class="lead" style="margin:0 auto">We don't just build a website and disappear. Every engagement includes three pillars of ongoing support.</p>
+  </div>
+
+  <div class="program-grid">
+
+    <div class="prog-card">
+      <div class="prog-ic"><span class="material-symbols-outlined">web_asset</span></div>
+      <h3>Home Service Website Foundation</h3>
+      <ul class="prog-list">
+        <li><span class="material-symbols-outlined">check_circle</span>Custom design tailored to your brand</li>
+        <li><span class="material-symbols-outlined">check_circle</span>WordPress development on proven framework</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Mobile-first responsive build</li>
+        <li><span class="material-symbols-outlined">check_circle</span>On-page SEO &amp; schema markup</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Core Web Vitals optimization</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Lead capture forms &amp; click-to-call</li>
+        <li><span class="material-symbols-outlined">check_circle</span>SSL, hosting setup &amp; security</li>
+      </ul>
+    </div>
+
+    <div class="prog-card">
+      <div class="prog-ic"><span class="material-symbols-outlined">tune</span></div>
+      <h3>Marketing &amp; Optimization</h3>
+      <ul class="prog-list">
+        <li><span class="material-symbols-outlined">check_circle</span>Google Analytics 4 configuration</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Google Search Console setup</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Heat mapping &amp; session recording</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Monthly CRO review &amp; iteration</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Landing page A/B testing</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Service &amp; location page expansion</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Ad campaign landing page builds</li>
+      </ul>
+    </div>
+
+    <div class="prog-card">
+      <div class="prog-ic"><span class="material-symbols-outlined">bar_chart</span></div>
+      <h3>Tracking &amp; Reporting</h3>
+      <ul class="prog-list">
+        <li><span class="material-symbols-outlined">check_circle</span>Monthly performance reports</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Call tracking integration</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Form submission &amp; lead tracking</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Keyword ranking reports</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Traffic &amp; conversion dashboards</li>
+        <li><span class="material-symbols-outlined">check_circle</span>ROI attribution by channel</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Quarterly strategy review calls</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 8 · ROI BAND ============ -->
+<section class="roi-band">
+  <div class="wrap">
+    <div class="roi-inner">
+      <div class="roi-stats">
+        <div class="roi-stat">
+          <div class="roi-num">312<span>%</span></div>
+          <p>Average increase in organic traffic within 6 months</p>
+        </div>
+        <div class="roi-stat">
+          <div class="roi-num">2.4<span>x</span></div>
+          <p>More qualified leads per month vs. previous site</p>
+        </div>
+        <div class="roi-stat">
+          <div class="roi-num">89<span>%</span></div>
+          <p>Of clients see measurable ROI within 90 days of launch</p>
+        </div>
+        <div class="roi-stat">
+          <div class="roi-num">$8.50</div>
+          <p>Average return per $1 invested in website development</p>
+        </div>
+      </div>
+      <div class="roi-copy">
+        <div class="kicker"><span class="label" style="color:rgba(255,255,255,.6)">Typical Results &amp; ROI</span><span class="rule" style="background:rgba(255,255,255,.2)"></span></div>
+        <h2>Real Numbers. Real Contractors.</h2>
+        <p>These aren't projections. They're averages pulled from the home service businesses we've built and managed — HVAC companies, plumbers, roofers, and electricians across the country.</p>
+        <p>Every business is different and results will vary — but the trajectory is consistent: a professionally built, strategically optimized website pays for itself. Usually faster than you expect.</p>
+        <button class="btn-cta">
+          See Our Work
+          <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9 · HOW WE WORK ============ -->
+<section class="how-section wrap">
+  <div class="section-head">
+    <div class="kicker"><span class="label">Working with Outwork'em Digital</span><span class="rule"></span></div>
+    <h2>What It Looks Like to Work with Us</h2>
+    <p class="lead">A clear, accountable process from first call to ongoing results — no surprises, no runaround.</p>
+  </div>
+
+  <div class="how-grid">
+
+    <div class="how-card">
+      <div class="how-num">1</div>
+      <div>
+        <h3>Discovery Call</h3>
+        <p>We learn your business, your goals, your service area, and your competitive landscape. No templates — everything starts with understanding your specific situation.</p>
+      </div>
+    </div>
+
+    <div class="how-card">
+      <div class="how-num">2</div>
+      <div>
+        <h3>Strategy &amp; Wireframe</h3>
+        <p>We map out your site architecture, page strategy, and conversion flow before a single pixel is designed. Structure drives results — we get this right first.</p>
+      </div>
+    </div>
+
+    <div class="how-card">
+      <div class="how-num">3</div>
+      <div>
+        <h3>Design &amp; Development</h3>
+        <p>Custom design built on a proven WordPress framework. You review and approve at every stage. Nothing launches until you're confident it represents your business well.</p>
+      </div>
+    </div>
+
+    <div class="how-card">
+      <div class="how-num">4</div>
+      <div>
+        <h3>Launch, Track &amp; Optimize</h3>
+        <p>We go live, monitor performance, and keep improving. Monthly reports, real data, and a team that's accountable to your results — not just your invoice.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 10 · FINANCIAL + GUARANTEE ============ -->
+<section class="financial-section wrap band">
+  <div class="section-head">
+    <div class="kicker"><span class="label">Financial Arrangements</span><span class="rule"></span></div>
+    <h2>Straightforward Pricing. No Surprises.</h2>
+  </div>
+
+  <div class="financial-grid">
+
+    <div class="fin-card">
+      <h3>How We Structure Our Engagements</h3>
+      <p>We don't believe in locking clients into long-term contracts they can't get out of. Our website projects are priced transparently — you'll know exactly what you're investing before we start.</p>
+      <ul class="fin-list">
+        <li><span class="material-symbols-outlined">check_circle</span>Custom-quoted based on your site scope and goals</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Setup investment covers design, development, and launch</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Optional monthly management for ongoing optimization</li>
+        <li><span class="material-symbols-outlined">check_circle</span>No hidden fees, no surprise invoices</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Detailed proposal provided before any commitment</li>
+      </ul>
+      <button class="btn-cta">
+        Book a Discovery Call
+        <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+      </button>
+    </div>
+
+    <div class="fin-card guarantee">
+      <h3>Our No-Risk Guarantee</h3>
+      <div class="guarantee-badge">
+        <span class="material-symbols-outlined">verified_user</span>
+        <p>We stand behind every website we build — 100%.</p>
+      </div>
+      <p>We're not satisfied until you are. If you're not happy with the design direction after the first round of mockups, we'll go back to the drawing board — at no additional cost.</p>
+      <p>We cap our client roster on purpose. When we take on your project, you get the team's full attention. We don't overcommit, and we don't cut corners.</p>
+      <p>If we take your project, it's because we're confident we can make a real difference for your business. That confidence is backed by our work and our word.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 11 · FINAL CTA ============ -->
+<section class="final-cta wrap">
+  <div class="cta-band">
+    <h2>Ready to Build a Website That Actually Generates Leads?</h2>
+    <p>Book a free discovery call and we'll audit your current site, identify what's costing you leads, and show you exactly what we'd do differently.</p>
+    <button class="btn-cta">
+      Book a Free Website Audit
+      <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+    </button>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="f-logo"><img src="img/outworkem-digital-logo-dark-bg.webp" alt="Outwork'em Digital"></div>
+        <div class="f-phone">833-695-1214</div>
+        <button class="f-cta">Book Discovery Call</button>
+        <div class="f-socials"><span class="f-social">IG</span><span class="f-social">f</span><span class="f-social">▶</span></div>
+      </div>
+      <div class="footer-contact">
+        <div class="f-head">Contact Info</div>
+        <p>2425 E Camelback Road<br>Suite 150,<br>Phoenix, AZ 85016</p>
+        <p>Tel: 833-695-1214<br>Email: team@outworkemdigital.com</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <div class="f-col">
+        <div class="f-head">Helpful Links</div>
+        <ul>
+          <li><a>Home</a></li><li><a>Programs &amp; Pricing</a></li>
+          <li><a>Free Consultation</a></li><li><a>Marketing Academy</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <div class="f-head">Our Services</div>
+        <ul class="services-list">
+          <li><a>All Services</a></li>
+          <li><a href="web-design.html">Website Design</a></li>
+          <li><a>Organic SEO</a></li>
+          <li><a>Local SEO</a></li>
+          <li><a>Pay-Per-Click Advertising</a></li>
+          <li><a>Local Services Ads</a></li>
+          <li><a href="media-content.html">Media &amp; Content</a></li>
+          <li><a href="hosting.html">Web Hosting</a></li>
+          <li><a href="mailbox-power.html">Client Gifting</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 OUTWORK'EM DIGITAL | All Rights Reserved.</span>
+      <span class="legal"><a>Privacy Policy</a><a>Terms &amp; Conditions</a><a>Sitemap</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var html = document.documentElement;
+  var saved = localStorage.getItem('owd-theme');
+  if(saved === 'dark') html.setAttribute('data-theme','dark');
+
+  var btn = document.getElementById('themeToggle');
+  if(btn) btn.addEventListener('click', function(){
+    var isDark = html.getAttribute('data-theme') === 'dark';
+    html.classList.add('switching');
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    localStorage.setItem('owd-theme', isDark ? 'light' : 'dark');
+    setTimeout(function(){ html.classList.remove('switching'); }, 380);
+  });
+
+  html.classList.add('js');
+  var header = document.querySelector('header');
+  function onScroll(){ if(header) header.classList.toggle('scrolled', window.scrollY > 24); }
+  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+
+  /* mobile nav */
+  var hamburger=document.getElementById('hamburger'),mobileNav=document.getElementById('mobileNav'),
+    mobClose=document.getElementById('mobClose'),mobOverlay=document.getElementById('mobOverlay'),
+    mobSvcToggle=document.getElementById('mobSvcToggle'),mobSub=document.getElementById('mobSub'),
+    themeToggleMob=document.getElementById('themeToggleMob');
+  function openMob(){if(mobileNav)mobileNav.classList.add('open');if(hamburger)hamburger.classList.add('open');document.body.style.overflow='hidden';}
+  function closeMob(){if(mobileNav)mobileNav.classList.remove('open');if(hamburger)hamburger.classList.remove('open');document.body.style.overflow='';}
+  if(hamburger) hamburger.addEventListener('click',openMob);
+  if(mobClose) mobClose.addEventListener('click',closeMob);
+  if(mobOverlay) mobOverlay.addEventListener('click',closeMob);
+  if(mobSvcToggle) mobSvcToggle.addEventListener('click',function(){mobSvcToggle.classList.toggle('open');if(mobSub)mobSub.classList.toggle('open');});
+  if(themeToggleMob) themeToggleMob.addEventListener('click',function(){
+    var isDark=html.getAttribute('data-theme')==='dark';
+    html.classList.add('switching');html.setAttribute('data-theme',isDark?'light':'dark');
+    localStorage.setItem('owd-theme',isDark?'light':'dark');
+    setTimeout(function(){html.classList.remove('switching');},380);
+  });
+
+  /* nav dropdown */
+  var navItems=[].slice.call(document.querySelectorAll('.nav-item'));
+  navItems.forEach(function(item){
+    item.querySelector(':scope > a').addEventListener('click',function(e){
+      e.stopPropagation();var isOpen=item.classList.contains('open');
+      navItems.forEach(function(i){i.classList.remove('open');});
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+  document.addEventListener('click',function(){navItems.forEach(function(i){i.classList.remove('open');});});
+
+  /* accordion */
+  var accItems=[].slice.call(document.querySelectorAll('.acc-item'));
+  accItems.forEach(function(item){
+    item.querySelector('.acc-trigger').addEventListener('click',function(){
+      var isOpen=item.classList.contains('open');
+      accItems.forEach(function(i){i.classList.remove('open');});
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+
+  /* scroll reveals */
+  var sel=['.section-head','.pillar-row','.how-card','.prog-card',
+    '.phase','.fin-card','.cta-band','.prose-wrap','.accordion'].join(',');
+  var items=[].slice.call(document.querySelectorAll(sel));
+  items.forEach(function(el){el.classList.add('reveal');});
+  items.forEach(function(el){
+    var sibs=[].slice.call(el.parentElement.children).filter(function(c){return c.classList.contains('reveal');});
+    var i=sibs.indexOf(el);if(i>0) el.style.setProperty('--d',(i*80)+'ms');
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.10,rootMargin:'0px 0px -6% 0px'});
+  items.forEach(function(el){io.observe(el);});
+})();
+</script>
+
+</body>
+</html>
