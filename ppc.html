@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Local SEO for Home Service Companies | Outwork'em Digital</title>
-<meta name="description" content="Rank in the top 3 of Google Maps when homeowners search for home services near them. Local SEO built exclusively for home service contractors. Free market analysis.">
+<title>PPC Advertising for Home Service Contractors | Outwork'em Digital</title>
+<meta name="description" content="Pay-per-click advertising built exclusively for home service contractors. Get 25–50+ qualified leads monthly with 900% average ROI. Free market analysis — call 833-695-1214.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -67,7 +67,8 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* HERO */
 .page-hero{padding:72px 0 80px}
 .page-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.page-hero h1{font-size:clamp(30px,5vw,52px);margin-bottom:20px}
+.page-hero h1{font-size:clamp(30px,5vw,52px);margin-bottom:16px}
+.page-hero-sub{font-family:var(--head);font-size:16px;color:var(--muted);margin-bottom:24px}
 .page-hero-img{height:480px;border-radius:var(--radius);overflow:hidden}
 .svc-chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--head);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--orange-text);background:var(--orange-tint);border-radius:999px;padding:6px 14px;margin-bottom:22px}
 .svc-chip .material-symbols-outlined{font-size:14px}
@@ -103,7 +104,24 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 .yes-card .cmp-list li .material-symbols-outlined{color:var(--orange-text)}
 .why-cta{text-align:center}
 .why-cta p{font-family:var(--body);font-size:14px;color:var(--muted);margin-top:12px}
-.why-note{font-family:var(--head);font-size:12px;color:var(--muted);text-align:center;margin-top:16px}
+
+/* PERFORMANCE METRICS (unique to PPC) */
+.metrics-section{padding:80px 0}
+.metrics-table-wrap{margin-bottom:48px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.metrics-table{width:100%;border-collapse:collapse}
+.metrics-table thead tr{background:var(--orange-tint);border-bottom:2px solid var(--orange)}
+.metrics-table th{font-family:var(--head);font-size:11px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--orange-text);padding:16px 20px;text-align:left}
+.metrics-table td{font-family:var(--body);font-size:14px;color:var(--copy);padding:16px 20px;border-bottom:1px solid var(--line)}
+.metrics-table tr:last-child td{border-bottom:none}
+.metrics-table td:first-child{font-family:var(--head);font-size:13px;font-weight:700;color:var(--text)}
+.metrics-table .highlight{background:oklch(0.975 0.018 62)}
+html[data-theme="dark"] .metrics-table .highlight{background:oklch(0.22 0.025 55)}
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:40px}
+.kpi-block{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 32px}
+.kpi-block h3{font-family:var(--head);font-size:13px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--text);margin-bottom:16px}
+.kpi-block ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.kpi-block li{font-family:var(--body);font-size:14px;color:var(--copy);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.kpi-block li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);flex:none;margin-top:7px}
 
 /* 5 WAYS */
 .revenue-section{padding:80px 0}
@@ -141,6 +159,20 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 .ba-row .ba-cell.old{color:var(--muted);text-decoration:line-through}
 .ba-row .ba-cell.new{color:var(--copy);font-weight:600;background:oklch(0.975 0.018 62)}
 html[data-theme="dark"] .ba-row .ba-cell.new{background:oklch(0.22 0.025 55)}
+
+/* WHAT'S INCLUDED (PPC-specific, 3 cards with internal tables) */
+.included-section{padding:80px 0}
+.included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.incl-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:36px 30px}
+.incl-ic{width:52px;height:52px;border-radius:14px;background:var(--orange-tint);border:1px solid var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.incl-ic .material-symbols-outlined{font-size:26px;color:var(--orange-text)}
+.incl-card h3{font-family:var(--head);font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--text);margin-bottom:20px}
+.incl-table{width:100%;border-collapse:collapse}
+.incl-table tr{border-bottom:1px solid var(--line)}
+.incl-table tr:last-child{border-bottom:none}
+.incl-table td{padding:10px 0;font-family:var(--body);font-size:13px;color:var(--copy);line-height:1.45;vertical-align:top}
+.incl-table td:first-child{font-family:var(--head);font-size:12px;font-weight:700;color:var(--text);padding-right:12px;white-space:nowrap;width:50%}
+.incl-note{font-family:var(--body);font-size:13px;color:var(--muted);margin-top:20px;font-style:italic;padding-top:16px;border-top:1px solid var(--line)}
 
 /* PROGRAM */
 .program-section{padding:80px 0}
@@ -308,12 +340,13 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
   .stat-item+.stat-item::before{display:none}
   .timeline-track{grid-template-columns:1fr}
   .timeline-track::before{display:none}
-  .program-grid{grid-template-columns:1fr 1fr}
+  .included-grid,.program-grid{grid-template-columns:1fr 1fr}
+  .kpi-grid{grid-template-columns:1fr}
   .nav-links{display:none}
   .page-hero-img{height:320px}
 }
 @media(max-width:820px){
-  .rev-grid,.program-grid{grid-template-columns:1fr}
+  .rev-grid,.included-grid,.program-grid{grid-template-columns:1fr}
   .footer-top,.footer-links{grid-template-columns:1fr}
   .services-list{columns:1}
   .roi-metrics{grid-template-columns:1fr 1fr}
@@ -349,8 +382,8 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
           <a href="mailbox-power.html"><span class="drop-icon material-symbols-outlined">card_giftcard</span>Client Gifting</a>
           <a href="web-design.html"><span class="drop-icon material-symbols-outlined">web</span>Website Design</a>
           <a href="organic-seo.html"><span class="drop-icon material-symbols-outlined">search</span>Organic SEO</a>
-          <a href="local-seo.html" class="current"><span class="drop-icon material-symbols-outlined">pin_drop</span>Local SEO</a>
-          <a href="ppc.html"><span class="drop-icon material-symbols-outlined">ads_click</span>Pay-Per-Click Ads</a>
+          <a href="local-seo.html"><span class="drop-icon material-symbols-outlined">pin_drop</span>Local SEO</a>
+          <a href="ppc.html" class="current"><span class="drop-icon material-symbols-outlined">ads_click</span>Pay-Per-Click Ads</a>
           <a><span class="drop-icon material-symbols-outlined">storefront</span>Local Services Ads</a>
         </div>
       </div>
@@ -391,8 +424,8 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
           <a href="mailbox-power.html"><span class="drop-icon material-symbols-outlined">card_giftcard</span>Client Gifting</a>
           <a href="web-design.html"><span class="drop-icon material-symbols-outlined">web</span>Website Design</a>
           <a href="organic-seo.html"><span class="drop-icon material-symbols-outlined">search</span>Organic SEO</a>
-          <a href="local-seo.html" class="current"><span class="drop-icon material-symbols-outlined">pin_drop</span>Local SEO</a>
-          <a href="ppc.html"><span class="drop-icon material-symbols-outlined">ads_click</span>Pay-Per-Click Ads</a>
+          <a href="local-seo.html"><span class="drop-icon material-symbols-outlined">pin_drop</span>Local SEO</a>
+          <a href="ppc.html" class="current"><span class="drop-icon material-symbols-outlined">ads_click</span>Pay-Per-Click Ads</a>
           <a><span class="drop-icon material-symbols-outlined">storefront</span>Local Services Ads</a>
         </div>
       </div>
@@ -417,16 +450,18 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
 <section class="page-hero wrap">
   <div class="page-hero-grid">
     <div>
-      <div class="svc-chip"><span class="material-symbols-outlined">pin_drop</span>Local SEO</div>
-      <h1>Local SEO Marketing for Home Service Companies</h1>
+      <div class="svc-chip"><span class="material-symbols-outlined">ads_click</span>Pay-Per-Click Advertising</div>
+      <h1>PPC Advertising for Home Service Contractors</h1>
+      <p class="page-hero-sub">Get your phone ringing for service &amp; repairs</p>
       <ul class="hero-bullets">
-        <li><span class="material-symbols-outlined">check_circle</span>Rank in the top 3 of Google Maps search results</li>
-        <li><span class="material-symbols-outlined">check_circle</span>Generate quality leads from "near me" searches</li>
-        <li><span class="material-symbols-outlined">check_circle</span>Build authority in your service area and lock out competitors</li>
+        <li><span class="material-symbols-outlined">check_circle</span>25–50+ qualified leads monthly</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Rank in top positions for service, installs &amp; repairs</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Average 900% ROI within 12 months</li>
       </ul>
       <button class="btn-cta">Book a Discovery Call <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></button>
+      <p class="hero-note">*Based on results with our most successful clients. Results typically manifest after 12+ months of partnership. Results vary based on market conditions.</p>
     </div>
-    <div class="ph page-hero-img filled" style="background-image:url('img/ryan-jana167335.jpg');background-position:center center"></div>
+    <div class="ph page-hero-img filled" style="background-image:url('img/ryan-jana167356.jpg');background-position:center center"></div>
   </div>
 </section>
 
@@ -435,16 +470,16 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
   <div class="wrap">
     <div class="stats-grid">
       <div class="stat-item">
-        <div class="stat-num">476<span style="font-size:.45em">+</span></div>
-        <div class="stat-label">Top 3 Local Rankings</div>
+        <div class="stat-num">$112</div>
+        <div class="stat-label">Avg. Lead Cost</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">20<span style="font-size:.5em">+</span></div>
-        <div class="stat-label">Years Industry Experience</div>
+        <div class="stat-num">17.5<span style="font-size:.5em">%</span></div>
+        <div class="stat-label">Avg. Conversion Rate</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">$22.50</div>
-        <div class="stat-label">Avg. Cost Per Lead</div>
+        <div class="stat-num">900<span style="font-size:.5em">%</span></div>
+        <div class="stat-label">Avg. ROI at 12+ Months</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">1<span style="font-size:.45em">per area</span></div>
@@ -454,107 +489,181 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
   </div>
 </section>
 
-<!-- 3 · WHY LOCAL SEO — ❌/✅ -->
+<!-- 3 · WHY PPC — ❌/✅ -->
 <section class="why-section wrap">
   <div class="why-intro">
-    <div class="kicker" style="justify-content:center"><span class="label">Why Local SEO</span></div>
-    <h2 style="font-size:clamp(28px,4.5vw,44px);margin-bottom:20px">Why Local SEO Matters for Your Home Service Business</h2>
-    <p>93% of online experiences start with a search engine. When homeowners need home services, they turn to Google first — and 84% don't have a specific company in mind when searching. The contractor who shows up in the Map Pack gets the call. The one who doesn't, doesn't.</p>
+    <div class="kicker" style="justify-content:center"><span class="label">Why PPC Advertising</span></div>
+    <h2 style="font-size:clamp(28px,4.5vw,44px);margin-bottom:20px">Why PPC Advertising Matters for Your Home Service Business</h2>
+    <p>93% of emergency home service searches happen on Google, and 84% of homeowners don't have a specific company in mind when searching. Without strategic PPC advertising, you're missing out on high-intent customers actively looking for home services right now.</p>
   </div>
 
   <div class="compare-split">
     <div class="cmp-card no-card">
-      <div class="cmp-head"><span class="cmp-icon">❌</span><h3>Without Local SEO</h3></div>
+      <div class="cmp-head"><span class="cmp-icon">❌</span><h3>Without Strategic PPC</h3></div>
       <ul class="cmp-list">
-        <li><span class="material-symbols-outlined">cancel</span>Missing out on "near me" searches and emergency calls</li>
-        <li><span class="material-symbols-outlined">cancel</span>Competitors dominating the Google Map Pack in your area</li>
-        <li><span class="material-symbols-outlined">cancel</span>Losing leads to big companies with massive marketing budgets</li>
-        <li><span class="material-symbols-outlined">cancel</span>Website not showing up for nearby service searches</li>
-        <li><span class="material-symbols-outlined">cancel</span>Phone not ringing despite great service and reputation</li>
+        <li><span class="material-symbols-outlined">cancel</span>Wasting budget on poorly targeted clicks that don't convert</li>
+        <li><span class="material-symbols-outlined">cancel</span>Missing emergency repair calls going straight to competitors</li>
+        <li><span class="material-symbols-outlined">cancel</span>Seasonal revenue swings making it hard to grow consistently</li>
+        <li><span class="material-symbols-outlined">cancel</span>High advertising costs eating into profit margins</li>
+        <li><span class="material-symbols-outlined">cancel</span>No clear picture of marketing ROI or cost per lead</li>
+        <li><span class="material-symbols-outlined">cancel</span>Struggling to compete with big companies' ad budgets</li>
       </ul>
     </div>
     <div class="cmp-card yes-card">
-      <div class="cmp-head"><span class="cmp-icon">✅</span><h3>With Professional Local SEO</h3></div>
+      <div class="cmp-head"><span class="cmp-icon">✅</span><h3>With Professional PPC Management</h3></div>
       <ul class="cmp-list">
-        <li><span class="material-symbols-outlined">check_circle</span>Show up in the Google Map Pack when homeowners search</li>
-        <li><span class="material-symbols-outlined">check_circle</span>Lock down your service area and block out competitors</li>
-        <li><span class="material-symbols-outlined">check_circle</span>Generate consistent quality leads without massive ad spend</li>
-        <li><span class="material-symbols-outlined">check_circle</span>Build a strong local reputation that brings referrals</li>
-        <li><span class="material-symbols-outlined">check_circle</span>Turn your website into a 24/7 lead generation machine</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Capture emergency repairs when homeowners need you most</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Get consistent high-quality leads at a fraction of traditional advertising costs</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Smooth out seasonal ups and downs with strategic campaign adjustments</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Dominate your local market even against bigger competitors</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Track every dollar spent back to booked jobs and revenue</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Scale up or down instantly based on your capacity</li>
       </ul>
     </div>
   </div>
 
   <div class="why-cta">
     <button class="btn-cta">Book a Discovery Call <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></button>
-    <p>See how we can get you ranking in the Google Map Pack and generating $15–30 leads in your service area.</p>
+    <p>Ready to stop losing leads to better-positioned competitors? Call 833-695-1214 for your free market analysis.</p>
   </div>
-  <p class="why-note">We maintain market exclusivity — only one company per industry per service area. Spots are limited.</p>
 </section>
 
-<!-- 4 · 5 WAYS REVENUE -->
-<section class="revenue-section wrap band">
+<!-- 4 · PERFORMANCE METRICS (unique to PPC) -->
+<section class="metrics-section wrap band">
   <div class="section-head center">
-    <div class="kicker" style="justify-content:center"><span class="label">5 Ways Local SEO Drives Revenue</span></div>
-    <h2>How Local SEO Turns Your Service Area Into a Lead Pipeline</h2>
-    <p class="lead" style="margin:0 auto">When homeowners in your area need home services, you'll be the first name they see — exactly when and where they're searching.</p>
+    <div class="kicker" style="justify-content:center"><span class="label">Real Numbers</span></div>
+    <h2>Home Service PPC Cost &amp; Performance Benchmarks</h2>
+    <p class="lead" style="margin:0 auto">Understanding real costs and performance metrics helps you make informed decisions. Here's how PPC performs across home service categories.</p>
+  </div>
+
+  <div class="metrics-table-wrap">
+    <table class="metrics-table">
+      <thead>
+        <tr>
+          <th>Service Type</th>
+          <th>Conversion Rate</th>
+          <th>Cost Per Lead</th>
+          <th>Avg. Ticket Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Service Calls &amp; Repairs</td>
+          <td>19–25%</td>
+          <td>$60–100</td>
+          <td>$250+</td>
+        </tr>
+        <tr class="highlight">
+          <td>Installs &amp; Replacements</td>
+          <td>40–50%</td>
+          <td>$150–200</td>
+          <td>$8,000+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-block">
+      <h3>Key Performance Indicators</h3>
+      <ul>
+        <li>Average Cost Per Click: $32–50</li>
+        <li>Landing Page Conversion Rate: 15–30%</li>
+        <li>Call-Only Campaign Conversion: 40–50%</li>
+        <li>Monthly Budget Range: $2,500–6,500</li>
+        <li>Average Return on Ad Spend: 450%+</li>
+      </ul>
+    </div>
+    <div class="kpi-block">
+      <h3>Why These Metrics Matter</h3>
+      <ul>
+        <li>Know exactly what you're paying per qualified lead</li>
+        <li>Track and measure campaign performance in real time</li>
+        <li>Scale campaigns based on seasonal demand</li>
+        <li>Optimize budget allocation across service types</li>
+        <li>Clear visibility into marketing ROI every month</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="text-align:center">
+    <button class="btn-cta">Get Your Free PPC Analysis <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></button>
+  </div>
+</section>
+
+<!-- 5 · 5 WAYS PPC DRIVES REVENUE -->
+<section class="revenue-section wrap">
+  <div class="section-head center">
+    <div class="kicker" style="justify-content:center"><span class="label">How PPC Drives Revenue</span></div>
+    <h2>Five Ways Strategic PPC Grows Your Home Service Business</h2>
+    <p class="lead" style="margin:0 auto">Our PPC strategy combines multiple campaign types to maximize your revenue across all seasons and service categories.</p>
   </div>
 
   <div class="rev-grid">
     <div class="rev-card">
-      <div class="rev-ic"><span class="material-symbols-outlined">location_on</span></div>
-      <h3>Increased Local Visibility</h3>
+      <div class="rev-ic"><span class="material-symbols-outlined">emergency</span></div>
+      <h3>Emergency Service Domination</h3>
       <ul>
-        <li>Rank in top 3 of Google Maps for your services</li>
-        <li>Dominate "near me" searches in your service area</li>
-        <li>Show up when homeowners need emergency service</li>
+        <li>Capture high-margin repair calls 24/7</li>
+        <li>Show up instantly when homeowners need you</li>
+        <li>Target "near me" and "emergency" searches</li>
+        <li>Adjust bids based on real-time weather</li>
+        <li>Average emergency ticket: $650+</li>
       </ul>
     </div>
     <div class="rev-card">
-      <div class="rev-ic"><span class="material-symbols-outlined">group</span></div>
-      <h3>Higher Quality Leads</h3>
+      <div class="rev-ic"><span class="material-symbols-outlined">calendar_month</span></div>
+      <h3>Strategic Seasonal Campaigns</h3>
       <ul>
-        <li>Pre-qualified leads already in your service area</li>
-        <li>Homeowners actively searching for your services</li>
-        <li>Higher closing rates than paid advertising</li>
+        <li>Smooth out revenue between peak seasons</li>
+        <li>Target early-bird tune-ups and maintenance</li>
+        <li>Scale campaigns based on weather forecasts</li>
+        <li>Adjust bidding for high/low demand periods</li>
+        <li>Keep technicians busy year-round</li>
       </ul>
     </div>
     <div class="rev-card">
-      <div class="rev-ic"><span class="material-symbols-outlined">savings</span></div>
-      <h3>Better ROI</h3>
+      <div class="rev-ic"><span class="material-symbols-outlined">home_work</span></div>
+      <h3>High-Value Installs</h3>
       <ul>
-        <li>Average cost of $15–30 per lead vs. $150+ for ads</li>
-        <li>Build long-term organic presence</li>
-        <li>Reduce dependency on expensive paid advertising</li>
+        <li>Target homeowners ready to replace</li>
+        <li>Focus on high-value service areas</li>
+        <li>Generate $8,000+ install leads</li>
+        <li>Separate campaigns by service type</li>
+        <li>Capture financing-ready homeowners</li>
       </ul>
     </div>
     <div class="rev-card">
-      <div class="rev-ic"><span class="material-symbols-outlined">map</span></div>
-      <h3>Extended Market Reach</h3>
+      <div class="rev-ic"><span class="material-symbols-outlined">autorenew</span></div>
+      <h3>Maintenance Plan Growth</h3>
       <ul>
-        <li>Rank for multiple service areas and neighborhoods</li>
-        <li>Capture searches across all your service offerings</li>
-        <li>Generate leads even in slower seasons</li>
+        <li>Convert one-time repairs into recurring revenue</li>
+        <li>Target seasonal tune-up searches</li>
+        <li>Build membership program campaigns</li>
+        <li>Increase customer lifetime value</li>
+        <li>Generate steady monthly income</li>
       </ul>
     </div>
     <div class="rev-card">
       <div class="rev-ic"><span class="material-symbols-outlined">verified</span></div>
-      <h3>Stronger Brand Authority</h3>
+      <h3>Brand Building &amp; Trust</h3>
       <ul>
-        <li>Build trust through verified reviews and local presence</li>
-        <li>Showcase your expertise and track record</li>
-        <li>Position yourself as the go-to contractor locally</li>
+        <li>Showcase reviews and testimonials in ads</li>
+        <li>Target homeowners in the research phase</li>
+        <li>Build authority in your service area</li>
+        <li>Increase repeat customer rate</li>
+        <li>Dominate all local search positions</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- 5 · TIMELINE -->
-<section class="timeline-section wrap">
+<!-- 6 · TIMELINE -->
+<section class="timeline-section wrap band">
   <div class="section-head center">
     <div class="kicker" style="justify-content:center"><span class="label">Expected Timeline &amp; Results</span></div>
-    <h2>What to Expect — and When</h2>
-    <p class="lead" style="margin:0 auto">Local SEO builds lasting authority that delivers leads long-term. Here's what partnering with Outwork'em Digital actually looks like month by month.</p>
+    <h2>Building a Profitable PPC Machine — Phase by Phase</h2>
+    <p class="lead" style="margin:0 auto">Like any well-installed system, PPC requires proper setup, testing, and optimization. Here's what the journey looks like.</p>
   </div>
 
   <div class="timeline-track">
@@ -564,27 +673,29 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
       <h3>Foundation Phase</h3>
       <div class="phase-body">
         <ul>
-          <li>Complete Google Business Profile optimization</li>
-          <li>Local citation building across major platforms</li>
-          <li>Service area page creation and optimization</li>
-          <li>Review generation system implementation</li>
-          <li>Initial rankings starting to appear and improve</li>
-          <li>First local leads beginning to come in</li>
+          <li>Complete account structure setup</li>
+          <li>Custom landing page development</li>
+          <li>Initial keyword research and testing</li>
+          <li>Call tracking implementation</li>
+          <li>First leads arriving by week 2–3</li>
+          <li>Initial cost per lead: $100–160</li>
+          <li>10–15 qualified leads monthly</li>
         </ul>
       </div>
     </div>
     <div class="phase active">
-      <div class="phase-dot"><span class="material-symbols-outlined">rocket_launch</span></div>
+      <div class="phase-dot"><span class="material-symbols-outlined">trending_up</span></div>
       <div class="phase-tag">Months 3–6</div>
       <h3>Acceleration Phase</h3>
       <div class="phase-body">
         <ul>
-          <li>Top 10 rankings for primary service areas</li>
-          <li>Breaking into the Map Pack for key terms</li>
-          <li>10–15 qualified leads monthly</li>
-          <li>Review count growing steadily</li>
-          <li>Expanding visibility to nearby areas</li>
-          <li>Reduced reliance on paid advertising</li>
+          <li>Optimize based on initial campaign data</li>
+          <li>Expand highest-performing campaigns</li>
+          <li>Refine targeting and ad copy</li>
+          <li>Improve quality scores and reduce CPC</li>
+          <li>Cost per lead drops to $75–140</li>
+          <li>20–30 qualified leads monthly</li>
+          <li>ROI increasing month over month</li>
         </ul>
       </div>
     </div>
@@ -594,34 +705,81 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
       <h3>Breakthrough Phase</h3>
       <div class="phase-body">
         <ul>
-          <li>Consistent Map Pack presence</li>
-          <li>25–50 qualified leads monthly</li>
-          <li>Dominating multiple service areas</li>
-          <li>Average lead cost down to $15–30</li>
-          <li>Steady flow of reviews and referrals</li>
-          <li>Strong presence across all local searches</li>
+          <li>Maximum campaign efficiency</li>
+          <li>Full market coverage achieved</li>
+          <li>Advanced seasonal adjustments active</li>
+          <li>Predictable, consistent lead flow</li>
+          <li>Cost per lead stabilizes at $75–120</li>
+          <li>25–50+ qualified leads monthly</li>
+          <li>900%+ average ROI</li>
         </ul>
       </div>
     </div>
   </div>
 
   <div class="ba-table">
-    <div class="ba-head old">Traditional Marketing</div>
-    <div class="ba-head new">Your New Reality with Outwork'em Digital</div>
-    <div class="ba-row"><div class="ba-cell old">$150+ per lead</div><div class="ba-cell new">Average of $22.50 per lead</div></div>
-    <div class="ba-row"><div class="ba-cell old">Inconsistent lead quality</div><div class="ba-cell new">Pre-qualified local leads</div></div>
-    <div class="ba-row"><div class="ba-cell old">Seasonal ups and downs</div><div class="ba-cell new">Steady lead flow year-round</div></div>
-    <div class="ba-row"><div class="ba-cell old">Limited visibility in service area</div><div class="ba-cell new">Extended market reach across all services</div></div>
-    <div class="ba-row"><div class="ba-cell old">High advertising cost</div><div class="ba-cell new">Decreasing cost per lead over time</div></div>
+    <div class="ba-head old">Traditional PPC</div>
+    <div class="ba-head new">With Outwork'em Digital</div>
+    <div class="ba-row"><div class="ba-cell old">High initial costs with no optimization</div><div class="ba-cell new">Gradual, strategic scaling from day one</div></div>
+    <div class="ba-row"><div class="ba-cell old">Inconsistent, unqualified lead quality</div><div class="ba-cell new">Pre-qualified, ready-to-buy leads</div></div>
+    <div class="ba-row"><div class="ba-cell old">Manual bid adjustments only</div><div class="ba-cell new">Weather-based automated bidding</div></div>
+    <div class="ba-row"><div class="ba-cell old">Generic, template landing pages</div><div class="ba-cell new">Home service-specific conversion pages (10–25%)</div></div>
+    <div class="ba-row"><div class="ba-cell old">Limited click-only tracking</div><div class="ba-cell new">Full revenue attribution to booked jobs</div></div>
   </div>
 </section>
 
-<!-- 6 · COMPREHENSIVE PROGRAM -->
-<section class="program-section wrap band">
+<!-- 7 · WHAT'S INCLUDED IN PPC MANAGEMENT -->
+<section class="included-section wrap">
   <div class="section-head center">
     <div class="kicker" style="justify-content:center"><span class="label">What's Included</span></div>
+    <h2>What's Included in Our PPC Management Services</h2>
+    <p class="lead" style="margin:0 auto">Our PPC management is comprehensive and proactive — like a maintenance agreement for your advertising investment.</p>
+  </div>
+
+  <div class="included-grid">
+    <div class="incl-card">
+      <div class="incl-ic"><span class="material-symbols-outlined">build</span></div>
+      <h3>Campaign Strategy &amp; Setup</h3>
+      <table class="incl-table">
+        <tr><td>Market Analysis</td><td>Identify most profitable keywords and service areas</td></tr>
+        <tr><td>Competitor Research</td><td>Understand local market dynamics and costs</td></tr>
+        <tr><td>Landing Page Design</td><td>Custom pages converting 10–25% of visitors</td></tr>
+        <tr><td>Call Tracking</td><td>Monitor and record every lead source</td></tr>
+        <tr><td>Budget Planning</td><td>Strategic allocation across services and seasons</td></tr>
+      </table>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ic"><span class="material-symbols-outlined">manage_accounts</span></div>
+      <h3>Ongoing Management &amp; Optimization</h3>
+      <table class="incl-table">
+        <tr><td>Daily Monitoring</td><td>Daily review of lead quality and costs</td></tr>
+        <tr><td>Budget Optimization</td><td>Continuous adjustment for optimal performance</td></tr>
+        <tr><td>Review Management</td><td>Monitor and respond to reviews for better placement</td></tr>
+        <tr><td>Lead Dispute Handling</td><td>Handle invalid lead disputes to protect your budget</td></tr>
+        <tr><td>Market Analysis</td><td>Regular analysis of trends and local competition</td></tr>
+      </table>
+    </div>
+    <div class="incl-card">
+      <div class="incl-ic"><span class="material-symbols-outlined">bar_chart</span></div>
+      <h3>Performance Tracking &amp; Reporting</h3>
+      <table class="incl-table">
+        <tr><td>Monthly ROI Dashboard</td><td>Track exact return on ad spend</td></tr>
+        <tr><td>Call Recording &amp; Scoring</td><td>Monitor lead quality and CSR performance</td></tr>
+        <tr><td>Revenue Attribution</td><td>Connect ads directly to booked jobs</td></tr>
+        <tr><td>Competitor Monitoring</td><td>Stay ahead of local market changes</td></tr>
+        <tr><td>Monthly Strategy Calls</td><td>Review results and adjust strategy together</td></tr>
+      </table>
+      <p class="incl-note">This integrated approach typically delivers 25–50 qualified leads monthly with 15–30% landing page conversion rates and 450%+ return on ad spend.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · COMPREHENSIVE GROWTH PROGRAM -->
+<section class="program-section wrap band">
+  <div class="section-head center">
+    <div class="kicker" style="justify-content:center"><span class="label">The Full System</span></div>
     <h2>Our Comprehensive Growth Programs</h2>
-    <p class="lead" style="margin:0 auto">We don't offer standalone Local SEO. Effective digital marketing requires all components working together as one integrated system.</p>
+    <p class="lead" style="margin:0 auto">Running PPC without optimizing your website and follow-up processes is like installing a premium thermostat on an aging system — you'll never get the performance you're paying for.</p>
   </div>
 
   <div class="program-grid">
@@ -631,7 +789,7 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
       <table class="prog-table">
         <tr><td>Homepage Design</td><td>Elevator pitch that builds trust and converts visitors into leads</td></tr>
         <tr><td>Service Pages</td><td>Ranks for profitable keywords and drives qualified visitors</td></tr>
-        <tr><td>Service Area Pages</td><td>Rank for hyper-local searches and improve map 3-pack rankings</td></tr>
+        <tr><td>Service Area Pages</td><td>Rank for hyper-local searches and improve map pack rankings</td></tr>
         <tr><td>About &amp; Team Pages</td><td>Build trust and authority, enhance conversion rate</td></tr>
       </table>
     </div>
@@ -639,16 +797,15 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
       <div class="prog-ic"><span class="material-symbols-outlined">tune</span></div>
       <h3>Marketing &amp; Optimization</h3>
       <table class="prog-table">
-        <tr><td>SEO 2.0</td><td>Generate organic leads consistently month over month</td></tr>
+        <tr><td>SEO 2.0</td><td>Generate organic leads consistently to complement PPC</td></tr>
         <tr><td>Local SEO</td><td>Dominate "near me" searches &amp; Google local map pack</td></tr>
         <tr><td>Content Marketing</td><td>12–48 content pieces yearly to improve SEO &amp; conversions</td></tr>
         <tr><td>Reputation Mgmt</td><td>Grow, answer, and display reviews on autopilot</td></tr>
-        <tr><td>Listing Management</td><td>Improve local trust &amp; ranking signals across platforms</td></tr>
         <tr><td>Speed-to-Lead</td><td>Maximize conversion rates by being first to respond</td></tr>
       </table>
     </div>
     <div class="prog-card">
-      <div class="prog-ic"><span class="material-symbols-outlined">bar_chart</span></div>
+      <div class="prog-ic"><span class="material-symbols-outlined">insights</span></div>
       <h3>Tracking &amp; Reporting</h3>
       <table class="prog-table">
         <tr><td>ROI Dashboard</td><td>Track your exact return on investment monthly</td></tr>
@@ -660,54 +817,54 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
   </div>
 </section>
 
-<!-- 7 · ROI DARK BAND -->
+<!-- 9 · ROI DARK BAND -->
 <section class="roi-band">
   <div class="wrap">
     <div class="roi-inner">
       <div class="roi-col">
         <div class="kicker"><span class="label" style="color:rgba(255,255,255,.55)">Monthly Lead Generation</span><span class="rule" style="background:rgba(255,255,255,.15)"></span></div>
         <ul class="roi-stats-list">
-          <li><span class="material-symbols-outlined">check_circle</span>25–50 qualified local leads per month</li>
-          <li><span class="material-symbols-outlined">check_circle</span>Mix of local installation and service calls</li>
-          <li><span class="material-symbols-outlined">check_circle</span>Consistent lead flow across all seasons</li>
-          <li><span class="material-symbols-outlined">check_circle</span>Full coverage across your service territories</li>
-          <li><span class="material-symbols-outlined">check_circle</span>Higher closing rates vs. paid advertising</li>
+          <li><span class="material-symbols-outlined">check_circle</span>20–35 qualified service &amp; install leads per month</li>
+          <li><span class="material-symbols-outlined">check_circle</span>15–30% landing page conversion rates</li>
+          <li><span class="material-symbols-outlined">check_circle</span>40–50% call-only campaign conversion rates</li>
+          <li><span class="material-symbols-outlined">check_circle</span>3–5x more emergency calls during peak seasons</li>
+          <li><span class="material-symbols-outlined">check_circle</span>Even distribution across service types</li>
         </ul>
         <div style="height:32px"></div>
         <div class="kicker"><span class="label" style="color:rgba(255,255,255,.55)">Revenue Impact</span><span class="rule" style="background:rgba(255,255,255,.15)"></span></div>
         <ul class="roi-stats-list">
-          <li><span class="material-symbols-outlined">check_circle</span>$35,000–$45,000 monthly revenue increase</li>
-          <li><span class="material-symbols-outlined">check_circle</span>900–1,800% return on marketing investment</li>
-          <li><span class="material-symbols-outlined">check_circle</span>Local lead costs reduced by up to 75%</li>
-          <li><span class="material-symbols-outlined">check_circle</span>Higher average service ticket values</li>
+          <li><span class="material-symbols-outlined">check_circle</span>Average cost per lead: $117.50</li>
+          <li><span class="material-symbols-outlined">check_circle</span>Average emergency ticket value: $650+</li>
+          <li><span class="material-symbols-outlined">check_circle</span>Average install/replacement lead value: $8,000+</li>
+          <li><span class="material-symbols-outlined">check_circle</span>Return on ad spend: 450%+</li>
         </ul>
       </div>
       <div class="roi-copy">
         <div class="kicker"><span class="label" style="color:rgba(255,255,255,.55)">Typical Results &amp; ROI</span><span class="rule" style="background:rgba(255,255,255,.15)"></span></div>
         <div class="roi-metrics">
-          <div class="roi-metric"><div class="rm-num">75<span>%</span></div><p>Reduction in lead costs vs. paid ads</p></div>
-          <div class="roi-metric"><div class="rm-num">25–50<span>+</span></div><p>Qualified leads per month at full optimization</p></div>
-          <div class="roi-metric"><div class="rm-num">$22.50</div><p>Average cost per lead vs. $150+ with paid ads</p></div>
-          <div class="roi-metric"><div class="rm-num">900<span>%+</span></div><p>Average ROI after 12 months of optimization</p></div>
+          <div class="roi-metric"><div class="rm-num">450<span>%+</span></div><p>Return on ad spend</p></div>
+          <div class="roi-metric"><div class="rm-num">$650<span>+</span></div><p>Average emergency service ticket</p></div>
+          <div class="roi-metric"><div class="rm-num">17.5<span>%</span></div><p>Average landing page conversion rate</p></div>
+          <div class="roi-metric"><div class="rm-num">900<span>%</span></div><p>Average ROI after 12 months</p></div>
         </div>
-        <p>These numbers represent averages from our most successful home service clients after 12+ months of consistent Local SEO work. During your free market analysis, we'll show you realistic projections specific to your service area and competition level.</p>
+        <p>These metrics represent averages across our home service PPC clients. Your specific results will depend on local competition, service area population, seasonal patterns, and average ticket values in your market.</p>
         <button class="btn-cta">Get a Free Market Analysis <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 8 · WORKING WITH OWD + GOOD FIT -->
+<!-- 10 · WORKING WITH OWD + GOOD FIT -->
 <section class="working-section wrap">
   <div class="section-head">
     <div class="kicker"><span class="label">Working with Outwork'em Digital</span><span class="rule"></span></div>
-    <h2>We Take a Different Approach Than Most Agencies</h2>
+    <h2>We Take a Different Approach Than Most PPC Agencies</h2>
   </div>
 
   <div class="working-prose">
-    <p>While others chase volume, we prioritize quality partnerships that align with our values and vision. Just as you carefully select the brands and equipment you install for homeowners, we selectively choose the home service companies we partner with.</p>
-    <p>This isn't about being exclusive — it's about ensuring maximum results through genuine collaboration. We maintain market exclusivity by accepting only one home service company per industry per service area. When we commit to your market, we commit fully.</p>
-    <p>Our most successful client relationships share specific characteristics: open, honest communication; aligned business philosophy; shared personal values; a long-term growth mindset; and positive, energetic collaboration. When these elements click, the results exceed expectations.</p>
+    <p>We exclusively serve home service contractors. This specialized focus means we understand the seasonal fluctuations, emergency service demands, and the specific search behavior of homeowners looking for your services. While other agencies take a "set and forget" approach to PPC, we actively optimize your campaigns every week.</p>
+    <p>We maintain market exclusivity — one client per trade per service area. When we take on your market, our entire team is focused on making you the dominant advertiser in that area. We're not running the same campaigns for your competitor across town.</p>
+    <p>Our most successful partnerships share the same characteristics: open communication, a long-term growth mindset, and a business that's ready to handle the lead volume we generate.</p>
   </div>
 
   <div class="fit-grid">
@@ -716,25 +873,25 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
       <ul class="fit-list">
         <li><span class="material-symbols-outlined">check_circle</span>Committed to excellent customer service</li>
         <li><span class="material-symbols-outlined">check_circle</span>Focused on sustainable, long-term growth</li>
-        <li><span class="material-symbols-outlined">check_circle</span>Aware that Rome was not built in a day</li>
-        <li><span class="material-symbols-outlined">check_circle</span>Ready to play the long game</li>
-        <li><span class="material-symbols-outlined">check_circle</span>Looking to reduce paid advertising dependency</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Aware that proper optimization takes time</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Ready to handle increased lead volume</li>
+        <li><span class="material-symbols-outlined">check_circle</span>Looking to reduce cost per lead consistently</li>
       </ul>
     </div>
     <div class="fit-card bad">
       <div class="fit-head"><div class="fit-dot"></div><h3>We Are Not a Good Fit If You Are:</h3></div>
       <ul class="fit-list">
-        <li><span class="material-symbols-outlined">cancel</span>Looking for quick, temporary fixes</li>
-        <li><span class="material-symbols-outlined">cancel</span>Without a growth mindset</li>
-        <li><span class="material-symbols-outlined">cancel</span>Unable to invest $1,875+ monthly</li>
-        <li><span class="material-symbols-outlined">cancel</span>Satisfied with the status quo</li>
-        <li><span class="material-symbols-outlined">cancel</span>Short-term focused in your operations</li>
+        <li><span class="material-symbols-outlined">cancel</span>Expecting instant results without testing</li>
+        <li><span class="material-symbols-outlined">cancel</span>Unable to invest $3,000+ monthly</li>
+        <li><span class="material-symbols-outlined">cancel</span>Not set up to respond to leads quickly</li>
+        <li><span class="material-symbols-outlined">cancel</span>Satisfied with current lead volume</li>
+        <li><span class="material-symbols-outlined">cancel</span>Short-term focused operations</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- 9 · FINANCIAL REQUIREMENTS -->
+<!-- 11 · FINANCIAL REQUIREMENTS -->
 <section class="financial-section wrap band">
   <div class="section-head">
     <div class="kicker"><span class="label">Financial Requirements</span><span class="rule"></span></div>
@@ -746,80 +903,93 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
       <table class="fin-req-table">
         <thead><tr><th>Criteria</th><th>Requirement</th></tr></thead>
         <tbody>
-          <tr><td>Minimum Annual Marketing Budget</td><td>$25,000</td></tr>
-          <tr><td>Monthly Marketing Investment</td><td>Starts at $1,875</td></tr>
+          <tr><td>Minimum Annual Marketing Budget</td><td>$35,000</td></tr>
+          <tr><td>Monthly Marketing Investment</td><td>Starts at $1,985</td></tr>
           <tr><td>Minimum Commitment for Guaranteed Results</td><td>12 months</td></tr>
         </tbody>
       </table>
       <button class="btn-cta">Book a Discovery Call <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></button>
     </div>
     <div class="fin-copy">
-      <p>After working with numerous clients over the past decade, we've identified the patterns that predict success. The financial requirements are just the beginning — it's the mindset and approach to business that truly determine the outcome.</p>
-      <p>Our most successful partnerships are built on shared values and vision. These home service companies see marketing as an investment in their future, not just another monthly expense. They understand that sustainable growth comes from building a strong foundation and consistently nurturing it.</p>
-      <p>We maintain market exclusivity by accepting only one home service company per industry per service area. This ensures our complete focus on making you the dominant provider in your market.</p>
+      <p>After working with numerous home service clients, we've identified the patterns that predict success. The financial requirements reflect what it actually takes to run effective PPC campaigns in competitive markets — not a minimum we set arbitrarily.</p>
+      <p>Monthly ad spend typically ranges $2,500–6,500 depending on market and services, plus our management fee. Clients who commit to this level of investment consistently see 900%+ ROI by month 12.</p>
+      <p>We maintain market exclusivity by accepting only one home service company per industry per service area. Check your market availability by calling 833-695-1214.</p>
     </div>
   </div>
 </section>
 
-<!-- 10 · FAQ -->
+<!-- 12 · FAQ -->
 <section class="faq-section wrap">
   <div class="section-head center">
     <div class="kicker" style="justify-content:center"><span class="label">Frequently Asked Questions</span></div>
-    <h2>Straight Answers About Local SEO</h2>
+    <h2>Straight Answers About PPC Advertising</h2>
   </div>
 
   <div class="accordion">
+
     <div class="acc-item">
       <button class="acc-trigger">
         <span class="acc-n">01</span>
-        <span class="acc-head">How long until I see results from Local SEO?</span>
+        <span class="acc-head">How much should I budget for PPC advertising?</span>
         <span class="material-symbols-outlined acc-icon">expand_more</span>
       </button>
       <div class="acc-body"><div class="acc-inner">
-        <p>Unlike paid advertising that delivers instant results, Local SEO is a long-term strategy. Most clients see initial rankings improve within 3–4 months, with significant lead generation starting around month 6. By month 12, you should be firmly established in your local market with consistent, predictable lead flow — at a fraction of what you were spending on ads.</p>
+        <p>For most contractors, we recommend starting with $1,500–4,000 monthly for PPC ad spend. This generates enough data to optimize campaigns while delivering consistent leads. Your ideal budget depends on your market's competition, service area size, and growth goals. During peak seasons, successful clients often scale to $6,500+ monthly to maximize opportunity. Budget and management fee are separate — we'll give you a specific recommendation during your free market analysis.</p>
       </div></div>
     </div>
 
     <div class="acc-item">
       <button class="acc-trigger">
         <span class="acc-n">02</span>
-        <span class="acc-head">Why can't I just do Local SEO without a new website?</span>
+        <span class="acc-head">How long until I see results from PPC?</span>
         <span class="material-symbols-outlined acc-icon">expand_more</span>
       </button>
       <div class="acc-body"><div class="acc-inner">
-        <p>Your Google Business Profile can only take you so far. When homeowners click through from Maps to your website and find a slow, confusing, or outdated page, they leave — and your Local SEO investment is wasted. More importantly, service area pages, proper schema markup, NAP consistency, and page speed are all direct Local SEO ranking signals. A poorly built site actively undermines your Map Pack rankings. The best Local SEO results come when your website and local presence are built as one integrated system.</p>
+        <p>Unlike SEO, PPC delivers results fast. Most clients receive their first leads within 2–3 weeks of campaign launch — before the first month is up. By month 3, we've gathered enough data to optimize campaigns for peak efficiency, dropping cost per lead and increasing quality. Full campaign optimization and predictable lead flow typically land by months 6–12. PPC is the fastest way to generate qualified leads; it just takes a few months to dial in for maximum ROI.</p>
       </div></div>
     </div>
 
     <div class="acc-item">
       <button class="acc-trigger">
         <span class="acc-n">03</span>
-        <span class="acc-head">How many leads can I expect each month?</span>
+        <span class="acc-head">What makes you different from other PPC agencies?</span>
         <span class="material-symbols-outlined acc-icon">expand_more</span>
       </button>
       <div class="acc-body"><div class="acc-inner">
-        <p>After full optimization (12+ months), our successful clients typically receive 25–50 qualified local leads per month at $15–30 per lead. Results depend on your service area size and population, local competition level, your current online presence, and the mix of services you offer. During your free market analysis, we'll give you a realistic projection specific to your market — not a number we think you want to hear.</p>
+        <p>Three things set us apart. First, we work exclusively with home service contractors — we understand your seasonality, your emergency call patterns, and what converts a homeowner searching "HVAC repair near me" into a booked job. Second, we maintain market exclusivity: one client per trade per service area, so we're never running the same campaigns for your competitor. Third, we track every lead back to booked revenue, not just clicks — so you always know your real ROI, not vanity metrics.</p>
       </div></div>
     </div>
 
     <div class="acc-item">
       <button class="acc-trigger">
         <span class="acc-n">04</span>
-        <span class="acc-head">Do you guarantee rankings or results?</span>
+        <span class="acc-head">Do you guarantee results?</span>
         <span class="material-symbols-outlined acc-icon">expand_more</span>
       </button>
       <div class="acc-body"><div class="acc-inner">
-        <p>No ethical agency can guarantee specific rankings — Google's algorithm is outside anyone's control, and anyone promising a specific Map Pack position is not being straight with you. What we do guarantee is our process, our dedicated team's commitment to your market, and complete transparency in reporting. You'll know exactly what we're doing, why, and what results it's generating. The reason most of our clients stay with us long-term is simple: the numbers speak for themselves.</p>
+        <p>We can't guarantee specific cost-per-lead numbers or lead volumes — bid costs, competition, and market conditions are always dynamic. What we do guarantee is our process: daily campaign monitoring, continuous optimization, full transparent reporting, and a dedicated team that's accountable to your results. The reason most of our clients expand their PPC budgets over time isn't because we made promises — it's because the returns are consistent and measurable.</p>
       </div></div>
     </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger">
+        <span class="acc-n">05</span>
+        <span class="acc-head">How do you handle seasonal changes?</span>
+        <span class="material-symbols-outlined acc-icon">expand_more</span>
+      </button>
+      <div class="acc-body"><div class="acc-inner">
+        <p>Seasonal management is built into our PPC strategy from day one — not something we scramble for when business slows down. We proactively adjust budgets and bids based on weather forecasts, seasonal demand cycles, and your capacity. During peak seasons we scale campaigns to capture maximum demand. During shoulder seasons we shift focus to maintenance plans, tune-ups, and early-bird campaigns to keep your technicians busy and your revenue steady year-round.</p>
+      </div></div>
+    </div>
+
   </div>
 </section>
 
-<!-- 11 · FINAL CTA -->
+<!-- 13 · FINAL CTA -->
 <section class="final-cta wrap">
   <div class="cta-band">
-    <h2>Ready to Dominate Your Local Market?</h2>
-    <p>Call 833-695-1214 for a free local market analysis and discover how many leads you could be generating in your service area every month.</p>
+    <h2>Ready to Build Your Lead Generation Machine?</h2>
+    <p>Call 833-695-1214 for a free analysis of your market opportunity and find out exactly how many leads PPC can generate for your business.</p>
     <button class="btn-cta">Book a Free Discovery Call <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></button>
   </div>
 </section>
@@ -852,7 +1022,7 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
           <li><a href="web-design.html">Website Design</a></li>
           <li><a href="organic-seo.html">Organic SEO</a></li>
           <li><a href="local-seo.html">Local SEO</a></li>
-          <li><a>Pay-Per-Click Advertising</a></li>
+          <li><a href="ppc.html">Pay-Per-Click Ads</a></li>
           <li><a>Local Services Ads</a></li>
           <li><a href="media-content.html">Media &amp; Content</a></li>
           <li><a href="hosting.html">Web Hosting</a></li>
@@ -922,7 +1092,7 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
 
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce) return;
-  var sel=['.section-head','.cmp-card','.rev-card','.phase','.prog-card','.fit-card','.acc-item','.cta-band','.fin-req-table'].join(',');
+  var sel=['.section-head','.cmp-card','.rev-card','.phase','.incl-card','.prog-card','.fit-card','.acc-item','.cta-band','.kpi-block'].join(',');
   var items=[].slice.call(document.querySelectorAll(sel));
   items.forEach(function(el){el.classList.add('reveal');});
   items.forEach(function(el){
