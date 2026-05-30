@@ -596,6 +596,34 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
   .nav-actions .theme-toggle{display:none}
   .nav-actions .btn-solid{display:none}
 }
+
+/* ===================================================
+   MEGA MENU  (desktop only, overrides simple dropdown)
+   =================================================== */
+.nav-drop{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4px;min-width:580px;padding:16px 12px 12px}
+.nav-drop a{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 12px;border-radius:10px;
+  white-space:normal}
+.drop-icon-wrap{
+  width:36px;height:36px;border-radius:9px;
+  background:var(--orange-tint);border:1px solid var(--orange);
+  display:flex;align-items:center;justify-content:center;flex:none}
+.drop-icon-wrap .material-symbols-outlined{
+  font-size:18px;color:var(--orange-text);opacity:1;
+  font-variation-settings:'FILL' 0,'wght' 400}
+.drop-text{display:flex;flex-direction:column;gap:2px}
+.drop-name{font-family:var(--head,'Poppins',sans-serif);font-size:12px;
+  font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--text,var(--copy));line-height:1.2}
+.drop-headline{font-family:var(--body,Georgia,serif);font-size:11px;
+  font-weight:400;text-transform:none;letter-spacing:normal;
+  color:var(--muted);line-height:1.3}
+.nav-drop a.current .drop-name{color:var(--orange-text)}
+.nav-drop a.current .drop-icon-wrap{background:var(--orange);border-color:var(--orange)}
+.nav-drop a.current .drop-icon-wrap .material-symbols-outlined{color:#fff}
 </style>
 </head>
 <body>
@@ -624,44 +652,44 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
         <a>Services <span class="caret">+</span></a>
         <div class="nav-drop">
           <a href="media-content.html">
-            <span class="drop-icon material-symbols-outlined">videocam</span>
-            Media &amp; Content
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">videocam</span></span>
+            <span class="drop-text"><span class="drop-name">Media &amp; Content</span><span class="drop-headline">Video content that generates real leads</span></span>
           </a>
           <a href="hosting.html">
-            <span class="drop-icon material-symbols-outlined">dns</span>
-            Web Hosting
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">dns</span></span>
+            <span class="drop-text"><span class="drop-name">Web Hosting</span><span class="drop-headline">Fast, secure hosting for contractor sites</span></span>
           </a>
           <a href="mailbox-power.html">
-            <span class="drop-icon material-symbols-outlined">card_giftcard</span>
-            Client Gifting
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">card_giftcard</span></span>
+            <span class="drop-text"><span class="drop-name">Client Gifting</span><span class="drop-headline">Automated gifts that drive referrals</span></span>
           </a>
-          <a>
-            <span class="drop-icon material-symbols-outlined">language</span>
-            Website Design
+          <a href="web-design.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">web</span></span>
+            <span class="drop-text"><span class="drop-name">Website Design</span><span class="drop-headline">Sites built to rank and convert</span></span>
           </a>
           <a href="organic-seo.html">
-            <span class="drop-icon material-symbols-outlined">search</span>
-            Organic SEO
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">search</span></span>
+            <span class="drop-text"><span class="drop-name">Organic SEO</span><span class="drop-headline">Rank higher, generate consistent leads</span></span>
           </a>
           <a href="local-seo.html">
-            <span class="drop-icon material-symbols-outlined">pin_drop</span>
-            Local SEO
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">pin_drop</span></span>
+            <span class="drop-text"><span class="drop-name">Local SEO</span><span class="drop-headline">Dominate the Google Map Pack</span></span>
           </a>
           <a href="ppc.html">
-            <span class="drop-icon material-symbols-outlined">ads_click</span>
-            Pay-Per-Click Ads
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">ads_click</span></span>
+            <span class="drop-text"><span class="drop-name">Pay-Per-Click Ads</span><span class="drop-headline">Get your phone ringing today</span></span>
           </a>
           <a href="local-services-ads.html">
-            <span class="drop-icon material-symbols-outlined">storefront</span>
-            Local Services Ads
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">storefront</span></span>
+            <span class="drop-text"><span class="drop-name">Local Services Ads</span><span class="drop-headline">Google Guaranteed leads at the top</span></span>
           </a>
           <a href="reputation-management.html">
-            <span class="drop-icon material-symbols-outlined">star_rate</span>
-            Reputation Mgmt
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">star_rate</span></span>
+            <span class="drop-text"><span class="drop-name">Reputation Mgmt</span><span class="drop-headline">Turn every job into 5-star reviews</span></span>
           </a>
           <a href="podcast.html">
-            <span class="drop-icon material-symbols-outlined">mic</span>
-            Podcast
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">mic</span></span>
+            <span class="drop-text"><span class="drop-name">Podcast</span><span class="drop-headline">Share your story, build authority</span></span>
           </a>
         </div>
       </div>
