@@ -78,7 +78,7 @@ html[data-theme="dark"] {
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--body);color:var(--text);background:var(--bg);line-height:1.5;
   -webkit-font-smoothing:antialiased;overflow-x:clip}
-.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:32px}
 h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.12;
   letter-spacing:-.015em;color:var(--text)}
 
@@ -123,7 +123,7 @@ header.scrolled{
   border-bottom-color:var(--line);
   box-shadow:var(--scrolled-shadow)
 }
-.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:24px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding-block:18px;gap:24px}
 .logo{display:flex;align-items:center;gap:10px}
 .logo img{height:34px;width:auto;display:block;
   transition:transform .45s cubic-bezier(.22,1,.36,1)}
@@ -164,7 +164,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    HERO
    ============================================================= */
-.hero{padding:56px 0 0;text-align:center;background:var(--hero-halo)}
+.hero{padding-block:clamp(2.25rem,7vw,3.5rem) 0;text-align:center;background:var(--hero-halo)}
 .hero h1{font-size:clamp(34px,6vw,60px);margin:22px auto 18px;max-width:760px}
 .hero .lead{margin:0 auto 36px;font-size:16px}
 .hero-img{height:clamp(320px,46vw,520px);width:100%;object-fit:cover;
@@ -180,7 +180,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    REVIEWS
    ============================================================= */
-.reviews{padding:64px 0 24px}
+.reviews{padding-block:clamp(2.75rem,7vw,4rem) clamp(1rem,3vw,1.5rem)}
 .rating-bar{display:flex;align-items:center;justify-content:space-between;
   gap:20px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);
   border-radius:var(--radius);padding:18px 24px;margin-bottom:28px}
@@ -224,7 +224,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    CLIENT LOGOS
    ============================================================= */
-.logos{padding:36px 0 8px;margin-bottom:50px}
+.logos{padding-block:36px 8px;margin-bottom:50px}
 .logo-row{display:flex;align-items:center;justify-content:space-between;
   gap:24px;flex-wrap:wrap}
 .clogo{height:48px;flex:1;min-width:120px;border:1px dashed var(--accent);
@@ -235,7 +235,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    SERVICES
    ============================================================= */
-.services{padding:80px 0}
+.services{padding-block:clamp(3.25rem,8vw,5rem)}
 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .svc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
   padding:30px 28px;text-align:center}
@@ -251,11 +251,11 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    TESTIMONIAL
    ============================================================= */
-.testimonial{padding:80px 0}
+.testimonial{padding-block:clamp(3.25rem,8vw,5rem)}
 .quote-card{background:var(--card);border:1px solid var(--line);
   border-radius:var(--radius);display:grid;
   grid-template-columns:1.1fr .9fr;gap:0;overflow:hidden}
-.quote-body{padding:44px}
+.quote-body{padding:clamp(24px,5vw,44px)}
 .quote-body blockquote{font-family:var(--body);font-size:21px;
   line-height:1.45;margin-bottom:36px;color:var(--copy)}
 .author{font-family:var(--head);font-weight:600;font-size:17px;color:var(--text)}
@@ -271,10 +271,10 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    PORTFOLIO
    ============================================================= */
-.portfolio{padding:80px 0}
+.portfolio{padding-block:clamp(3.25rem,8vw,5rem)}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .pcard{background:var(--card);border:1px solid var(--line);
-  border-radius:var(--radius);padding:14px}
+  border-radius:var(--radius);padding:16px}
 .pcard .thumb{height:220px;border-radius:10px}
 .pcard .arrow{position:absolute;top:12px;right:12px;width:34px;height:34px;
   border-radius:50%;background:var(--card);border:1px solid var(--line);
@@ -284,7 +284,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    ABOUT
    ============================================================= */
-.about{padding:80px 0}
+.about{padding-block:clamp(3.25rem,8vw,5rem)}
 .about-card{background:var(--card);border:1px solid var(--line);
   border-radius:var(--radius);padding:40px;
   display:grid;grid-template-columns:.85fr 1fr;gap:44px;align-items:center}
@@ -298,7 +298,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    PODCAST
    ============================================================= */
-.podcast{padding:80px 0 100px}
+.podcast{padding-block:clamp(3.25rem,8vw,5rem) clamp(3.75rem,10vw,6.25rem)}
 .podcast-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
 .episode{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
 .play{width:64px;height:64px;border-radius:50%;background:var(--card);
@@ -324,7 +324,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    INSTAGRAM
    ============================================================= */
-.instagram{padding:80px 0}
+.instagram{padding-block:clamp(3.25rem,8vw,5rem)}
 .ig-icon{width:52px;height:52px;border-radius:14px;background:var(--orange-tint);
   border:1px solid var(--orange);margin:0 auto 18px;
   display:flex;align-items:center;justify-content:center}
@@ -351,11 +351,11 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    FINAL CTA
    ============================================================= */
-.final-cta{padding:0 0 90px}
+.final-cta{padding-block:0 clamp(3.5rem,9vw,5.625rem)}
 .cta-band{
   background:linear-gradient(140deg,var(--blue-soft) 0%,var(--blue-deep) 100%);
   border:1px solid rgba(255,255,255,.10);
-  color:#fff;border-radius:var(--radius);text-align:center;padding:64px 32px
+  color:#fff;border-radius:var(--radius);text-align:center;padding:clamp(40px,7vw,64px) clamp(20px,5vw,32px)
 }
 .cta-band h2{font-family:var(--head);font-size:clamp(28px,4.5vw,44px);
   margin-bottom:16px;color:#fff}
@@ -388,14 +388,14 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 .footer-contact p{font-family:var(--body);font-size:14px;
   color:oklch(0.80 0.012 70);line-height:1.75;margin-bottom:14px}
 .footer-links{display:grid;grid-template-columns:1fr 1fr;gap:48px;
-  padding:36px 0;border-top:1px solid rgba(255,255,255,.12)}
+  padding-block:36px;border-top:1px solid rgba(255,255,255,.12)}
 .f-col ul{list-style:none}
 .f-col li{margin-bottom:13px}
 .f-col a{font-family:var(--head);font-size:14px;
   color:oklch(0.82 0.012 70);cursor:pointer}
 .services-list{columns:2;column-gap:32px}
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;
-  gap:16px;flex-wrap:wrap;padding:22px 0 36px;
+  gap:16px;flex-wrap:wrap;padding-block:22px 36px;
   border-top:1px solid rgba(255,255,255,.12);
   font-family:var(--head);font-size:13px;color:oklch(0.66 0.012 70)}
 .footer-bottom .legal{display:flex;gap:22px;font-size:12px;
@@ -481,7 +481,7 @@ html.switching *,html.switching *::before,html.switching *::after{
 @media(max-width:600px){
   .ig-grid{grid-template-columns:repeat(2,1fr)}
   .ig-follow{margin-left:0}
-  .wrap{padding:0 20px}
+  .wrap{padding-inline:20px}
 }
 
 /* =============================================================
@@ -545,7 +545,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
   width:34px;height:34px;border-radius:8px;border:1px solid var(--line);
   background:var(--card);cursor:pointer;color:var(--muted);flex:none}
 .mob-close .material-symbols-outlined{font-size:20px}
-.mob-links{flex:1;padding:8px 0}
+.mob-links{flex:1;padding-block:8px}
 .mob-link{display:flex;align-items:center;justify-content:space-between;
   padding:14px 20px;font-family:var(--head,var(--sans));font-size:12px;font-weight:600;
   letter-spacing:.07em;text-transform:uppercase;color:var(--text,var(--ink));
@@ -604,6 +604,11 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
 .nav-drop a.current .drop-name{color:var(--orange-text)}
 .nav-drop a.current .drop-icon-wrap{background:var(--orange);border-color:var(--orange)}
 .nav-drop a.current .drop-icon-wrap .material-symbols-outlined{color:#fff}
+
+
+  /* === header breathing: protect nav padding from .wrap shorthand collision === */
+  header .nav{padding:18px 32px}
+  @media(max-width:600px){header .nav{padding:15px 20px}}
 </style>
 </head>
 <body>

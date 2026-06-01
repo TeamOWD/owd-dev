@@ -74,7 +74,7 @@ html[data-theme="dark"] {
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--body);color:var(--text);background:var(--bg);
   line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
-.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:32px}
 h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.12;
   letter-spacing:-.015em;color:var(--text)}
 p{font-family:var(--body);color:var(--copy)}
@@ -122,7 +122,7 @@ header{position:sticky;top:0;z-index:50;background:var(--bg);
   transition:background .45s ease,border-color .45s ease,box-shadow .45s ease}
 header.scrolled{background:var(--scrolled-bg);border-bottom-color:var(--line);
   box-shadow:var(--scrolled-shadow)}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:24px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding-block:18px;gap:24px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo img{height:34px;width:auto;display:block;
   transition:transform .45s cubic-bezier(.22,1,.36,1)}
@@ -177,7 +177,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    PAGE HERO
    ============================================================= */
-.page-hero{padding:72px 0 80px}
+.page-hero{padding-block:clamp(2.75rem,7vw,4.5rem) clamp(3.25rem,8vw,5rem)}
 .page-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .page-hero h1{font-size:clamp(30px,5vw,52px);margin-bottom:20px}
 .page-hero .lead{font-size:17px;max-width:100%;margin-bottom:32px}
@@ -192,7 +192,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    SPLIT
    ============================================================= */
-.split{padding:80px 0}
+.split{padding-block:clamp(3.25rem,8vw,5rem)}
 .split-card{background:var(--card);border:1px solid var(--line);
   border-radius:var(--radius);padding:48px;
   display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
@@ -203,7 +203,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    HOW IT WORKS  ·  3 steps
    ============================================================= */
-.steps{padding:80px 0}
+.steps{padding-block:clamp(3.25rem,8vw,5rem)}
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .step{background:var(--card);border:1px solid var(--line);
   border-radius:var(--radius);padding:32px 28px;
@@ -225,7 +225,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    PRRRR METHOD  ·  5 cards
    ============================================================= */
-.prrrr{padding:80px 0}
+.prrrr{padding-block:clamp(3.25rem,8vw,5rem)}
 .prrrr-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
 .prrrr-card{background:var(--card);border:1px solid var(--line);
   border-radius:var(--radius);padding:28px 22px;
@@ -243,7 +243,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    GIFT CATALOG  ·  6 items
    ============================================================= */
-.catalog{padding:80px 0}
+.catalog{padding-block:clamp(3.25rem,8vw,5rem)}
 .catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .cat-card{background:var(--card);border:1px solid var(--line);
   border-radius:var(--radius);padding:14px;
@@ -257,7 +257,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    TESTIMONIAL
    ============================================================= */
-.testimonial{padding:80px 0}
+.testimonial{padding-block:clamp(3.25rem,8vw,5rem)}
 .quote-card{background:var(--card);border:1px solid var(--line);
   border-radius:var(--radius);display:grid;
   grid-template-columns:1.1fr .9fr;overflow:hidden}
@@ -274,7 +274,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    PRICING  ·  2 plans
    ============================================================= */
-.pricing{padding:80px 0}
+.pricing{padding-block:clamp(3.25rem,8vw,5rem)}
 .price-grid{display:grid;grid-template-columns:repeat(2,1fr);
   gap:24px;max-width:840px;margin:0 auto}
 .price-card{background:var(--card);border:1px solid var(--line);
@@ -310,7 +310,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    FINAL CTA
    ============================================================= */
-.final-cta{padding:0 0 90px}
+.final-cta{padding-block:0 clamp(3.5rem,9vw,5.625rem)}
 .cta-band{background:linear-gradient(140deg,var(--blue-soft) 0%,var(--blue-deep) 100%);
   border:1px solid rgba(255,255,255,.10);
   border-radius:var(--radius);text-align:center;padding:72px 32px}
@@ -344,14 +344,14 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 .footer-contact p{font-family:var(--body);font-size:14px;
   color:oklch(0.80 0.012 70);line-height:1.75;margin-bottom:14px}
 .footer-links{display:grid;grid-template-columns:1fr 1fr;gap:48px;
-  padding:36px 0;border-top:1px solid rgba(255,255,255,.12)}
+  padding-block:36px;border-top:1px solid rgba(255,255,255,.12)}
 .f-col ul{list-style:none}
 .f-col li{margin-bottom:13px}
 .f-col a{font-family:var(--head);font-size:14px;
   color:oklch(0.82 0.012 70);cursor:pointer}
 .services-list{columns:2;column-gap:32px}
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;
-  gap:16px;flex-wrap:wrap;padding:22px 0 36px;
+  gap:16px;flex-wrap:wrap;padding-block:22px 36px;
   border-top:1px solid rgba(255,255,255,.12);
   font-family:var(--head);font-size:13px;color:oklch(0.66 0.012 70)}
 .footer-bottom .legal{display:flex;gap:22px;font-size:12px;
@@ -398,7 +398,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
   width:34px;height:34px;border-radius:8px;border:1px solid var(--line);
   background:var(--card);cursor:pointer;color:var(--muted);flex:none}
 .mob-close .material-symbols-outlined{font-size:20px}
-.mob-links{flex:1;padding:8px 0}
+.mob-links{flex:1;padding-block:8px}
 .mob-link{display:flex;align-items:center;justify-content:space-between;
   padding:14px 20px;font-family:var(--head);font-size:12px;font-weight:600;
   letter-spacing:.07em;text-transform:uppercase;color:var(--text);
@@ -505,10 +505,15 @@ html.switching *,html.switching *::before,html.switching *::after{
   .nav-actions .btn-solid{display:none}
 }
 @media(max-width:600px){
-  .wrap{padding:0 20px}
-  .page-hero{padding:48px 0 56px}
+  .wrap{padding-inline:20px}
+  .page-hero{padding-block:48px 56px}
   .prrrr-grid{grid-template-columns:1fr}
 }
+
+
+  /* === header breathing: protect nav padding from .wrap shorthand collision === */
+  header .nav{padding:18px 32px}
+  @media(max-width:600px){header .nav{padding:15px 20px}}
 </style>
 </head>
 <body>
