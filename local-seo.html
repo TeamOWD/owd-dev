@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 <style>
-:root{--bg:#F7F3EB;--bg-2:oklch(0.950 0.022 62);--card:oklch(0.995 0.005 70);--line:oklch(0.90 0.012 60);--box:oklch(0.93 0.014 58);--box-2:oklch(0.88 0.018 58);--accent:oklch(0.72 0.030 60);--muted:oklch(0.50 0.028 258);--ink:oklch(0.27 0.045 258);--navy:oklch(0.30 0.050 258);--navy-deep:oklch(0.21 0.045 260);--orange:oklch(0.68 0.170 50);--orange-text:oklch(0.50 0.145 46);--orange-tint:oklch(0.955 0.040 62);--text:#221E1F;--copy:#221E1F;--blue:#12407A;--blue-soft:#17498A;--blue-deep:#0D2E58;--radius:14px;--head:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;--body:'Lora',Georgia,'Times New Roman',serif;--fs-body:18px;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;--scrolled-bg:oklch(0.985 0.010 70);--scrolled-shadow:0 10px 30px rgba(40,30,20,.10);--hatch:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(0,0,0,.03) 14px,rgba(0,0,0,.03) 28px)}
+:root{--bg:#F7F3EB;--bg-2:oklch(0.950 0.022 62);--card:oklch(0.995 0.005 70);--line:oklch(0.90 0.012 60);--box:oklch(0.93 0.014 58);--box-2:oklch(0.88 0.018 58);--accent:oklch(0.72 0.030 60);--muted:oklch(0.50 0.028 258);--ink:oklch(0.27 0.045 258);--navy:oklch(0.30 0.050 258);--navy-deep:oklch(0.21 0.045 260);--orange:oklch(0.68 0.170 50);--orange-text:oklch(0.50 0.145 46);--orange-tint:oklch(0.955 0.040 62);--text:#221E1F;--copy:#221E1F;--blue:#12407A;--blue-soft:#17498A;--blue-deep:#0D2E58;--radius:14px;--head:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;--body:'Lora',Georgia,'Times New Roman',serif;--fs-body:18px;--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;--scrolled-bg:oklch(0.985 0.010 70);--scrolled-shadow:0 10px 30px rgba(40,30,20,.10);--hatch:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(0,0,0,.03) 14px,rgba(0,0,0,.03) 28px);--hue-navy:257;--navy-700:oklch(0.303 0.085 var(--hue-navy));--navy-600:oklch(0.375 0.110 var(--hue-navy));--navy-500:oklch(0.410 0.120 var(--hue-navy));--warm-500:oklch(0.500 0.145 46);--warm-400:oklch(0.650 0.175 45);--warm-300:oklch(0.680 0.170 50);--warm-200:oklch(0.740 0.155 58);--on-bold:oklch(0.99 0.005 70);--on-bold-muted:oklch(0.90 0.020 240);--on-bold-warm:oklch(0.82 0.112 58);--on-warm:oklch(0.22 0.045 45);--on-warm-muted:oklch(0.25 0.050 45);--edge-bold:var(--navy-700);--edge-warm:oklch(0.55 0.155 45);--grad-navy:linear-gradient(140deg,var(--navy-500) 0%,var(--navy-600) 100%);--grad-warm:linear-gradient(140deg,var(--warm-200) 0%,var(--warm-400) 100%)}
 html[data-theme="dark"]{--bg:oklch(0.145 0.008 55);--bg-2:oklch(0.198 0.009 55);--card:oklch(0.255 0.011 55);--line:oklch(0.320 0.010 55);--box:oklch(0.240 0.010 55);--box-2:oklch(0.300 0.012 55);--accent:oklch(0.520 0.020 60);--muted:oklch(0.720 0.014 72);--ink:oklch(0.115 0.008 55);--navy:oklch(0.185 0.010 55);--navy-deep:oklch(0.110 0.008 55);--orange:oklch(0.72 0.175 52);--orange-text:oklch(0.80 0.155 60);--orange-tint:oklch(0.30 0.060 48);--text:oklch(0.97 0.006 85);--copy:#F7F3EB;--scrolled-bg:oklch(0.165 0.010 55);--scrolled-shadow:0 12px 36px rgba(0,0,0,.55);--hatch:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.04) 14px,rgba(255,255,255,.04) 28px)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--body);color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
@@ -89,18 +89,27 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 .why-intro{max-width:780px;margin:0 auto 48px;text-align:center}
 .why-intro p{font-family:var(--body);font-size:var(--fs-body);line-height:1.85;color:var(--copy)}
 .compare-split{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px}
-.cmp-card{border-radius:var(--radius);padding:36px 32px}
-.cmp-card.no-card{background:var(--card);border:1px solid var(--line)}
-.cmp-card.yes-card{background:var(--card);border:2px solid var(--orange);box-shadow:0 0 0 4px var(--orange-tint)}
+/* navy for "without", warm for "with" — the warm colour keeps marking the
+   positive side, as it does everywhere else on the site. */
+.cmp-card{border-radius:var(--radius);padding:36px 32px;
+  background:var(--fill);border:1px solid var(--edge)}
+.cmp-card.no-card{
+  --fill:var(--grad-navy); --edge:var(--edge-bold);
+  --head-c:var(--on-bold); --copy-c:var(--on-bold-muted);
+  --rule-c:rgba(255,255,255,.20); --icon-c:var(--on-bold-warm)}
+.cmp-card.yes-card{
+  --fill:var(--grad-warm); --edge:var(--edge-warm);
+  --head-c:var(--on-warm); --copy-c:var(--on-warm);
+  --rule-c:rgba(0,0,0,.20); --icon-c:var(--on-warm)}
 .cmp-head{display:flex;align-items:center;gap:12px;margin-bottom:24px}
 .cmp-icon{font-family:var(--head);font-size:24px;font-weight:800}
-.cmp-card h3{font-family:var(--head);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text)}
+.cmp-card h3{font-family:var(--head);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--head-c)}
 .cmp-list{list-style:none;display:flex;flex-direction:column;gap:12px}
-.cmp-list li{font-family:var(--body);font-size:14px;color:var(--copy);display:flex;align-items:flex-start;gap:10px;line-height:1.5;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.cmp-list li{font-family:var(--body);font-size:14px;color:var(--copy-c);display:flex;align-items:flex-start;gap:10px;line-height:1.5;padding-bottom:12px;border-bottom:1px solid var(--rule-c)}
 .cmp-list li:last-child{border-bottom:none;padding-bottom:0}
 .cmp-list li .material-symbols-outlined{font-size:17px;flex:none;margin-top:1px;font-variation-settings:'FILL' 1}
-.no-card .cmp-list li .material-symbols-outlined{color:oklch(0.60 0.10 20)}
-.yes-card .cmp-list li .material-symbols-outlined{color:var(--orange-text)}
+.no-card .cmp-list li .material-symbols-outlined,
+.yes-card .cmp-list li .material-symbols-outlined{color:var(--icon-c)}
 .why-cta{text-align:center}
 .why-cta p{font-family:var(--body);font-size:14px;color:var(--muted);margin-top:12px}
 .why-note{font-family:var(--head);font-size:12px;color:var(--muted);text-align:center;margin-top:16px}
@@ -128,10 +137,17 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 .phase.active .phase-dot .material-symbols-outlined{color:#fff}
 .phase-tag{font-family:var(--head);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--orange-text);margin-bottom:8px}
 .phase h3{font-family:var(--head);font-size:16px;font-weight:700;color:var(--text);margin-bottom:12px}
-.phase-body{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-align:left;margin-top:20px}
+/* Only .phase-body is a card — the dot, tag and h3 sit above it on the page
+   background, so they keep their normal colours. */
+.phase-body{--fill:var(--grad-navy); --edge:var(--edge-bold);
+  --copy-c:var(--on-bold-muted); --bullet-c:var(--on-bold-warm);
+  background:var(--fill);border:1px solid var(--edge);
+  border-radius:var(--radius);padding:24px;text-align:left;margin-top:20px}
+.phase:nth-child(even) .phase-body{--fill:var(--grad-warm); --edge:var(--edge-warm);
+  --copy-c:var(--on-warm); --bullet-c:var(--on-warm)}
 .phase-body ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.phase-body li{font-family:var(--body);font-size:13px;color:var(--copy);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
-.phase-body li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);flex:none;margin-top:6px}
+.phase-body li{font-family:var(--body);font-size:13px;font-weight:500;color:var(--copy-c);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.phase-body li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--bullet-c);flex:none;margin-top:6px}
 .ba-table{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:48px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
 .ba-head{font-family:var(--head);font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;padding:16px 24px;background:var(--box-2);border-bottom:1px solid var(--line)}
 .ba-head.old{color:var(--muted)}
@@ -145,15 +161,24 @@ html[data-theme="dark"] .ba-row .ba-cell.new{background:oklch(0.22 0.025 55)}
 /* PROGRAM */
 .program-section{padding-block:clamp(3.25rem,8vw,5rem)}
 .program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.prog-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:36px 30px}
-.prog-ic{width:52px;height:52px;border-radius:14px;background:var(--orange-tint);border:1px solid var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
-.prog-ic .material-symbols-outlined{font-size:26px;color:var(--orange-text)}
-.prog-card h3{font-family:var(--head);font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--text);margin-bottom:20px}
+/* Three cards, so plain odd/even alternates correctly at 3 columns and at 1. */
+.prog-card{--fill:var(--grad-navy); --edge:var(--edge-bold);
+  --head-c:var(--on-bold); --copy-c:var(--on-bold-muted);
+  --rule-c:rgba(255,255,255,.20);
+  background:var(--fill);border:1px solid var(--edge);
+  border-radius:var(--radius);padding:36px 30px}
+.prog-card:nth-child(even){--fill:var(--grad-warm); --edge:var(--edge-warm);
+  --head-c:var(--on-warm); --copy-c:var(--on-warm);
+  --rule-c:rgba(0,0,0,.20)}
+/* white chip: --orange-tint blended into the warm fill */
+.prog-ic{width:52px;height:52px;border-radius:14px;background:#fff;border:1px solid #fff;display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.prog-ic .material-symbols-outlined{font-size:26px;color:var(--navy-600)}
+.prog-card h3{font-family:var(--head);font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--head-c);margin-bottom:20px}
 .prog-table{width:100%;border-collapse:collapse}
-.prog-table tr{border-bottom:1px solid var(--line)}
+.prog-table tr{border-bottom:1px solid var(--rule-c)}
 .prog-table tr:last-child{border-bottom:none}
-.prog-table td{padding-block:10px;font-family:var(--body);font-size:13px;color:var(--copy);line-height:1.45;vertical-align:top}
-.prog-table td:first-child{font-family:var(--head);font-size:12px;font-weight:700;color:var(--text);padding-right:12px;white-space:nowrap;width:48%}
+.prog-table td{padding-block:10px;font-family:var(--body);font-size:13px;font-weight:500;color:var(--copy-c);line-height:1.45;vertical-align:top}
+.prog-table td:first-child{font-family:var(--head);font-size:12px;font-weight:700;color:var(--head-c);padding-right:12px;white-space:nowrap;width:48%}
 
 /* ROI BAND */
 .roi-band{padding-block:clamp(3.25rem,8vw,5rem);background:linear-gradient(140deg,var(--blue-soft) 0%,var(--blue-deep) 100%)}
@@ -326,6 +351,10 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
 .nav-drop a.current .drop-name{color:var(--orange-text)}
 .nav-drop a.current .drop-icon-wrap{background:var(--orange);border-color:var(--orange)}
 .nav-drop a.current .drop-icon-wrap .material-symbols-outlined{color:#fff}
+/* Case-studies dropdown: the mega-menu .nav-drop is a 580px two-column grid
+   built for the eight service links. With two items that is far too wide, so
+   this variant collapses to a single readable column. */
+.nav-drop--cases{grid-template-columns:1fr;min-width:340px}
 
 /* RESPONSIVE */
 @media(max-width:1000px){
@@ -373,7 +402,19 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
     </a>
     <nav class="nav-links">
       <a href="pricing.html">Pricing</a>
-      <a>Case studies <span class="caret">+</span></a>
+      <div class="nav-item">
+        <a>Case studies <span class="caret">+</span></a>
+        <div class="nav-drop nav-drop--cases">
+          <a href="case-study-comfort-one.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">hvac</span></span>
+            <span class="drop-text"><span class="drop-name">HVAC Contractor Case Study</span><span class="drop-headline">Comfort One Air Conditioning &middot; Scottsdale, AZ</span></span>
+          </a>
+          <a href="case-study-janecek.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">handyman</span></span>
+            <span class="drop-text"><span class="drop-name">Remodeling Services Case Study</span><span class="drop-headline">Janecek Construction &middot; Northeast Ohio</span></span>
+          </a>
+        </div>
+      </div>
       <div class="nav-item">
         <a>Services <span class="caret">+</span></a>
         <div class="nav-drop">
@@ -447,7 +488,13 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
     </div>
     <div class="mob-links">
       <a class="mob-link" href="pricing.html">Pricing</a>
-      <a class="mob-link">Case Studies <span class="material-symbols-outlined mob-arr">expand_more</span></a>
+      <div>
+        <div class="mob-link mob-cs-toggle" id="mobCsToggle">Case Studies <span class="material-symbols-outlined mob-arr">expand_more</span></div>
+        <div class="mob-sub" id="mobCsSub">
+          <a href="case-study-comfort-one.html"><span class="drop-icon material-symbols-outlined">hvac</span>HVAC Contractor Case Study</a>
+          <a href="case-study-janecek.html"><span class="drop-icon material-symbols-outlined">handyman</span>Remodeling Services Case Study</a>
+        </div>
+      </div>
       <div>
         <div class="mob-link mob-svc-toggle" id="mobSvcToggle">Services <span class="material-symbols-outlined mob-arr">expand_more</span></div>
         <div class="mob-sub" id="mobSub">
@@ -961,6 +1008,8 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
   if(mobClose)mobClose.addEventListener('click',closeMob);
   if(mobOverlay)mobOverlay.addEventListener('click',closeMob);
   if(mobSvcToggle)mobSvcToggle.addEventListener('click',function(){mobSvcToggle.classList.toggle('open');if(mobSub)mobSub.classList.toggle('open');});
+  var mobCsToggle=document.getElementById('mobCsToggle');var mobCsSub=document.getElementById('mobCsSub');
+  if(mobCsToggle)mobCsToggle.addEventListener('click',function(){mobCsToggle.classList.toggle('open');if(mobCsSub)mobCsSub.classList.toggle('open');});
   if(themeToggleMob)themeToggleMob.addEventListener('click',function(){
     var isDark=html.getAttribute('data-theme')==='dark';
     html.classList.add('switching');html.setAttribute('data-theme',isDark?'light':'dark');

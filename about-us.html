@@ -59,6 +59,10 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 .nav-item{position:relative;display:flex;align-items:center}
 .nav-item>a{cursor:pointer}
 .nav-drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(4px);background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 12px 12px;box-shadow:0 16px 40px rgba(34,30,31,.13);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s cubic-bezier(.22,1,.36,1);z-index:200;display:grid;grid-template-columns:1fr 1fr;gap:4px;min-width:580px}
+/* Case-studies dropdown: the mega-menu .nav-drop is a two-column grid built
+   for the eight service links. With two items that is far too wide, so this
+   variant collapses to a single readable column. */
+.nav-drop--cases{grid-template-columns:1fr;min-width:340px}
 .nav-item:hover .nav-drop,.nav-item.open .nav-drop{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
 .nav-drop a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;font-family:var(--head);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;color:var(--copy);text-decoration:none;transition:background .15s,color .15s;white-space:normal}
 .nav-drop a:hover{background:var(--orange-tint);color:var(--orange-text)}
@@ -257,7 +261,19 @@ header .nav{padding:18px 32px}
     </a>
     <nav class="nav-links">
       <a href="pricing.html">Pricing</a>
-      <a>Case Studies <span class="caret">+</span></a>
+      <div class="nav-item">
+        <a>Case studies <span class="caret">+</span></a>
+        <div class="nav-drop nav-drop--cases">
+          <a href="case-study-comfort-one.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">hvac</span></span>
+            <span class="drop-text"><span class="drop-name">HVAC Contractor Case Study</span><span class="drop-headline">Comfort One Air Conditioning &middot; Scottsdale, AZ</span></span>
+          </a>
+          <a href="case-study-janecek.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">handyman</span></span>
+            <span class="drop-text"><span class="drop-name">Remodeling Services Case Study</span><span class="drop-headline">Janecek Construction &middot; Northeast Ohio</span></span>
+          </a>
+        </div>
+      </div>
       <div class="nav-item">
         <a>Services <span class="caret">+</span></a>
         <div class="nav-drop">
@@ -293,7 +309,13 @@ header .nav{padding:18px 32px}
     </div>
     <div class="mob-links">
       <a class="mob-link" href="pricing.html">Pricing</a>
-      <a class="mob-link">Case Studies <span class="material-symbols-outlined mob-arr">expand_more</span></a>
+      <div>
+        <div class="mob-link mob-cs-toggle" id="mobCsToggle">Case Studies <span class="material-symbols-outlined mob-arr">expand_more</span></div>
+        <div class="mob-sub" id="mobCsSub">
+          <a href="case-study-comfort-one.html"><span class="drop-icon material-symbols-outlined">hvac</span>HVAC Contractor Case Study</a>
+          <a href="case-study-janecek.html"><span class="drop-icon material-symbols-outlined">handyman</span>Remodeling Services Case Study</a>
+        </div>
+      </div>
       <div>
         <div class="mob-link mob-svc-toggle" id="mobSvcToggle">Services <span class="material-symbols-outlined mob-arr">expand_more</span></div>
         <div class="mob-sub" id="mobSub">
@@ -502,6 +524,9 @@ header .nav{padding:18px 32px}
   if(mobClose) mobClose.addEventListener('click',closeMob);
   if(mobOverlay) mobOverlay.addEventListener('click',closeMob);
   if(mobSvcToggle) mobSvcToggle.addEventListener('click',function(){mobSvcToggle.classList.toggle('open');if(mobSub)mobSub.classList.toggle('open');});
+  var mobCsToggle=document.getElementById('mobCsToggle');
+  var mobCsSub=document.getElementById('mobCsSub');
+  if(mobCsToggle) mobCsToggle.addEventListener('click',function(){mobCsToggle.classList.toggle('open');if(mobCsSub)mobCsSub.classList.toggle('open');});
   if(themeToggleMob) themeToggleMob.addEventListener('click',function(){var isDark=html.getAttribute('data-theme')==='dark';html.classList.add('switching');html.setAttribute('data-theme',isDark?'light':'dark');localStorage.setItem('owd-theme',isDark?'light':'dark');setTimeout(function(){html.classList.remove('switching');},380);});
   var navItems=[].slice.call(document.querySelectorAll('.nav-item'));
   navItems.forEach(function(item){item.querySelector(':scope > a').addEventListener('click',function(e){e.stopPropagation();var isOpen=item.classList.contains('open');navItems.forEach(function(i){i.classList.remove('open');});if(!isOpen)item.classList.add('open');});});

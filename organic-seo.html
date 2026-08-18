@@ -351,6 +351,10 @@ html[data-theme="dark"] .ba-row .ba-cell.new{background:oklch(0.22 0.025 55)}
 .nav-drop a.current .drop-name{color:var(--orange-text)}
 .nav-drop a.current .drop-icon-wrap{background:var(--orange);border-color:var(--orange)}
 .nav-drop a.current .drop-icon-wrap .material-symbols-outlined{color:#fff}
+/* Case-studies dropdown: the mega-menu .nav-drop is a 580px two-column grid
+   built for the eight service links. With two items that is far too wide, so
+   this variant collapses to a single readable column. */
+.nav-drop--cases{grid-template-columns:1fr;min-width:340px}
 
 /* ============ MATERIAL SYMBOLS ============ */
 .material-symbols-outlined{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;display:inline-block;vertical-align:middle;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
@@ -453,7 +457,19 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
     </a>
     <nav class="nav-links">
       <a href="pricing.html">Pricing</a>
-      <a>Case studies <span class="caret">+</span></a>
+      <div class="nav-item">
+        <a>Case studies <span class="caret">+</span></a>
+        <div class="nav-drop nav-drop--cases">
+          <a href="case-study-comfort-one.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">hvac</span></span>
+            <span class="drop-text"><span class="drop-name">HVAC Contractor Case Study</span><span class="drop-headline">Comfort One Air Conditioning &middot; Scottsdale, AZ</span></span>
+          </a>
+          <a href="case-study-janecek.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">handyman</span></span>
+            <span class="drop-text"><span class="drop-name">Remodeling Services Case Study</span><span class="drop-headline">Janecek Construction &middot; Northeast Ohio</span></span>
+          </a>
+        </div>
+      </div>
       <div class="nav-item">
         <a>Services <span class="caret">+</span></a>
         <div class="nav-drop">
@@ -527,7 +543,13 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
     </div>
     <div class="mob-links">
       <a class="mob-link" href="pricing.html">Pricing</a>
-      <a class="mob-link">Case Studies <span class="material-symbols-outlined mob-arr">expand_more</span></a>
+      <div>
+        <div class="mob-link mob-cs-toggle" id="mobCsToggle">Case Studies <span class="material-symbols-outlined mob-arr">expand_more</span></div>
+        <div class="mob-sub" id="mobCsSub">
+          <a href="case-study-comfort-one.html"><span class="drop-icon material-symbols-outlined">hvac</span>HVAC Contractor Case Study</a>
+          <a href="case-study-janecek.html"><span class="drop-icon material-symbols-outlined">handyman</span>Remodeling Services Case Study</a>
+        </div>
+      </div>
       <div>
         <div class="mob-link mob-svc-toggle" id="mobSvcToggle">Services <span class="material-symbols-outlined mob-arr">expand_more</span></div>
         <div class="mob-sub" id="mobSub">
@@ -1049,6 +1071,8 @@ html.switching *,html.switching *::before,html.switching *::after{transition:bac
   if(mobClose)mobClose.addEventListener('click',closeMob);
   if(mobOverlay)mobOverlay.addEventListener('click',closeMob);
   if(mobSvcToggle)mobSvcToggle.addEventListener('click',function(){mobSvcToggle.classList.toggle('open');if(mobSub)mobSub.classList.toggle('open');});
+  var mobCsToggle=document.getElementById('mobCsToggle');var mobCsSub=document.getElementById('mobCsSub');
+  if(mobCsToggle)mobCsToggle.addEventListener('click',function(){mobCsToggle.classList.toggle('open');if(mobCsSub)mobCsSub.classList.toggle('open');});
   if(themeToggleMob)themeToggleMob.addEventListener('click',function(){
     var isDark=html.getAttribute('data-theme')==='dark';
     html.classList.add('switching');html.setAttribute('data-theme',isDark?'light':'dark');

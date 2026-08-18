@@ -383,6 +383,11 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
    FINAL CTA
    ============================================================= */
 .final-cta{padding-block:0 clamp(3.5rem,9vw,5.625rem)}
+/* The CTA carries no top padding, which reads fine when the section above
+   it sits on the page background. Here a full-bleed .band precedes it, so
+   its cream runs straight into the navy card with no gap. Adjacent-sibling
+   selector so this only fires when a band actually comes first. */
+.band + .final-cta{padding-top:clamp(3.25rem,8vw,5rem)}
 .cta-band{background:linear-gradient(140deg,var(--blue-soft) 0%,var(--blue-deep) 100%);
   border:1px solid rgba(255,255,255,.10);color:#fff;
   border-radius:var(--radius);text-align:center;padding:72px 32px}
@@ -492,6 +497,10 @@ html.switching *,html.switching *::before,html.switching *::after{
 .nav-drop a.current .drop-name{color:var(--orange-text)}
 .nav-drop a.current .drop-icon-wrap{background:var(--orange);border-color:var(--orange)}
 .nav-drop a.current .drop-icon-wrap .material-symbols-outlined{color:#fff}
+/* Case-studies dropdown: the mega-menu .nav-drop is a 580px two-column grid
+   built for the eight service links. With two items that is far too wide, so
+   this variant collapses to a single readable column. */
+.nav-drop--cases{grid-template-columns:1fr;min-width:340px}
 
 /* =============================================================
    RESPONSIVE
@@ -531,7 +540,19 @@ html.switching *,html.switching *::before,html.switching *::after{
     </a>
     <nav class="nav-links">
       <a href="pricing.html">Pricing</a>
-      <a>Case studies <span class="caret">+</span></a>
+      <div class="nav-item">
+        <a>Case studies <span class="caret">+</span></a>
+        <div class="nav-drop nav-drop--cases">
+          <a href="case-study-comfort-one.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">hvac</span></span>
+            <span class="drop-text"><span class="drop-name">HVAC Contractor Case Study</span><span class="drop-headline">Comfort One Air Conditioning &middot; Scottsdale, AZ</span></span>
+          </a>
+          <a href="case-study-janecek.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">handyman</span></span>
+            <span class="drop-text"><span class="drop-name">Remodeling Services Case Study</span><span class="drop-headline">Janecek Construction &middot; Northeast Ohio</span></span>
+          </a>
+        </div>
+      </div>
       <div class="nav-item">
         <a>Services <span class="caret">+</span></a>
         <div class="nav-drop">
@@ -609,7 +630,13 @@ html.switching *,html.switching *::before,html.switching *::after{
     </div>
     <div class="mob-links">
       <a class="mob-link" href="pricing.html">Pricing</a>
-      <a class="mob-link">Case Studies <span class="material-symbols-outlined mob-arr">expand_more</span></a>
+      <div>
+        <div class="mob-link mob-cs-toggle" id="mobCsToggle">Case Studies <span class="material-symbols-outlined mob-arr">expand_more</span></div>
+        <div class="mob-sub" id="mobCsSub">
+          <a href="case-study-comfort-one.html"><span class="drop-icon material-symbols-outlined">hvac</span>HVAC Contractor Case Study</a>
+          <a href="case-study-janecek.html"><span class="drop-icon material-symbols-outlined">handyman</span>Remodeling Services Case Study</a>
+        </div>
+      </div>
       <div>
         <div class="mob-link mob-svc-toggle" id="mobSvcToggle">Services <span class="material-symbols-outlined mob-arr">expand_more</span></div>
         <div class="mob-sub" id="mobSub">
@@ -919,6 +946,12 @@ html.switching *,html.switching *::before,html.switching *::after{
   if(mobSvcToggle) mobSvcToggle.addEventListener('click',function(){
     mobSvcToggle.classList.toggle('open');
     if(mobSub) mobSub.classList.toggle('open');
+  });
+  var mobCsToggle=document.getElementById('mobCsToggle');
+  var mobCsSub=document.getElementById('mobCsSub');
+  if(mobCsToggle) mobCsToggle.addEventListener('click',function(){
+    mobCsToggle.classList.toggle('open');
+    if(mobCsSub) mobCsSub.classList.toggle('open');
   });
   if(themeToggleMob) themeToggleMob.addEventListener('click',function(){
     var isDark=html.getAttribute('data-theme')==='dark';
