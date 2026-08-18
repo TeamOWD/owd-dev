@@ -7,7 +7,7 @@
 <meta name="description" content="Fast, secure WordPress hosting built for home service contractor websites. Free migration, SSL, daily backups, and U.S.-based support. Plans starting at $29/mo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 <style>
 
@@ -35,8 +35,32 @@
   --blue-soft:   #17498A;
   --blue-deep:   #0D2E58;
   --radius:      14px;
+
+  /* ---- brand ramp (identical across the site) --------------------------
+     navy-700/600/500 render as #0D2E58 / #12407A / #17498A within 2/255.
+     Warms keep a hue per step (58deg -> 45deg as they darken). On-colour text
+     is judged against the WORST stop: dark text vs warm-400, light vs navy-500. */
+  --hue-navy:   257;
+  --navy-700:   oklch(0.303 0.085 var(--hue-navy));
+  --navy-600:   oklch(0.375 0.110 var(--hue-navy));
+  --navy-500:   oklch(0.410 0.120 var(--hue-navy));
+  --warm-500:   oklch(0.500 0.145 46);
+  --warm-400:   oklch(0.650 0.175 45);
+  --warm-300:   oklch(0.680 0.170 50);
+  --warm-200:   oklch(0.740 0.155 58);
+
+  --on-bold:       oklch(0.99 0.005 70);
+  --on-bold-muted: oklch(0.90 0.020 240);
+  --on-bold-warm:  oklch(0.82 0.112 58);
+  --on-warm:       oklch(0.22 0.045 45);
+  --on-warm-muted: oklch(0.25 0.050 45);
+  --edge-bold:     var(--navy-700);
+  --edge-warm:     oklch(0.55 0.155 45);
+  --grad-navy: linear-gradient(140deg, var(--navy-500) 0%, var(--navy-600) 100%);
+  --grad-warm: linear-gradient(140deg, var(--warm-200) 0%, var(--warm-400) 100%);
   --head: 'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  --body: 'Source Serif 4',Georgia,'Times New Roman',serif;
+  --body: 'Lora',Georgia,'Times New Roman',serif;
+  --fs-body: 18px;
   --sans: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   --scrolled-bg:     oklch(0.985 0.010 70);
   --scrolled-shadow: 0 10px 30px rgba(40,30,20,.10);
@@ -102,7 +126,7 @@ p{font-family:var(--body);color:var(--copy)}
 .section-head.center{text-align:center}
 .section-head.center .lead{margin:0 auto}
 
-.lead{font-family:var(--body);font-size:15px;color:var(--copy);max-width:520px}
+.lead{font-family:var(--body);font-size:var(--fs-body);color:var(--copy);max-width:520px}
 .center{text-align:center}
 
 /* band */
@@ -257,7 +281,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
 .page-hero{padding-block:clamp(2.75rem,7vw,4.5rem) clamp(3.25rem,8vw,5rem)}
 .page-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .page-hero h1{font-size:clamp(30px,5vw,52px);margin-bottom:20px}
-.page-hero .lead{font-size:17px;max-width:100%;margin-bottom:32px}
+.page-hero .lead{font-size:var(--fs-body);max-width:100%;margin-bottom:32px}
 .page-hero-img{height:480px;border-radius:var(--radius);overflow:hidden}
 
 .svc-chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--head);
@@ -269,16 +293,6 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
 /* =============================================================
    TRUST BAR
    ============================================================= */
-.trust{padding-block:16px 56px}
-.trust-label{font-family:var(--head);font-size:11px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:28px}
-.logo-row{display:flex;align-items:center;justify-content:center;
-  gap:16px;flex-wrap:wrap}
-.clogo{height:44px;padding:0 20px;border:1px solid var(--line);border-radius:8px;
-  background:var(--card);display:flex;align-items:center;justify-content:center;
-  font-family:var(--head);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
-  font-weight:700;color:var(--muted);white-space:nowrap}
-
 /* =============================================================
    WHY IT MATTERS
    ============================================================= */
@@ -302,32 +316,57 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
    ============================================================= */
 .pricing{padding-block:clamp(3.25rem,8vw,5rem)}
 .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.price-card{background:var(--card);border:1px solid var(--line);
+/* Warm outside, navy on the featured middle plan — the pairing used on
+   pricing.html. Ribbon, ticks, rules and button read their value from the
+   variant, since each was hardcoded to a colour that vanishes on one fill. */
+.price-card{
+  --fill:var(--grad-warm);      --edge:var(--edge-warm);
+  --amount-c:var(--on-warm);    --label-c:var(--on-warm);
+  --copy-c:var(--on-warm-muted);--rule-c:rgba(0,0,0,.20);
+  --tick-c:var(--on-warm);
+  --btn-bg:#fff;                --btn-bd:#fff;
+  --btn-c:var(--navy-600);
+  --ribbon-bg:var(--navy-600);  --ribbon-c:var(--on-bold);
+  background:var(--fill);border:1px solid var(--edge);
   border-radius:var(--radius);padding:32px 28px;
   display:flex;flex-direction:column;
-  transition:border-color .2s,box-shadow .2s}
-.price-card:hover{border-color:var(--orange)}
-.price-card.featured{border-color:var(--orange);
-  box-shadow:0 0 0 3px var(--orange-tint)}
+  transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.price-card.featured{
+  --fill:var(--grad-navy);      --edge:var(--edge-bold);
+  --amount-c:var(--on-bold);    --label-c:var(--on-bold-warm);
+  --copy-c:var(--on-bold-muted);--rule-c:rgba(255,255,255,.22);
+  --tick-c:var(--on-bold-warm);
+  /* white button on all three plans: one CTA appearance, so the button never
+     competes with the colour that differentiates the plans. Navy label reads
+     10.3:1 on the white. */
+  --btn-bg:#fff;                --btn-bd:#fff;
+  --btn-c:var(--navy-600);
+  --ribbon-bg:#fff;             --ribbon-c:var(--navy-600);
+  box-shadow:0 0 0 3px var(--navy-600)}
+.price-card:hover{transform:translateY(-4px)}
 .price-ribbon{align-self:flex-start;font-family:var(--head);font-size:11px;
   letter-spacing:.08em;text-transform:uppercase;font-weight:700;
-  background:var(--orange);color:oklch(0.99 0.005 70);
+  background:var(--ribbon-bg);color:var(--ribbon-c);
   border-radius:999px;padding:5px 14px;margin-bottom:14px}
 .price-name{font-family:var(--head);font-size:12px;letter-spacing:.10em;
-  text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:10px}
+  text-transform:uppercase;font-weight:700;color:var(--label-c);margin-bottom:10px}
 .price-amount{font-family:var(--head);font-size:44px;font-weight:800;
-  line-height:1;color:var(--text);margin-bottom:6px}
-.price-amount span{font-family:var(--sans);font-size:15px;color:var(--muted);
+  line-height:1;color:var(--amount-c);margin-bottom:6px}
+.price-amount span{font-family:var(--sans);font-size:15px;color:var(--copy-c);
   font-weight:400;margin-left:2px}
-.price-blurb{font-family:var(--body);font-size:13px;color:var(--muted);
+.price-blurb{font-family:var(--body);font-size:13px;color:var(--copy-c);
   font-style:italic;margin-bottom:24px;line-height:1.6}
 .price-features{list-style:none;margin-bottom:28px;flex:1}
-.price-features li{font-family:var(--body);font-size:14px;color:var(--copy);
-  padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line)}
+.price-features li{font-family:var(--body);font-size:14px;color:var(--amount-c);
+  padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--rule-c)}
 .price-features li:last-child{border-bottom:none}
 .price-features li::before{content:"✓";position:absolute;left:0;
-  color:var(--orange-text);font-weight:700;font-family:var(--head)}
-.price-card .btn-cta{justify-content:center}
+  color:var(--tick-c);font-weight:700;font-family:var(--head)}
+.price-card .btn-cta{justify-content:center;
+  background:var(--btn-bg);border-color:var(--btn-bd);color:var(--btn-c)}
+@media (prefers-reduced-motion:reduce){
+  .price-card{transition:none} .price-card:hover{transform:none}
+}
 
 /* =============================================================
    SPLIT  ·  migration
@@ -349,7 +388,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
   border-radius:var(--radius);text-align:center;padding:72px 32px}
 .cta-band h2{font-family:var(--head);font-size:clamp(28px,4.5vw,44px);
   color:#fff;margin-bottom:16px}
-.cta-band p{font-family:var(--body);font-size:16px;
+.cta-band p{font-family:var(--body);font-size:var(--fs-body);
   color:oklch(0.92 0.020 85);max-width:620px;margin:0 auto 32px}
 .cta-band .btn-cta{background:var(--orange);border-color:var(--orange);
   color:oklch(0.99 0.005 70);font-size:15px;padding:17px 38px}
@@ -469,7 +508,6 @@ html.switching *,html.switching *::before,html.switching *::after{
   .split-card .split-img{min-height:260px}
   .footer-top,.footer-links{grid-template-columns:1fr}
   .services-list{columns:1}
-  .logo-row{justify-content:flex-start}
 }
 @media(max-width:600px){
   .wrap{padding-inline:20px}
@@ -623,19 +661,6 @@ html.switching *,html.switching *::before,html.switching *::after{
 
     <div class="ph page-hero-img filled" style="background-image:url('img/ryan-jana167854.jpg');background-position:center center"></div>
 
-  </div>
-</section>
-
-<!-- ============ TRUST BAR ============ -->
-<section class="trust wrap">
-  <div class="trust-label">Trusted by home service contractors across the U.S.</div>
-  <div class="logo-row">
-    <div class="clogo">AMCOR Property Professionals</div>
-    <div class="clogo">BULLSEYE Windshield</div>
-    <div class="clogo">PARAGON Homes</div>
-    <div class="clogo">Dryrite Restoration</div>
-    <div class="clogo">JANECEK Construction Co.</div>
-    <div class="clogo">AirKeepers Heating &amp; Cooling</div>
   </div>
 </section>
 
@@ -862,7 +887,7 @@ html.switching *,html.switching *::before,html.switching *::after{
 
   /* scroll reveals */
   var sel = ['.section-head','.feature-card','.price-card',
-    '.split-card','.cta-band','.trust'].join(',');
+    '.split-card','.cta-band'].join(',');
   var items = [].slice.call(document.querySelectorAll(sel));
   items.forEach(function(el){ el.classList.add('reveal'); });
   items.forEach(function(el){

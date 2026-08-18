@@ -7,7 +7,7 @@
 <meta name="description" content="Automated gifts, cards, and direct mail for home service contractors. We set up and manage Mailbox Power to keep your clients loyal and referrals coming in.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 <style>
 
@@ -35,8 +35,34 @@
   --blue-soft:   #17498A;
   --blue-deep:   #0D2E58;
   --radius:      14px;
+
+  /* ---- brand ramp (identical to index / media-content / pricing) -------
+     Measured from the hex tokens above: navy-700/600/500 render as
+     #0D2E58 / #12407A / #17498A within 2/255. The warms keep a hue per
+     step — they sweep 58deg -> 45deg as they darken.
+     On-colour text is judged against the WORST stop of each gradient:
+     dark text vs warm-400, light text vs navy-500.                        */
+  --hue-navy:    257;
+  --navy-700:    oklch(0.303 0.085 var(--hue-navy));
+  --navy-600:    oklch(0.375 0.110 var(--hue-navy));
+  --navy-500:    oklch(0.410 0.120 var(--hue-navy));
+  --warm-500:    oklch(0.500 0.145 46);
+  --warm-400:    oklch(0.650 0.175 45);
+  --warm-300:    oklch(0.680 0.170 50);
+  --warm-200:    oklch(0.740 0.155 58);
+
+  --on-bold:       oklch(0.99 0.005 70);   /* 8.7:1 on navy-500 */
+  --on-bold-muted: oklch(0.90 0.020 240);  /* 6.6:1 on navy-500 */
+  --on-bold-warm:  oklch(0.82 0.112 58);   /* 5.0:1 on navy-500 */
+  --on-warm:       oklch(0.22 0.045 45);   /* 5.1:1 on warm-400 */
+  --on-warm-muted: oklch(0.25 0.050 45);   /* 4.7:1 on warm-400 */
+  --edge-bold:     var(--navy-700);
+  --edge-warm:     oklch(0.55 0.155 45);
+  --grad-navy: linear-gradient(140deg, var(--navy-500) 0%, var(--navy-600) 100%);
+  --grad-warm: linear-gradient(140deg, var(--warm-200) 0%, var(--warm-400) 100%);
   --head: 'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  --body: 'Source Serif 4',Georgia,'Times New Roman',serif;
+  --body: 'Lora',Georgia,'Times New Roman',serif;
+  --fs-body: 18px;
   --sans: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   --scrolled-bg:     oklch(0.985 0.010 70);
   --scrolled-shadow: 0 10px 30px rgba(40,30,20,.10);
@@ -99,7 +125,7 @@ p{font-family:var(--body);color:var(--copy)}
 .section-head.center{text-align:center}
 .section-head.center .lead{margin:0 auto}
 
-.lead{font-family:var(--body);font-size:15px;color:var(--copy);max-width:520px}
+.lead{font-family:var(--body);font-size:var(--fs-body);color:var(--copy);max-width:520px}
 .center{text-align:center}
 
 .band{position:relative;isolation:isolate}
@@ -180,7 +206,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 .page-hero{padding-block:clamp(2.75rem,7vw,4.5rem) clamp(3.25rem,8vw,5rem)}
 .page-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .page-hero h1{font-size:clamp(30px,5vw,52px);margin-bottom:20px}
-.page-hero .lead{font-size:17px;max-width:100%;margin-bottom:32px}
+.page-hero .lead{font-size:var(--fs-body);max-width:100%;margin-bottom:32px}
 .page-hero-img{height:480px;border-radius:var(--radius);overflow:hidden}
 
 .svc-chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--head);
@@ -193,34 +219,51 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
    SPLIT
    ============================================================= */
 .split{padding-block:clamp(3.25rem,8vw,5rem)}
-.split-card{background:var(--card);border:1px solid var(--line);
+/* navy: the page's opening explainer, same treatment as the framework card on
+   media-content.html. Only one .split-card here, so no modifier is needed. */
+.split-card{background:var(--grad-navy);border:1px solid var(--edge-bold);
   border-radius:var(--radius);padding:48px;
   display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .split-card .split-img{min-height:380px;border-radius:10px;overflow:hidden}
-.split-card h2{font-size:clamp(24px,3.6vw,38px);margin:16px 0 20px}
-.split-card p{font-size:15px;color:var(--copy);margin-bottom:16px;line-height:1.75}
+.split-card h2{font-size:clamp(24px,3.6vw,38px);margin:16px 0 20px;color:var(--on-bold)}
+.split-card p{font-size:15px;color:var(--on-bold-muted);margin-bottom:16px;line-height:1.75}
+/* the page kicker is --orange-text, only 1.6:1 on navy */
+.split-card .kicker .label{color:var(--on-bold-warm)}
+.split-card .kicker .rule{background:rgba(255,255,255,.22)}
 
 /* =============================================================
    HOW IT WORKS  ·  3 steps
    ============================================================= */
 .steps{padding-block:clamp(3.25rem,8vw,5rem)}
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.step{background:var(--card);border:1px solid var(--line);
+/* Alternating navy / warm. With three cards plain odd/even is correct at every
+   width — 3 columns gives N O N and 1 column gives N O N — so this needs none
+   of the period-8 breakpoint machinery the eight-card grid required. */
+.step{--fill:var(--grad-navy); --edge:var(--edge-bold);
+  --head-c:var(--on-bold);     --copy-c:var(--on-bold-muted);
+  background:var(--fill);border:1px solid var(--edge);
   border-radius:var(--radius);padding:32px 28px;
   display:flex;flex-direction:column;gap:0;
-  transition:border-color .2s}
-.step:hover{border-color:var(--orange)}
+  transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.step:nth-child(even){--fill:var(--grad-warm); --edge:var(--edge-warm);
+  --head-c:var(--on-warm);     --copy-c:var(--on-warm-muted)}
+.step:hover{transform:translateY(-4px)}
 .step-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+/* white chip reads on both fills; --orange-tint blended into the warm one */
 .step-num{width:42px;height:42px;border-radius:50%;
-  background:var(--orange-tint);border:1px solid var(--orange);
+  background:#fff;border:1px solid #fff;
   display:flex;align-items:center;justify-content:center;
   font-family:var(--head);font-weight:700;font-size:16px;
-  color:var(--orange-text);flex:none}
-.step-icon{font-size:22px;color:var(--accent);
+  color:var(--navy-600);flex:none}
+.step-icon{font-size:22px;color:var(--copy-c);
   font-variation-settings:'FILL' 0,'wght' 300}
 .step h3{font-family:var(--head);font-size:13px;text-transform:uppercase;
-  font-weight:700;letter-spacing:.07em;color:var(--text);margin-bottom:10px}
-.step p{font-family:var(--body);font-size:13px;color:var(--muted);line-height:1.65}
+  font-weight:700;letter-spacing:.07em;color:var(--head-c);margin-bottom:10px}
+.step p{font-family:var(--body);font-size:14px;font-weight:500;
+  color:var(--copy-c);line-height:1.65}
+@media (prefers-reduced-motion:reduce){
+  .step{transition:none} .step:hover{transform:none}
+}
 
 /* =============================================================
    PRRRR METHOD  ·  5 cards
@@ -316,7 +359,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
   border-radius:var(--radius);text-align:center;padding:72px 32px}
 .cta-band h2{font-family:var(--head);font-size:clamp(28px,4.5vw,44px);
   color:#fff;margin-bottom:16px}
-.cta-band p{font-family:var(--body);font-size:16px;
+.cta-band p{font-family:var(--body);font-size:var(--fs-body);
   color:oklch(0.92 0.020 85);max-width:620px;margin:0 auto 32px}
 .cta-band .btn-cta{background:var(--orange);border-color:var(--orange);
   color:oklch(0.99 0.005 70);font-size:15px;padding:17px 38px}

@@ -7,7 +7,7 @@
 <meta name="description" content="Outwork'em Digital is the home services marketing agency built for contractors. Transparent, results-driven SEO, PPC, and web design. Book your free discovery call today.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 <style>
 
@@ -35,8 +35,40 @@
   --blue-soft:  #17498A;
   --blue-deep:  #0D2E58;
   --radius:     14px;
+
+  /* ---- brand ramp -----------------------------------------------------
+     Two hues, one scale. Values measured from the existing hex tokens, so
+     these render identically (within 1/255 per channel) — #0D2E58,
+     #12407A, #17498A are the same colors expressed perceptually.
+     Navy separates 9.3:1 from the cream, warm only 3.1:1: that gap is why
+     navy carries large surfaces and warm stays small or full-bleed.
+     The navies share one hue (measured 256.2/256.4/256.8), so they take
+     --hue-navy. The warms deliberately do NOT: they sweep 58deg -> 45deg as
+     they darken, which is what gives the orange gradient its depth. Forcing
+     them onto a single hue flattens the sweep and pushes the light end
+     toward salmon, so each warm step keeps its own measured hue.           */
+  --hue-navy:   257;
+  --navy-700:   oklch(0.303 0.085 var(--hue-navy));  /* was --blue-deep  */
+  --navy-600:   oklch(0.375 0.110 var(--hue-navy));  /* was --blue       */
+  --navy-500:   oklch(0.410 0.120 var(--hue-navy));  /* was --blue-soft  */
+  --warm-500:   oklch(0.500 0.145 46);               /* = --orange-text  */
+  --warm-400:   oklch(0.650 0.175 45);               /* gradient bottom  */
+  --warm-300:   oklch(0.680 0.170 50);               /* = --orange       */
+  --warm-200:   oklch(0.740 0.155 58);               /* gradient top     */
+
+  /* ---- roles: components reference these, never the ramp -------------- */
+  --on-bold:        oklch(0.99 0.005 70);   /* 10.3:1 on navy-600 */
+  --on-bold-muted:  oklch(0.90 0.020 240);  /*  7.7:1 on navy-600 */
+  --on-warm:        oklch(0.22 0.045 45);   /*  7.3:1 on warm-200 */
+  --on-warm-muted: oklch(0.25 0.050 45);   /* 4.7:1 on warm-400, the gradient's dark stop */
+  --edge-bold:      var(--navy-700);
+  --edge-warm:      oklch(0.55 0.155 45);
+  --grad-navy:  linear-gradient(140deg, var(--navy-500) 0%, var(--navy-600) 100%);
+  --grad-warm:  linear-gradient(140deg, var(--warm-200) 0%, var(--warm-400) 100%);
+
   --head: 'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  --body: 'Source Serif 4',Georgia,'Times New Roman',serif;
+  --body: 'Lora',Georgia,'Times New Roman',serif;
+  --fs-body: 18px;
   --sans: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   --scrolled-bg:  oklch(0.985 0.010 70);
   --scrolled-shadow: 0 10px 30px rgba(40,30,20,.10);
@@ -106,7 +138,7 @@ h1,h2,h3,h4{font-family:var(--head);font-weight:700;line-height:1.12;
 .kicker .rule{flex:1;height:1px;background:var(--line)}
 
 .center{text-align:center}
-.lead{font-family:var(--body);font-size:15px;color:var(--copy);max-width:520px}
+.lead{font-family:var(--body);font-size:var(--fs-body);color:var(--copy);max-width:520px}
 .section-head{text-align:left;margin-bottom:44px}
 .section-head h2{font-size:clamp(28px,4.5vw,44px);margin:0 0 14px;max-width:680px}
 
@@ -154,7 +186,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 
 .btn{font-family:var(--head);font-size:14px;border-radius:999px;padding:10px 20px;
   border:1px solid var(--line);background:var(--card);cursor:pointer;color:var(--copy)}
-.btn-solid{background:var(--orange);border-color:var(--orange);
+.btn-solid{background:var(--grad-warm);border-color:var(--edge-warm);
   color:oklch(0.99 0.005 70)}
 .btn-cta{display:inline-block;font-family:var(--head);font-size:14px;
   letter-spacing:.06em;text-transform:uppercase;font-weight:600;
@@ -165,8 +197,8 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
    HERO
    ============================================================= */
 .hero{padding-block:clamp(2.25rem,7vw,3.5rem) 0;text-align:center;background:var(--hero-halo)}
-.hero h1{font-size:clamp(34px,6vw,60px);margin:22px auto 18px;max-width:760px}
-.hero .lead{margin:0 auto 36px;font-size:16px}
+.hero h1{font-size:clamp(34px,6vw,60px);margin:0 auto 18px;max-width:760px}
+.hero .lead{margin:0 auto 36px;font-size:var(--fs-body)}
 .hero-img{height:clamp(320px,46vw,520px);width:100%;object-fit:cover;
   object-position:30% 62%;border-radius:var(--radius);display:block;margin-top:8px}
 
@@ -237,35 +269,64 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
    ============================================================= */
 .services{padding-block:clamp(3.25rem,8vw,5rem)}
 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:30px 28px;text-align:center}
-.svc .ic{width:48px;height:48px;border-radius:12px;background:var(--orange-tint);
-  border:1px solid var(--orange);margin:0 auto 18px;
-  display:flex;align-items:center;justify-content:center}
-.svc .ic .material-symbols-outlined{font-size:26px;color:var(--orange-text)}
-.svc h3{font-family:var(--head);font-size:18px;text-transform:uppercase;
-  letter-spacing:.02em;font-weight:700;margin-bottom:10px;color:var(--text)}
-.svc p{font-family:var(--body);font-size:14px;color:var(--copy);
-  max-width:42ch;margin:0 auto}
+.svc{position:relative;border-radius:16px;min-height:290px;
+  padding:clamp(24px,2.6vw,30px) clamp(22px,2.4vw,28px);
+  display:flex;flex-direction:column;text-align:left;
+  transition:transform .3s cubic-bezier(.22,1,.36,1)}
+/* checkerboard: 1,3,5 navy / 2,4,6 orange — no two same-color cards touch.
+   Hairline is a step darker than each fill: the warm cream ground gives the
+   orange cards almost no edge separation on its own. */
+.svc:nth-child(odd){background:var(--grad-navy);color:var(--on-bold);
+  border:1px solid var(--edge-bold)}
+.svc:nth-child(even){background:var(--grad-warm);color:var(--on-warm);
+  border:1px solid var(--edge-warm)}
+.svc h3{font-family:var(--head);font-size:clamp(22px,2.1vw,29px);font-weight:800;
+  text-transform:uppercase;letter-spacing:-.02em;line-height:1.04;
+  margin-bottom:14px;color:inherit}
+.svc p{font-family:var(--body);font-size:15px;line-height:1.55;max-width:34ch}
+.svc:nth-child(odd) p{color:var(--on-bold-muted)}
+.svc:nth-child(even) p{color:var(--on-warm-muted)}
+.svc-foot{margin-top:auto;display:flex;align-items:flex-end;
+  justify-content:space-between;gap:16px;padding-top:28px}
+.svc-more{font-family:var(--head);font-size:14px;font-weight:600;color:inherit;
+  text-decoration:underline;text-underline-offset:4px}
+/* stretched link: whole card is one click target, one link for screen readers */
+.svc-more::after{content:"";position:absolute;inset:0;border-radius:16px}
+.svc-chip{width:52px;height:52px;border-radius:14px;background:#fff;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.svc-chip .material-symbols-outlined{font-size:26px;color:#221E1F}
+.svc:hover{transform:translateY(-4px)}
+.svc:hover .svc-chip{transform:translate(3px,-3px)}
+.svc-more:focus-visible{outline:none}
+.svc:has(.svc-more:focus-visible){outline:3px solid var(--orange);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+  .svc,.svc-chip{transition:none}
+  .svc:hover{transform:none}
+  .svc:hover .svc-chip{transform:none}
+}
 
 /* =============================================================
    TESTIMONIAL
    ============================================================= */
 .testimonial{padding-block:clamp(3.25rem,8vw,5rem)}
-.quote-card{background:var(--card);border:1px solid var(--line);
+/* navy surface: a testimonial carries far more weight as a bold block than
+   as another white card in a page already full of them */
+.quote-card{background:var(--grad-navy);border:1px solid var(--edge-bold);
   border-radius:var(--radius);display:grid;
   grid-template-columns:1.1fr .9fr;gap:0;overflow:hidden}
 .quote-body{padding:clamp(24px,5vw,44px)}
 .quote-body blockquote{font-family:var(--body);font-size:21px;
-  line-height:1.45;margin-bottom:36px;color:var(--copy)}
-.author{font-family:var(--head);font-weight:600;font-size:17px;color:var(--text)}
+  line-height:1.45;margin-bottom:36px;color:var(--on-bold)}
+.author{font-family:var(--head);font-weight:600;font-size:17px;color:var(--on-bold)}
 .author span{display:block;font-family:var(--head);font-size:13px;
-  color:var(--muted);font-weight:400;margin-top:4px}
+  color:var(--on-bold-muted);font-weight:400;margin-top:4px}
 .quote-controls{display:flex;gap:10px;margin-top:24px}
-.ctrl{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
-  background:var(--card);cursor:pointer;display:flex;align-items:center;
-  justify-content:center;color:var(--muted)}
-.ctrl.active{background:var(--box-2)}
+.ctrl{width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.08);cursor:pointer;display:flex;
+  align-items:center;justify-content:center;color:var(--on-bold-muted)}
+.ctrl.active{background:#fff;border-color:#fff;color:var(--navy-600)}
 .quote-img{min-height:340px}
 
 /* =============================================================
@@ -285,14 +346,14 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
    ABOUT
    ============================================================= */
 .about{padding-block:clamp(3.25rem,8vw,5rem)}
-.about-card{background:var(--card);border:1px solid var(--line);
+.about-card{background:var(--grad-navy);border:1px solid var(--edge-bold);
   border-radius:var(--radius);padding:40px;
   display:grid;grid-template-columns:.85fr 1fr;gap:44px;align-items:center}
 .about-card .photo{min-height:440px}
 .about-card h3{font-family:var(--head);font-size:clamp(22px,3vw,30px);
   text-transform:uppercase;font-weight:800;letter-spacing:.01em;
-  line-height:1.15;margin-bottom:20px;color:var(--text)}
-.about-card p{font-family:var(--body);font-size:15px;color:var(--copy);
+  line-height:1.15;margin-bottom:20px;color:var(--on-bold)}
+.about-card p{font-family:var(--body);font-size:var(--fs-body);color:var(--on-bold-muted);
   margin-bottom:28px}
 
 /* =============================================================
@@ -312,7 +373,7 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 .ep-title{font-family:var(--head);font-size:22px;line-height:1.2;color:var(--text)}
 .ep-dur{font-family:var(--head);font-size:13px;color:var(--muted)}
 .podcast-text h2{font-size:clamp(28px,4.5vw,42px);margin:16px 0 18px}
-.podcast-text p{font-family:var(--body);font-size:15px;color:var(--copy);
+.podcast-text p{font-family:var(--body);font-size:var(--fs-body);color:var(--copy);
   margin-bottom:26px}
 .platforms{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
 .platform{font-family:var(--head);font-size:13px;color:var(--muted);
@@ -353,13 +414,13 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
    ============================================================= */
 .final-cta{padding-block:0 clamp(3.5rem,9vw,5.625rem)}
 .cta-band{
-  background:linear-gradient(140deg,var(--blue-soft) 0%,var(--blue-deep) 100%);
+  background:linear-gradient(140deg,var(--navy-500) 0%,var(--navy-700) 100%);
   border:1px solid rgba(255,255,255,.10);
-  color:#fff;border-radius:var(--radius);text-align:center;padding:clamp(40px,7vw,64px) clamp(20px,5vw,32px)
+  color:var(--on-bold);border-radius:var(--radius);text-align:center;padding:clamp(40px,7vw,64px) clamp(20px,5vw,32px)
 }
 .cta-band h2{font-family:var(--head);font-size:clamp(28px,4.5vw,44px);
-  margin-bottom:16px;color:#fff}
-.cta-band p{font-family:var(--body);font-size:15px;
+  margin-bottom:16px;color:var(--on-bold)}
+.cta-band p{font-family:var(--body);font-size:var(--fs-body);
   color:oklch(0.92 0.020 85);max-width:520px;margin:0 auto 30px}
 .cta-band .btn-cta{background:var(--orange);border-color:var(--orange);
   color:oklch(0.99 0.005 70)}
@@ -431,12 +492,11 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
   .js .kicker .rule{transform:scaleX(0);transform-origin:left center;
     transition:transform 1s cubic-bezier(.22,1,.36,1) .18s}
   .js .reveal.in .kicker .rule{transform:scaleX(1)}
-  .js .hero .emoji-pill,.js .hero h1,.js .hero .lead,.js .hero .btn-cta{
+  .js .hero h1,.js .hero .lead,.js .hero .btn-cta{
     opacity:0;transform:translateY(22px);
     animation:od-in .9s cubic-bezier(.22,1,.36,1) forwards}
-  .js .hero h1{animation-delay:.12s}
-  .js .hero .lead{animation-delay:.26s}
-  .js .hero .btn-cta{animation-delay:.38s}
+  .js .hero .lead{animation-delay:.14s}
+  .js .hero .btn-cta{animation-delay:.26s}
   .js .hero-img{opacity:0;animation:od-fade 1s ease .45s forwards}
   @keyframes od-in{to{opacity:1;transform:none}}
   @keyframes od-fade{to{opacity:1}}
@@ -735,7 +795,6 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
 
 <!-- ============ HERO ============ -->
 <section class="hero wrap">
-  <span class="emoji-pill"><span class="dot"></span> <span class="stars">★★★★★</span> 5.0 — Top Rated on Google</span>
   <h1>The Agency Built for Home Service Contractors</h1>
   <p class="lead">No fluff. No excuses. Just transparent marketing that fills your pipeline and grows your business.</p>
   <img class="hero-img" src="img/ryan-jana167757.jpg" alt="Ryan and Jana at the red rock landscape of Sedona, Arizona at dusk">
@@ -819,34 +878,52 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
   </div>
   <div class="cols">
     <article class="svc">
-      <div class="ic"><span class="material-symbols-outlined">web</span></div>
       <h3>Website Design &amp; Development</h3>
-      <p>Custom, high-performance websites built to represent your brand, rank on Google, and turn visitors into booked jobs.</p>
+      <p>Custom, high-performance websites built to rank on Google and turn visitors into booked jobs.</p>
+      <div class="svc-foot">
+        <a class="svc-more" href="web-design.html">Read more</a>
+        <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
+      </div>
     </article>
     <article class="svc">
-      <div class="ic"><span class="material-symbols-outlined">travel_explore</span></div>
       <h3>Organic SEO</h3>
-      <p>On-page, technical, and content strategies that climb the rankings and bring in qualified traffic month after month.</p>
+      <p>On-page, technical, and content strategies that climb the rankings month after month.</p>
+      <div class="svc-foot">
+        <a class="svc-more" href="organic-seo.html">Read more</a>
+        <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
+      </div>
     </article>
     <article class="svc">
-      <div class="ic"><span class="material-symbols-outlined">location_on</span></div>
       <h3>Local SEO</h3>
-      <p>Dominate your local market with an optimized Google Business Profile and consistent map-pack visibility where it counts.</p>
+      <p>Dominate your local market with an optimized Google Business Profile and map-pack visibility.</p>
+      <div class="svc-foot">
+        <a class="svc-more" href="local-seo.html">Read more</a>
+        <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
+      </div>
     </article>
     <article class="svc">
-      <div class="ic"><span class="material-symbols-outlined">ads_click</span></div>
       <h3>Pay-Per-Click Advertising</h3>
-      <p>Targeted Google and social campaigns built to maximize your return and put your brand in front of ready-to-hire homeowners.</p>
+      <p>Targeted Google and social campaigns built to maximize your return on every dollar.</p>
+      <div class="svc-foot">
+        <a class="svc-more" href="ppc.html">Read more</a>
+        <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
+      </div>
     </article>
     <article class="svc">
-      <div class="ic"><span class="material-symbols-outlined">storefront</span></div>
-      <h3>Google Local Service Ads (LSA)</h3>
-      <p>Show up above everyone else with pay-per-lead ads and the Google Guaranteed badge that homeowners trust.</p>
+      <h3>Local Service Ads</h3>
+      <p>Show up above everyone else with pay-per-lead ads and the Google Guaranteed badge.</p>
+      <div class="svc-foot">
+        <a class="svc-more" href="local-services-ads.html">Read more</a>
+        <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
+      </div>
     </article>
     <article class="svc">
-      <div class="ic"><span class="material-symbols-outlined">reviews</span></div>
       <h3>Reputation Management</h3>
-      <p>Generate, monitor, and showcase 5-star reviews that build credibility, earn trust, and give you the edge over competitors.</p>
+      <p>Generate, monitor, and showcase the 5-star reviews that build credibility and trust.</p>
+      <div class="svc-foot">
+        <a class="svc-more" href="reputation-management.html">Read more</a>
+        <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
+      </div>
     </article>
   </div>
 </section>
