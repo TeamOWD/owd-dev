@@ -232,7 +232,11 @@
     background:var(--card);border:1px solid var(--line)}
 
   /* ============ FINAL CTA ============ */
-  .final-cta{padding-block:0 clamp(3.5rem,9vw,5.625rem)}
+  /* Symmetric, so the card sits centred inside its own full-bleed band. It used
+   to be `0 clamp(...)`, which let the tinted band start exactly at the card's
+   top edge while leaving 90px underneath — the card read as stuck to whatever
+   section came before it. */
+.final-cta{padding-block:clamp(3.25rem,8vw,5rem)}
   .cta-band{background:var(--ink);color:#fff;border-radius:var(--radius);text-align:center;padding:clamp(40px,7vw,64px) clamp(20px,5vw,32px)}
   .cta-band h2{font-family:var(--serif);font-size:clamp(28px,4.5vw,44px);margin-bottom:16px;color:#fff}
   .cta-band p{font-size:var(--fs-body);color:#d4d4d4;max-width:520px;margin:0 auto 30px}
@@ -628,7 +632,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
 /* Case-studies dropdown: the mega-menu .nav-drop is a 580px two-column grid
    built for the eight service links. With two items that is far too wide, so
    this variant collapses to a single readable column. */
-.nav-drop--cases{grid-template-columns:1fr;min-width:340px}
+.nav-drop--cases,.nav-drop--about{grid-template-columns:1fr;min-width:340px}
 
 
   /* === header breathing: protect nav padding from .wrap shorthand collision === */
@@ -667,6 +671,18 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
           <a href="case-study-janecek.html">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">handyman</span></span>
             <span class="drop-text"><span class="drop-name">Remodeling Services Case Study</span><span class="drop-headline">Janecek Construction &middot; Northeast Ohio</span></span>
+          </a>
+          <a href="case-study-pool-boys.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">pool</span></span>
+            <span class="drop-text"><span class="drop-name">Pool Service Case Study</span><span class="drop-headline">The Pool Boys &middot; League City, TX</span></span>
+          </a>
+          <a href="case-study-desert-state-roofing.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">roofing</span></span>
+            <span class="drop-text"><span class="drop-name">Roofing Services Case Study</span><span class="drop-headline">Desert State Roofing &middot; Cave Creek, AZ</span></span>
+          </a>
+          <a href="case-study-exterior-contractor.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">window</span></span>
+            <span class="drop-text"><span class="drop-name">Windows & Exteriors Case Study</span><span class="drop-headline">Exterior Contractor &middot; Lincoln, NE</span></span>
           </a>
         </div>
       </div>
@@ -716,8 +732,28 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
         </div>
       </div>
       <a>Our work</a>
-      <a>Who we serve</a>
-      <a href="about-us.html">About us</a>
+      <a href="who-we-serve.html">Who we serve</a>
+      <div class="nav-item">
+        <a>About us <span class="caret">+</span></a>
+        <div class="nav-drop nav-drop--about">
+          <a href="about-us.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">info</span></span>
+            <span class="drop-text"><span class="drop-name">About Outwork'em</span><span class="drop-headline">Who we are and how we work</span></span>
+          </a>
+          <a href="meet-the-team.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">diversity_3</span></span>
+            <span class="drop-text"><span class="drop-name">Meet the Team</span><span class="drop-headline">The people behind your marketing</span></span>
+          </a>
+          <a href="news.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">newspaper</span></span>
+            <span class="drop-text"><span class="drop-name">News</span><span class="drop-headline">Launches, partnerships and awards</span></span>
+          </a>
+          <a href="blog.html">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">menu_book</span></span>
+            <span class="drop-text"><span class="drop-name">Blog</span><span class="drop-headline">Playbooks for HVAC and home service marketing</span></span>
+          </a>
+        </div>
+      </div>
     </nav>
     <div class="nav-actions">
       <button class="theme-toggle" aria-label="Toggle theme">
@@ -751,6 +787,9 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
         <div class="mob-sub" id="mobCsSub">
           <a href="case-study-comfort-one.html"><span class="drop-icon material-symbols-outlined">hvac</span>HVAC Contractor Case Study</a>
           <a href="case-study-janecek.html"><span class="drop-icon material-symbols-outlined">handyman</span>Remodeling Services Case Study</a>
+          <a href="case-study-pool-boys.html"><span class="drop-icon material-symbols-outlined">pool</span>Pool Service Case Study</a>
+          <a href="case-study-desert-state-roofing.html"><span class="drop-icon material-symbols-outlined">roofing</span>Roofing Services Case Study</a>
+          <a href="case-study-exterior-contractor.html"><span class="drop-icon material-symbols-outlined">window</span>Windows & Exteriors Case Study</a>
         </div>
       </div>
       <div>
@@ -769,8 +808,16 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
         </div>
       </div>
       <a class="mob-link">Our Work</a>
-      <a class="mob-link">Who We Serve</a>
-      <a class="mob-link" href="about-us.html">About Us</a>
+      <a class="mob-link" href="who-we-serve.html">Who We Serve</a>
+      <div>
+        <div class="mob-link mob-ab-toggle" id="mobAbToggle">About Us <span class="material-symbols-outlined mob-arr">expand_more</span></div>
+        <div class="mob-sub" id="mobAbSub">
+          <a href="about-us.html"><span class="drop-icon material-symbols-outlined">info</span>About Outwork'em</a>
+          <a href="meet-the-team.html"><span class="drop-icon material-symbols-outlined">diversity_3</span>Meet the Team</a>
+          <a href="news.html"><span class="drop-icon material-symbols-outlined">newspaper</span>News</a>
+          <a href="blog.html"><span class="drop-icon material-symbols-outlined">menu_book</span>Blog</a>
+        </div>
+      </div>
     </div>
     <div class="mob-footer">
       <button class="btn-cta">Let's Talk <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></button>
@@ -1149,6 +1196,12 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
   if(mobCsToggle) mobCsToggle.addEventListener('click',function(){
     mobCsToggle.classList.toggle('open');
     if(mobCsSub) mobCsSub.classList.toggle('open');
+  });
+  var mobAbToggle=document.getElementById('mobAbToggle');
+  var mobAbSub=document.getElementById('mobAbSub');
+  if(mobAbToggle) mobAbToggle.addEventListener('click',function(){
+    mobAbToggle.classList.toggle('open');
+    if(mobAbSub) mobAbSub.classList.toggle('open');
   });
   if(themeToggleMob) themeToggleMob.addEventListener('click',function(){
     var isDark=root.getAttribute('data-theme')==='dark';

@@ -1,0 +1,669 @@
+<title>Domain Spoofing Runbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+
+<style>
+/* ============================================================
+   Palette and type are lifted from the Outwork'em site tokens so this
+   reads as the agency's own document: Poppins for anything that behaves
+   like an interface, Lora for anything that is meant to be read.
+
+   Deliberately single-theme. This is a printable operations document, not
+   a site page, and the cream ground is part of that. Every colour is still
+   painted explicitly, including the body background, so the page holds its
+   own appearance whatever theme the viewer is in.
+   ============================================================ */
+:root{
+  --head:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --body:'Lora',Georgia,'Times New Roman',serif;
+
+  --bg:        #F7F3EB;
+  --surface:   #FFFDFA;
+  --surface-2: #F0EAE0;
+  --line:      #E0D8CB;
+  --line-soft: #EBE4D9;
+
+  --ink:       #221E1F;
+  --ink-soft:  #5A5450;
+  --ink-faint: #857D77;
+
+  --navy:      #0D2E58;
+  --navy-mid:  #12407A;
+  --navy-lift: #17498A;
+  --on-navy:   #FDFBF7;
+  --on-navy-2: #C3D0E4;
+
+  --orange:      #E2833E;
+  --orange-ink:  #9A5312;
+  --orange-tint: #FAEEE0;
+
+  /* semantic, kept away from the accent hue so state never reads as brand */
+  --risk:       #B3341F;
+  --risk-tint:  #F8E3DE;
+  --hold:       #8A6A12;
+  --hold-tint:  #F7EEDA;
+  --safe:       #2C6A47;
+  --safe-tint:  #E2EFE7;
+
+  --rec-name:   #12407A;
+
+  --radius: 12px;
+  --measure: 66ch;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{width:100%;max-width:860px;margin:0 auto;padding:0 24px}
+
+/* ---------- masthead ---------- */
+.mast{background:var(--navy);color:var(--on-navy);padding:56px 0 44px;position:relative;overflow:hidden}
+.mast::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:4px;
+  background:linear-gradient(90deg,var(--orange) 0%,var(--navy-lift) 100%);
+}
+.mast .wrap{display:flex;flex-direction:column;gap:14px}
+.eyebrow{
+  font-family:var(--head);font-size:11px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--on-navy-2);margin:0;
+}
+.mast h1{
+  font-family:var(--head);font-weight:800;font-size:clamp(29px,5vw,44px);
+  line-height:1.12;margin:0;text-wrap:balance;max-width:19ch;
+}
+.mast .standfirst{
+  margin:0;max-width:56ch;color:var(--on-navy-2);font-size:17.5px;line-height:1.65;
+}
+
+/* ---------- status strip: what is true right now ---------- */
+.status{margin:-26px auto 0;position:relative;z-index:2}
+.status-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+}
+.stat{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;display:flex;flex-direction:column;gap:7px;
+}
+.stat-k{
+  font-family:var(--head);font-size:10.5px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-faint);
+}
+.stat-v{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:12.5px;color:var(--ink-soft);word-break:break-word;line-height:1.5;
+}
+.chip{
+  align-self:flex-start;font-family:var(--head);font-size:11px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;
+}
+.chip.bad {background:var(--risk-tint);color:var(--risk)}
+.chip.warn{background:var(--hold-tint);color:var(--hold)}
+.chip.ok  {background:var(--safe-tint);color:var(--safe)}
+
+/* ---------- prose ---------- */
+main{padding:44px 0 80px;display:flex;flex-direction:column;gap:52px}
+.prose{max-width:var(--measure)}
+.prose p{margin:0 0 18px}
+.prose p:last-child{margin-bottom:0}
+h2{
+  font-family:var(--head);font-weight:800;font-size:clamp(21px,3vw,27px);
+  line-height:1.25;margin:0 0 6px;text-wrap:balance;
+}
+.sec-note{
+  font-family:var(--head);font-size:12px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--orange-ink);margin:0 0 18px;
+}
+h3{font-family:var(--head);font-weight:700;font-size:17px;margin:28px 0 8px}
+
+/* the analogy block — the one place the document slows down and explains */
+.analogy{
+  background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--orange);
+  border-radius:0 var(--radius) var(--radius) 0;padding:24px 26px;max-width:var(--measure);
+}
+.analogy p{margin:0 0 14px}
+.analogy p:last-child{margin-bottom:0}
+.analogy strong{font-weight:600}
+
+/* the three records, explained without acronyms doing the work */
+.records{display:flex;flex-direction:column;gap:12px;max-width:var(--measure)}
+.rec{
+  display:grid;grid-template-columns:78px 1fr;gap:18px;align-items:start;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;
+}
+.rec-name{
+  font-family:var(--head);font-size:13px;font-weight:800;letter-spacing:.06em;
+  color:var(--rec-name);padding-top:2px;
+}
+.rec-body{font-size:16px;line-height:1.62}
+.rec-body em{color:var(--ink-soft);font-style:italic}
+
+/* ---------- checklists ---------- */
+.tasks{display:flex;flex-direction:column;gap:12px}
+.task{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;
+  transition:border-color .15s ease,background .15s ease;
+}
+.task:has(input:checked){background:var(--surface-2);border-color:var(--line-soft)}
+.task:has(input:checked) .task-title{color:var(--ink-faint);text-decoration:line-through;text-decoration-thickness:1px}
+.task:has(input:focus-visible){outline:2px solid var(--orange);outline-offset:2px}
+.task input{
+  appearance:none;-webkit-appearance:none;margin:3px 0 0;flex:none;
+  width:21px;height:21px;border:2px solid var(--line);border-radius:6px;
+  background:var(--bg);cursor:pointer;display:grid;place-content:center;
+}
+.task input:hover{border-color:var(--orange)}
+.task input:checked{background:var(--orange);border-color:var(--orange)}
+.task input:checked::after{
+  content:"";width:10px;height:6px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;
+  transform:rotate(-45deg) translate(1px,-1px);
+}
+.task-main{display:flex;flex-direction:column;gap:7px;min-width:0}
+.task-title{font-family:var(--head);font-weight:700;font-size:15.5px;line-height:1.4;margin:0}
+.task-body{margin:0;font-size:15.5px;line-height:1.62;color:var(--ink-soft)}
+.task-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.tag{
+  font-family:var(--head);font-size:10.5px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:3px 9px;border-radius:5px;
+  background:var(--surface-2);color:var(--ink-faint);border:1px solid var(--line-soft);
+}
+.tag.where{background:var(--orange-tint);color:var(--orange-ink);border-color:transparent}
+.done-when{
+  font-family:var(--head);font-size:13px;color:var(--ink-faint);margin:0;
+  padding-left:13px;border-left:2px solid var(--line);
+}
+.done-when b{font-weight:700;color:var(--ink-soft)}
+
+/* the ordered phase: the number is load-bearing, not decoration —
+   each step is only safe once the one above it has passed */
+.task--step{grid-template-columns:auto auto 1fr;gap:16px}
+.step-n{
+  font-family:var(--head);font-weight:800;font-size:13px;
+  width:28px;height:28px;border-radius:8px;flex:none;margin-top:0;
+  display:grid;place-content:center;
+  background:var(--navy);color:var(--on-navy);
+  font-variant-numeric:tabular-nums;
+}
+.task--step:has(input:checked) .step-n{background:var(--safe);color:var(--surface)}
+
+/* ---------- callouts ---------- */
+.warn{
+  background:var(--risk-tint);border:1px solid transparent;border-left:4px solid var(--risk);
+  border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;max-width:var(--measure);
+}
+.warn h3{margin:0 0 8px;color:var(--risk);font-size:15.5px}
+.warn p{margin:0;font-size:16px;line-height:1.62}
+
+.note{
+  background:var(--surface-2);border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:18px 22px;max-width:var(--measure);font-size:15.5px;line-height:1.62;color:var(--ink-soft);
+}
+.note strong{color:var(--ink);font-weight:600}
+
+code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.86em;background:var(--surface-2);border:1px solid var(--line-soft);
+  border-radius:5px;padding:1px 6px;color:var(--ink);overflow-wrap:anywhere;
+}
+pre{
+  background:var(--navy);color:var(--on-navy);border-radius:var(--radius);
+  padding:16px 20px;overflow-x:auto;margin:0;max-width:var(--measure);
+}
+pre code{background:none;border:0;padding:0;color:inherit;font-size:13px;line-height:1.65;white-space:pre}
+
+/* ---------- progress ---------- */
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.count{
+  font-family:var(--head);font-size:12px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-faint);font-variant-numeric:tabular-nums;flex:none;
+}
+
+footer{
+  border-top:1px solid var(--line);padding:28px 0 60px;
+  font-family:var(--head);font-size:13px;color:var(--ink-faint);
+}
+footer p{margin:0 0 6px;max-width:var(--measure)}
+
+@media(max-width:640px){
+  body{font-size:16px}
+  .status-grid{grid-template-columns:1fr}
+  .rec{grid-template-columns:1fr;gap:8px}
+  .task--step{grid-template-columns:auto 1fr;row-gap:12px}
+  .task--step .step-n{grid-column:1}
+  .task--step input{grid-column:2;justify-self:start}
+  .task--step .task-main{grid-column:1 / -1}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important;animation:none !important}
+}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow">Outwork'em Digital &middot; Operations</p>
+    <h1>Stopping Fraudulent Email Sent as Us</h1>
+    <p class="standfirst">Right now anyone on the internet can send email that appears to come from
+    <code style="background:rgba(255,255,255,.12);border-color:transparent;color:inherit">@outworkemdigital.com</code>,
+    and mailbox providers will deliver it. This is how we shut that down, in the order it has to be done.</p>
+  </div>
+</header>
+
+<section class="status wrap" aria-label="Current state of our email records">
+  <div class="status-grid">
+    <div class="stat">
+      <span class="stat-k">DMARC policy</span>
+      <span class="chip bad">Not enforcing</span>
+      <span class="stat-v">p=none</span>
+    </div>
+    <div class="stat">
+      <span class="stat-k">SPF</span>
+      <span class="chip warn">Soft fail</span>
+      <span class="stat-v">v=spf1 include:&hellip;easydmarc.pro ~all</span>
+    </div>
+    <div class="stat">
+      <span class="stat-k">DKIM signing</span>
+      <span class="chip ok">Published</span>
+      <span class="stat-v">google._domainkey</span>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section>
+    <h2>What is actually happening</h2>
+    <p class="sec-note">Plain English first</p>
+
+    <div class="analogy">
+      <p>Think about a paper envelope. You write the return address yourself. Nobody at the
+      post office checks whether you really live there. If a stranger writes <strong>our</strong> address
+      in that corner and drops the letter in a mailbox, it arrives looking like it came from us.</p>
+      <p>Email works exactly the same way. The "From" line is typed by whoever is sending, and
+      no mail server verifies it on its own. That is not a bug in our website or our hosting.
+      It is how email was designed in the 1980s, and it has never changed.</p>
+      <p>What <em>has</em> been added since are three notes we publish publicly about our own
+      domain, telling every mail server in the world how to spot a fake. All three exist for us.
+      The problem is that the most important one is currently set to do nothing about what it finds.</p>
+    </div>
+
+    <h3>The three notes, without the acronyms</h3>
+    <div class="records">
+      <div class="rec">
+        <div class="rec-name">SPF</div>
+        <div class="rec-body">The guest list. It names which mail services are allowed to send
+        on our behalf &mdash; Google Workspace, our CRM, our invoicing tool.
+        <em>Ours exists, but it ends with a "soft" instruction, closer to a suggestion than a rule.</em></div>
+      </div>
+      <div class="rec">
+        <div class="rec-name">DKIM</div>
+        <div class="rec-body">The wax seal. Every message we send gets stamped with a signature
+        that cannot be forged and breaks if the message is altered in transit.
+        <em>Ours is published and working. Nothing to do here.</em></div>
+      </div>
+      <div class="rec">
+        <div class="rec-name">DMARC</div>
+        <div class="rec-body">The standing order. It tells receiving mail servers what to do
+        with a message that fails the guest list and the seal: let it through, send it to spam,
+        or refuse it outright.
+        <em>Ours says "let it through and just tell us about it." This is the whole problem.</em></div>
+      </div>
+    </div>
+
+    <h3>Why we cannot just flip the switch</h3>
+    <div class="prose">
+      <p>Setting the standing order to "refuse" today would stop the impersonation immediately.
+      It would also stop any of our own legitimate mail that is not correctly signed &mdash; which
+      can quietly include invoicing, the CRM, appointment reminders, and newsletters. Those tools
+      often send as us without being on the guest list, and nobody notices until the day they stop
+      arriving.</p>
+      <p>So the sequence below tightens the rule in stages, watching real delivery data at each
+      step. It takes two to six weeks of mostly waiting, and almost no work.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div>
+        <h2>Part 1 &middot; Lock the domain</h2>
+        <p class="sec-note">Do these in order &middot; 2&ndash;6 weeks</p>
+      </div>
+      <span class="count" data-count-for="dmarc">0 of 6 done</span>
+    </div>
+
+    <div class="warn">
+      <h3>Order is not a suggestion here</h3>
+      <p>Steps 5 and 6 are the ones that actually block impersonation, and they are also the ones
+      that can block us. Do not jump ahead to them. Every step before exists to make sure that
+      when we start refusing mail, none of it is ours.</p>
+    </div>
+
+    <div class="tasks" data-group="dmarc" style="margin-top:20px">
+
+      <label class="task task--step">
+        <span class="step-n">1</span>
+        <input type="checkbox" data-key="d1">
+        <span class="task-main">
+          <span class="task-title">Open the EasyDMARC reports and list every sender</span>
+          <span class="task-meta">
+            <span class="tag where">EasyDMARC dashboard</span>
+            <span class="tag">30 minutes</span>
+          </span>
+          <p class="task-body">Reports have been collecting for a while already, so there is
+          history to read. Write down every service that appears sending as our domain. Expect
+          Google Workspace and HighLevel, plus anything used for invoicing, proposals, or
+          newsletters.</p>
+          <p class="done-when"><b>Done when</b> we have one written list of every legitimate sender.</p>
+        </span>
+      </label>
+
+      <label class="task task--step">
+        <span class="step-n">2</span>
+        <input type="checkbox" data-key="d2">
+        <span class="task-main">
+          <span class="task-title">Separate the real senders from the impersonators</span>
+          <span class="task-meta">
+            <span class="tag where">EasyDMARC dashboard</span>
+            <span class="tag">30 minutes</span>
+          </span>
+          <p class="task-body">Anything on the list we do not recognise is either a forgotten
+          tool or somebody sending as us. Both matter: the first must be authorised before we
+          tighten anything, the second is what we are here to stop.</p>
+          <p class="done-when"><b>Done when</b> every sending source is marked either <b>ours</b> or <b>unknown</b>.</p>
+        </span>
+      </label>
+
+      <label class="task task--step">
+        <span class="step-n">3</span>
+        <input type="checkbox" data-key="d3">
+        <span class="task-main">
+          <span class="task-title">Get every real sender passing both checks</span>
+          <span class="task-meta">
+            <span class="tag where">Each tool's settings</span>
+            <span class="tag">1&ndash;2 hours</span>
+          </span>
+          <p class="task-body">For each service on the "ours" list, turn on domain
+          authentication in that tool and add whatever records it gives us. HighLevel, Google
+          Workspace and every mainstream sender have a one-page guide for this. It is copy and
+          paste, not engineering.</p>
+          <p class="done-when"><b>Done when</b> EasyDMARC shows every one of our senders passing both SPF and DKIM.</p>
+        </span>
+      </label>
+
+      <label class="task task--step">
+        <span class="step-n">4</span>
+        <input type="checkbox" data-key="d4">
+        <span class="task-main">
+          <span class="task-title">Wait one full week and re-read the reports</span>
+          <span class="task-meta">
+            <span class="tag">7 days &middot; no work</span>
+          </span>
+          <p class="task-body">A week catches the senders that only fire occasionally &mdash; monthly
+          invoices, quarterly newsletters, a proposal tool nobody has opened since spring. These
+          are exactly the ones that break when a policy is tightened too early.</p>
+          <p class="done-when"><b>Done when</b> a full week has passed with no unexplained failures from our own senders.</p>
+        </span>
+      </label>
+
+      <label class="task task--step">
+        <span class="step-n">5</span>
+        <input type="checkbox" data-key="d5">
+        <span class="task-main">
+          <span class="task-title">Move the policy to quarantine, a quarter at a time</span>
+          <span class="task-meta">
+            <span class="tag where">DNS &middot; _dmarc TXT record</span>
+            <span class="tag">10 minutes + 2 weeks</span>
+          </span>
+          <p class="task-body">Change <code>p=none</code> to <code>p=quarantine; pct=25</code>.
+          A quarter of failing mail now goes to spam instead of the inbox. Watch for a week, then
+          raise to <code>pct=100</code> and watch another week. If our own mail starts landing in
+          spam, drop back and return to step&nbsp;3.</p>
+          <p class="done-when"><b>Done when</b> the record reads <code>p=quarantine; pct=100</code> and a week has passed with no complaints.</p>
+        </span>
+      </label>
+
+      <label class="task task--step">
+        <span class="step-n">6</span>
+        <input type="checkbox" data-key="d6">
+        <span class="task-main">
+          <span class="task-title">Refuse outright, and close the guest list</span>
+          <span class="task-meta">
+            <span class="tag where">DNS &middot; _dmarc and SPF TXT records</span>
+            <span class="tag">10 minutes</span>
+          </span>
+          <p class="task-body">Set the policy to <code>p=reject</code> and change the end of the
+          SPF record from <code>~all</code> to <code>-all</code>. Forged mail as our domain now
+          gets refused at the door rather than delivered. This is the step that ends the problem.</p>
+          <p class="done-when"><b>Done when</b> the record reads <code>p=reject</code> and our own test emails still arrive normally.</p>
+        </span>
+      </label>
+
+    </div>
+
+    <div class="note" style="margin-top:20px">
+      <strong>What the finished record looks like.</strong> For reference when we get to step 6 &mdash;
+      keep the existing reporting addresses exactly as they are.
+      <pre style="margin-top:12px"><code>v=DMARC1; p=reject; pct=100;
+rua=mailto:3cfeaa8ffd@rua.easydmarc.us;
+ruf=mailto:3cfeaa8ffd@ruf.easydmarc.us; fo=1;</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div>
+        <h2>Part 2 &middot; Stop the form spam</h2>
+        <p class="sec-note">Two form systems, two fixes &middot; can start today</p>
+      </div>
+      <span class="count" data-count-for="ghl">0 of 7 done</span>
+    </div>
+
+    <div class="prose" style="margin-bottom:20px">
+      <p>A crawl of all 67 public pages found <strong>two separate form systems</strong>, and they
+      need different fixes. Anti-spam work aimed at one of them cannot touch the other, which is
+      probably why nothing tried so far has helped.</p>
+      <p>The <strong>HighLevel contact form</strong> (<code>FvDrMMo4Y5Y85peXUi4K</code>) sits on
+      every single page &mdash; it is in the global template. Its submissions never touch our
+      website or our hosting, so no WordPress plugin can see them. It is fixed inside HighLevel.</p>
+      <p>The <strong>Elementor "Blog Optin" form</strong> is a real WordPress form, on 40 pages:
+      every blog post, every news post and all six service pages. It posts straight to our own
+      server, and right now it has <strong>one email field and no protection of any kind</strong>
+      &mdash; no CAPTCHA, no honeypot, not even a nonce. A script can submit it in a loop. This is
+      the most likely source of the junk.</p>
+    </div>
+
+    <div class="tasks" data-group="ghl">
+
+      <label class="task">
+        <input type="checkbox" data-key="e1">
+        <span class="task-main">
+          <span class="task-title">Add protection to the Elementor "Blog Optin" form</span>
+          <span class="task-meta">
+            <span class="tag where">Elementor &rsaquo; edit form &rsaquo; Additional Options</span>
+            <span class="tag">Do this first</span>
+          </span>
+          <p class="task-body">This is the wide-open one. Elementor ships both a honeypot field
+          and reCAPTCHA v3 &mdash; neither is enabled. Turn on both. The form appears on 40 pages
+          but is a single saved widget, so fixing it once fixes all of them.</p>
+          <p class="done-when"><b>Done when</b> the page source of any blog post shows a honeypot or reCAPTCHA field inside the form.</p>
+        </span>
+      </label>
+
+      <label class="task">
+        <input type="checkbox" data-key="e2">
+        <span class="task-main">
+          <span class="task-title">Decide whether that form should exist at all</span>
+          <span class="task-meta">
+            <span class="tag where">WordPress &rsaquo; Elementor templates</span>
+          </span>
+          <p class="task-body">It collects an email address and nothing else. If those addresses
+          are not actually feeding a list somebody uses, deleting the widget removes the whole
+          attack surface and is faster than defending it.</p>
+          <p class="done-when"><b>Done when</b> we have either confirmed where those emails go, or removed the form.</p>
+        </span>
+      </label>
+
+      <label class="task">
+        <input type="checkbox" data-key="g1">
+        <span class="task-main">
+          <span class="task-title">Turn on CAPTCHA for every published form</span>
+          <span class="task-meta">
+            <span class="tag where">HighLevel &rsaquo; Sites &rsaquo; Forms &rsaquo; Settings</span>
+          </span>
+          <p class="task-body">Open each form in the builder and switch on the built-in CAPTCHA.
+          The contact form <code>FvDrMMo4Y5Y85peXUi4K</code> is embedded on all 67 pages, so this
+          single change covers the whole site. Also check the two booking widgets:
+          <code>pvs58tcnnod1WExkREup</code> on <code>/schedule/</code> and
+          <code>book-outworkem-podcast</code> on <code>/podcast/</code>.</p>
+          <p class="done-when"><b>Done when</b> every form in the account shows CAPTCHA enabled.</p>
+        </span>
+      </label>
+
+      <label class="task">
+        <input type="checkbox" data-key="g2">
+        <span class="task-main">
+          <span class="task-title">Require a valid phone and email format</span>
+          <span class="task-meta">
+            <span class="tag where">HighLevel &rsaquo; form field settings</span>
+          </span>
+          <p class="task-body">Mark phone and email as required and turn on format validation.
+          Most junk submissions fail basic validation, and this costs a real prospect nothing.</p>
+          <p class="done-when"><b>Done when</b> a deliberately malformed test submission is rejected.</p>
+        </span>
+      </label>
+
+      <label class="task">
+        <input type="checkbox" data-key="g3">
+        <span class="task-main">
+          <span class="task-title">Add a rate limit in front of the form</span>
+          <span class="task-meta">
+            <span class="tag where">Cloudflare &rsaquo; Security &rsaquo; WAF</span>
+          </span>
+          <p class="task-body">A rule on the form widget path capping submissions per IP per
+          minute. CAPTCHA stops casual bots; a rate limit stops the ones that get past it from
+          doing volume.</p>
+          <p class="done-when"><b>Done when</b> the rule is live and shows a non-zero match count after a day.</p>
+        </span>
+      </label>
+
+      <label class="task">
+        <input type="checkbox" data-key="g4">
+        <span class="task-main">
+          <span class="task-title">Fix the empty CAPTCHA config in WordPress</span>
+          <span class="task-meta">
+            <span class="tag where">WordPress &rsaquo; JetBlocks settings</span>
+          </span>
+          <p class="task-body">The JetBlocks plugin is loading on every page with its reCAPTCHA
+          key left blank. If any JetBlocks form is still live anywhere on the site, it has no
+          protection at all. Either configure the key or remove the forms.</p>
+          <p class="done-when"><b>Done when</b> the key is set, or we have confirmed no JetBlocks form is published.</p>
+        </span>
+      </label>
+
+      <label class="task">
+        <input type="checkbox" data-key="g5">
+        <span class="task-main">
+          <span class="task-title">Watch for a week and record what still gets through</span>
+          <span class="task-meta">
+            <span class="tag">7 days</span>
+          </span>
+          <p class="task-body">If junk keeps arriving after CAPTCHA and rate limiting, it is
+          being submitted by hand or by a service that solves CAPTCHAs. That is a different
+          problem and needs the form URL kept off scraped directories.</p>
+          <p class="done-when"><b>Done when</b> we can say how many junk submissions arrived in a full week.</p>
+        </span>
+      </label>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div>
+        <h2>Part 3 &middot; Two loose ends</h2>
+        <p class="sec-note">Small, but found while looking</p>
+      </div>
+      <span class="count" data-count-for="wp">0 of 2 done</span>
+    </div>
+
+    <div class="tasks" data-group="wp">
+
+      <label class="task">
+        <input type="checkbox" data-key="w1">
+        <span class="task-main">
+          <span class="task-title">Stop publishing our admin username</span>
+          <span class="task-meta">
+            <span class="tag where">WordPress &rsaquo; security plugin or functions.php</span>
+          </span>
+          <p class="task-body">The address <code>/wp-json/wp/v2/users</code> is open to the public
+          and returns the administrator account. Anyone who reads it gets half of what they need
+          to guess their way in &mdash; the other half being the password. Disable the endpoint for
+          logged-out visitors and turn off author archives.</p>
+          <p class="done-when"><b>Done when</b> that address returns an error to a logged-out visitor.</p>
+        </span>
+      </label>
+
+      <label class="task">
+        <input type="checkbox" data-key="w2">
+        <span class="task-main">
+          <span class="task-title">Rename the account still published as a former co-founder</span>
+          <span class="task-meta">
+            <span class="tag where">WordPress &rsaquo; Users</span>
+          </span>
+          <p class="task-body">The administrator account displays as "Ryan Kearney" but its public
+          address is <code>/author/thomas-eberts/</code>, which currently loads as a live page.
+          It should match the person who uses it.</p>
+          <p class="done-when"><b>Done when</b> the old author URL no longer resolves.</p>
+        </span>
+      </label>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>Prepared from a live inspection of outworkemdigital.com and its public DNS records.
+  Progress on this page is saved in your own browser only &mdash; it is not shared between people,
+  so each person tracking this keeps their own copy.</p>
+</footer>
+
+<script>
+/* Checkbox state persists locally: this runbook is worked through over weeks,
+   not in one sitting. Wrapped because storage throws outright in some
+   privacy modes, and a thrown error here would leave the page inert. */
+(function(){
+  var KEY = 'owd-spoofing-runbook';
+  var boxes = [].slice.call(document.querySelectorAll('.task input[type="checkbox"]'));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+
+  function counts(){
+    document.querySelectorAll('[data-count-for]').forEach(function(el){
+      var group = document.querySelector('[data-group="' + el.getAttribute('data-count-for') + '"]');
+      if (!group) return;
+      var all = group.querySelectorAll('input[type="checkbox"]');
+      var on  = group.querySelectorAll('input[type="checkbox"]:checked');
+      el.textContent = on.length + ' of ' + all.length + ' done';
+    });
+  }
+
+  boxes.forEach(function(b){
+    if (saved[b.dataset.key]) b.checked = true;
+    b.addEventListener('change', function(){
+      saved[b.dataset.key] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+      counts();
+    });
+  });
+
+  counts();
+})();
+</script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -412,7 +412,11 @@ html[data-theme="dark"] .theme-toggle .t-dark{display:inline-block}
 /* =============================================================
    FINAL CTA
    ============================================================= */
-.final-cta{padding-block:0 clamp(3.5rem,9vw,5.625rem)}
+/* Symmetric, so the card sits centred inside its own full-bleed band. It used
+   to be `0 clamp(...)`, which let the tinted band start exactly at the card's
+   top edge while leaving 90px underneath — the card read as stuck to whatever
+   section came before it. */
+.final-cta{padding-block:clamp(3.25rem,8vw,5rem)}
 .cta-band{
   background:linear-gradient(140deg,var(--navy-500) 0%,var(--navy-700) 100%);
   border:1px solid rgba(255,255,255,.10);
@@ -667,93 +671,146 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
 /* Case-studies dropdown: the mega-menu .nav-drop is a 580px two-column grid
    built for the eight service links. With two items that is far too wide, so
    this variant collapses to a single readable column. */
-.nav-drop--cases{grid-template-columns:1fr;min-width:340px}
+.nav-drop--cases,.nav-drop--about{grid-template-columns:1fr;min-width:340px}
 
 
   /* === header breathing: protect nav padding from .wrap shorthand collision === */
   header .nav{padding:18px 32px}
   @media(max-width:600px){header .nav{padding:15px 20px}}
+
+/* CTAs are links now, not buttons: without this the shared button styling
+   inherits the default anchor underline. */
+a.btn-cta,a.btn,a.f-cta{text-decoration:none}
 </style>
+<script>
+/* Dark is the default, set on <html> in the markup. Only a saved light
+   preference overrides it, and that has to land before the first paint or a
+   light-theme visitor sees a dark flash on every page load.
+   The key is versioned: anyone who toggled to light while light was the
+   default still has that stored, and would never see the new default. */
+try{if(localStorage.getItem('owd-theme-v2')==='light')
+  document.documentElement.setAttribute('data-theme','light')}catch(e){}
+</script>
 </head>
 <body>
 
 <!-- ============ HEADER ============ -->
 <header>
   <div class="wrap nav">
-    <a class="logo" href="index.html">
-      <img class="logo-light" src="img/outworkem-digital-logo-light-bg.webp" alt="Outwork'em Digital">
-      <img class="logo-dark"  src="img/outworkem-digital-logo-dark-bg.webp"  alt="Outwork'em Digital">
+    <a class="logo" href="/">
+      <img class="logo-light" src="/img/outworkem-digital-logo-light-bg.webp" alt="Outwork'em Digital">
+      <img class="logo-dark"  src="/img/outworkem-digital-logo-dark-bg.webp"  alt="Outwork'em Digital">
     </a>
     <nav class="nav-links">
-      <a href="pricing.html">Pricing</a>
+      <a href="/marketing-programs/">Pricing</a>
       <div class="nav-item">
         <a>Case studies <span class="caret">+</span></a>
         <div class="nav-drop nav-drop--cases">
-          <a href="case-study-comfort-one.html">
+          <a href="/case-studies/">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">trending_up</span></span>
+            <span class="drop-text"><span class="drop-name">All Case Studies</span><span class="drop-headline">Every build, with the numbers side by side</span></span>
+          </a>
+          <a href="/case-studies/comfort-one-air-conditioning-case-study/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">hvac</span></span>
             <span class="drop-text"><span class="drop-name">HVAC Contractor Case Study</span><span class="drop-headline">Comfort One Air Conditioning &middot; Scottsdale, AZ</span></span>
           </a>
-          <a href="case-study-janecek.html">
+          <a href="/case-studies/janecek-construction-remodeling-case-study/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">handyman</span></span>
             <span class="drop-text"><span class="drop-name">Remodeling Services Case Study</span><span class="drop-headline">Janecek Construction &middot; Northeast Ohio</span></span>
+          </a>
+          <a href="/case-studies/pool-boys-case-study/">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">pool</span></span>
+            <span class="drop-text"><span class="drop-name">Pool Service Case Study</span><span class="drop-headline">The Pool Boys &middot; League City, TX</span></span>
+          </a>
+          <a href="/case-studies/desert-state-roofing-case-study/">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">roofing</span></span>
+            <span class="drop-text"><span class="drop-name">Roofing Services Case Study</span><span class="drop-headline">Desert State Roofing &middot; Cave Creek, AZ</span></span>
+          </a>
+          <a href="/case-studies/integrity-exterior-solutions-case-study/">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">window</span></span>
+            <span class="drop-text"><span class="drop-name">Windows & Exteriors Case Study</span><span class="drop-headline">Exterior Contractor &middot; Lincoln, NE</span></span>
           </a>
         </div>
       </div>
       <div class="nav-item">
         <a>Services <span class="caret">+</span></a>
         <div class="nav-drop">
-          <a href="media-content.html">
+          <a href="/marketing-services/">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">grid_view</span></span>
+            <span class="drop-text"><span class="drop-name">All Services</span><span class="drop-headline">The full list, and what comes with every one</span></span>
+          </a>
+          <a href="/marketing-services/media-content-production/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">videocam</span></span>
             <span class="drop-text"><span class="drop-name">Media &amp; Content</span><span class="drop-headline">Video content that generates real leads</span></span>
           </a>
-          <a href="hosting.html">
+          <a href="/marketing-services/web-hosting-services/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">dns</span></span>
             <span class="drop-text"><span class="drop-name">Web Hosting</span><span class="drop-headline">Fast, secure hosting for contractor sites</span></span>
           </a>
-          <a href="mailbox-power.html">
+          <a href="/marketing-services/client-gifting-direct-mail/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">card_giftcard</span></span>
             <span class="drop-text"><span class="drop-name">Client Gifting</span><span class="drop-headline">Automated gifts that drive referrals</span></span>
           </a>
-          <a href="web-design.html">
+          <a href="/marketing-services/website-design-services/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">web</span></span>
             <span class="drop-text"><span class="drop-name">Website Design</span><span class="drop-headline">Sites built to rank and convert</span></span>
           </a>
-          <a href="organic-seo.html">
+          <a href="/marketing-services/organic-seo-services/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">search</span></span>
             <span class="drop-text"><span class="drop-name">Organic SEO</span><span class="drop-headline">Rank higher, generate consistent leads</span></span>
           </a>
-          <a href="local-seo.html">
+          <a href="/marketing-services/local-seo-services/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">pin_drop</span></span>
             <span class="drop-text"><span class="drop-name">Local SEO</span><span class="drop-headline">Dominate the Google Map Pack</span></span>
           </a>
-          <a href="ppc.html">
+          <a href="/marketing-services/ppc-advertising-services/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">ads_click</span></span>
             <span class="drop-text"><span class="drop-name">Pay-Per-Click Ads</span><span class="drop-headline">Get your phone ringing today</span></span>
           </a>
-          <a href="local-services-ads.html">
+          <a href="/marketing-services/local-services-ads-2/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">storefront</span></span>
             <span class="drop-text"><span class="drop-name">Local Services Ads</span><span class="drop-headline">Google Guaranteed leads at the top</span></span>
           </a>
-          <a href="reputation-management.html">
+          <a href="/marketing-services/reputation-management-services/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">star_rate</span></span>
             <span class="drop-text"><span class="drop-name">Reputation Mgmt</span><span class="drop-headline">Turn every job into 5-star reviews</span></span>
           </a>
-          <a href="podcast.html">
+          <a href="/podcast/">
             <span class="drop-icon-wrap"><span class="material-symbols-outlined">mic</span></span>
             <span class="drop-text"><span class="drop-name">Podcast</span><span class="drop-headline">Share your story, build authority</span></span>
           </a>
         </div>
       </div>
-      <a>Our work</a>
-      <a>Who we serve</a>
-      <a href="about-us.html">About us</a>
+      <a href="/our-work/">Our work</a>
+      <a href="/who-we-serve/">Who we serve</a>
+      <div class="nav-item">
+        <a>About us <span class="caret">+</span></a>
+        <div class="nav-drop nav-drop--about">
+          <a href="/about-us/">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">info</span></span>
+            <span class="drop-text"><span class="drop-name">About Outwork'em</span><span class="drop-headline">Who we are and how we work</span></span>
+          </a>
+          <a href="/about-us/meet-the-team/">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">diversity_3</span></span>
+            <span class="drop-text"><span class="drop-name">Meet the Team</span><span class="drop-headline">The people behind your marketing</span></span>
+          </a>
+          <a href="/about-us/news/">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">newspaper</span></span>
+            <span class="drop-text"><span class="drop-name">News</span><span class="drop-headline">Launches, partnerships and awards</span></span>
+          </a>
+          <a href="/home-service-marketing-academy/">
+            <span class="drop-icon-wrap"><span class="material-symbols-outlined">menu_book</span></span>
+            <span class="drop-text"><span class="drop-name">Blog</span><span class="drop-headline">Playbooks for HVAC and home service marketing</span></span>
+          </a>
+        </div>
+      </div>
     </nav>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <span class="material-symbols-outlined t-light">dark_mode</span>
         <span class="material-symbols-outlined t-dark">light_mode</span>
       </button>
-      <button class="btn btn-solid">Let's Talk</button>
+      <a class="btn btn-solid" href="/schedule/">Let's Talk</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -766,44 +823,57 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
   <div class="mob-overlay" id="mobOverlay"></div>
   <div class="mob-panel">
     <div class="mob-head">
-      <a href="index.html">
-        <img class="logo-light" src="img/outworkem-digital-logo-light-bg.webp" alt="Outwork'em Digital">
-        <img class="logo-dark"  src="img/outworkem-digital-logo-dark-bg.webp"  alt="Outwork'em Digital">
+      <a href="/">
+        <img class="logo-light" src="/img/outworkem-digital-logo-light-bg.webp" alt="Outwork'em Digital">
+        <img class="logo-dark"  src="/img/outworkem-digital-logo-dark-bg.webp"  alt="Outwork'em Digital">
       </a>
       <button class="mob-close" id="mobClose" aria-label="Close">
         <span class="material-symbols-outlined">close</span>
       </button>
     </div>
     <div class="mob-links">
-      <a class="mob-link" href="pricing.html">Pricing</a>
+      <a class="mob-link" href="/marketing-programs/">Pricing</a>
       <div>
         <div class="mob-link mob-cs-toggle" id="mobCsToggle">Case Studies <span class="material-symbols-outlined mob-arr">expand_more</span></div>
         <div class="mob-sub" id="mobCsSub">
-          <a href="case-study-comfort-one.html"><span class="drop-icon material-symbols-outlined">hvac</span>HVAC Contractor Case Study</a>
-          <a href="case-study-janecek.html"><span class="drop-icon material-symbols-outlined">handyman</span>Remodeling Services Case Study</a>
+          <a href="/case-studies/"><span class="drop-icon material-symbols-outlined">trending_up</span>All Case Studies</a>
+          <a href="/case-studies/comfort-one-air-conditioning-case-study/"><span class="drop-icon material-symbols-outlined">hvac</span>HVAC Contractor Case Study</a>
+          <a href="/case-studies/janecek-construction-remodeling-case-study/"><span class="drop-icon material-symbols-outlined">handyman</span>Remodeling Services Case Study</a>
+          <a href="/case-studies/pool-boys-case-study/"><span class="drop-icon material-symbols-outlined">pool</span>Pool Service Case Study</a>
+          <a href="/case-studies/desert-state-roofing-case-study/"><span class="drop-icon material-symbols-outlined">roofing</span>Roofing Services Case Study</a>
+          <a href="/case-studies/integrity-exterior-solutions-case-study/"><span class="drop-icon material-symbols-outlined">window</span>Windows & Exteriors Case Study</a>
         </div>
       </div>
       <div>
         <div class="mob-link mob-svc-toggle" id="mobSvcToggle">Services <span class="material-symbols-outlined mob-arr">expand_more</span></div>
         <div class="mob-sub" id="mobSub">
-          <a href="media-content.html"><span class="drop-icon material-symbols-outlined">videocam</span>Media &amp; Content</a>
-          <a href="hosting.html"><span class="drop-icon material-symbols-outlined">dns</span>Web Hosting</a>
-          <a href="mailbox-power.html"><span class="drop-icon material-symbols-outlined">card_giftcard</span>Client Gifting</a>
-          <a href="web-design.html"><span class="drop-icon material-symbols-outlined">web</span>Website Design</a>
-          <a href="organic-seo.html"><span class="drop-icon material-symbols-outlined">search</span>Organic SEO</a>
-          <a href="local-seo.html"><span class="drop-icon material-symbols-outlined">pin_drop</span>Local SEO</a>
-          <a href="ppc.html"><span class="drop-icon material-symbols-outlined">ads_click</span>Pay-Per-Click Ads</a>
-          <a href="local-services-ads.html"><span class="drop-icon material-symbols-outlined">storefront</span>Local Services Ads</a>
-          <a href="reputation-management.html"><span class="drop-icon material-symbols-outlined">star_rate</span>Reputation Mgmt</a>
-          <a href="podcast.html"><span class="drop-icon material-symbols-outlined">mic</span>Podcast</a>
+          <a href="/marketing-services/"><span class="drop-icon material-symbols-outlined">grid_view</span>All Services</a>
+          <a href="/marketing-services/media-content-production/"><span class="drop-icon material-symbols-outlined">videocam</span>Media &amp; Content</a>
+          <a href="/marketing-services/web-hosting-services/"><span class="drop-icon material-symbols-outlined">dns</span>Web Hosting</a>
+          <a href="/marketing-services/client-gifting-direct-mail/"><span class="drop-icon material-symbols-outlined">card_giftcard</span>Client Gifting</a>
+          <a href="/marketing-services/website-design-services/"><span class="drop-icon material-symbols-outlined">web</span>Website Design</a>
+          <a href="/marketing-services/organic-seo-services/"><span class="drop-icon material-symbols-outlined">search</span>Organic SEO</a>
+          <a href="/marketing-services/local-seo-services/"><span class="drop-icon material-symbols-outlined">pin_drop</span>Local SEO</a>
+          <a href="/marketing-services/ppc-advertising-services/"><span class="drop-icon material-symbols-outlined">ads_click</span>Pay-Per-Click Ads</a>
+          <a href="/marketing-services/local-services-ads-2/"><span class="drop-icon material-symbols-outlined">storefront</span>Local Services Ads</a>
+          <a href="/marketing-services/reputation-management-services/"><span class="drop-icon material-symbols-outlined">star_rate</span>Reputation Mgmt</a>
+          <a href="/podcast/"><span class="drop-icon material-symbols-outlined">mic</span>Podcast</a>
         </div>
       </div>
-      <a class="mob-link">Our Work</a>
-      <a class="mob-link">Who We Serve</a>
-      <a class="mob-link" href="about-us.html">About Us</a>
+      <a class="mob-link" href="/our-work/">Our Work</a>
+      <a class="mob-link" href="/who-we-serve/">Who We Serve</a>
+      <div>
+        <div class="mob-link mob-ab-toggle" id="mobAbToggle">About Us <span class="material-symbols-outlined mob-arr">expand_more</span></div>
+        <div class="mob-sub" id="mobAbSub">
+          <a href="/about-us/"><span class="drop-icon material-symbols-outlined">info</span>About Outwork'em</a>
+          <a href="/about-us/meet-the-team/"><span class="drop-icon material-symbols-outlined">diversity_3</span>Meet the Team</a>
+          <a href="/about-us/news/"><span class="drop-icon material-symbols-outlined">newspaper</span>News</a>
+          <a href="/home-service-marketing-academy/"><span class="drop-icon material-symbols-outlined">menu_book</span>Blog</a>
+        </div>
+      </div>
     </div>
     <div class="mob-footer">
-      <button class="btn-cta">Let's Talk <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></button>
+      <a class="btn-cta" href="/schedule/">Let's Talk <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span></a>
       <div class="mob-theme-row">
         <span>Dark Mode</span>
         <button class="theme-toggle" id="themeToggleMob" aria-label="Toggle theme">
@@ -819,7 +889,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
 <section class="hero wrap">
   <h1>The Agency Built for Home Service Contractors</h1>
   <p class="lead">No fluff. No excuses. Just transparent marketing that fills your pipeline and grows your business.</p>
-  <img class="hero-img" src="img/ryan-jana167757.jpg" alt="Ryan and Jana at the red rock landscape of Sedona, Arizona at dusk">
+  <img class="hero-img" src="/img/ryan-jana167757.jpg" alt="Ryan and Jana at the red rock landscape of Sedona, Arizona at dusk">
 </section>
 
 <!-- ============ REVIEWS ============ -->
@@ -903,7 +973,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
       <h3>Website Design &amp; Development</h3>
       <p>Custom, high-performance websites built to rank on Google and turn visitors into booked jobs.</p>
       <div class="svc-foot">
-        <a class="svc-more" href="web-design.html">Read more</a>
+        <a class="svc-more" href="/marketing-services/website-design-services/">Read more</a>
         <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
       </div>
     </article>
@@ -911,7 +981,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
       <h3>Organic SEO</h3>
       <p>On-page, technical, and content strategies that climb the rankings month after month.</p>
       <div class="svc-foot">
-        <a class="svc-more" href="organic-seo.html">Read more</a>
+        <a class="svc-more" href="/marketing-services/organic-seo-services/">Read more</a>
         <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
       </div>
     </article>
@@ -919,7 +989,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
       <h3>Local SEO</h3>
       <p>Dominate your local market with an optimized Google Business Profile and map-pack visibility.</p>
       <div class="svc-foot">
-        <a class="svc-more" href="local-seo.html">Read more</a>
+        <a class="svc-more" href="/marketing-services/local-seo-services/">Read more</a>
         <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
       </div>
     </article>
@@ -927,7 +997,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
       <h3>Pay-Per-Click Advertising</h3>
       <p>Targeted Google and social campaigns built to maximize your return on every dollar.</p>
       <div class="svc-foot">
-        <a class="svc-more" href="ppc.html">Read more</a>
+        <a class="svc-more" href="/marketing-services/ppc-advertising-services/">Read more</a>
         <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
       </div>
     </article>
@@ -935,7 +1005,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
       <h3>Local Service Ads</h3>
       <p>Show up above everyone else with pay-per-lead ads and the Google Guaranteed badge.</p>
       <div class="svc-foot">
-        <a class="svc-more" href="local-services-ads.html">Read more</a>
+        <a class="svc-more" href="/marketing-services/local-services-ads-2/">Read more</a>
         <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
       </div>
     </article>
@@ -943,7 +1013,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
       <h3>Reputation Management</h3>
       <p>Generate, monitor, and showcase the 5-star reviews that build credibility and trust.</p>
       <div class="svc-foot">
-        <a class="svc-more" href="reputation-management.html">Read more</a>
+        <a class="svc-more" href="/marketing-services/reputation-management-services/">Read more</a>
         <span class="svc-chip" aria-hidden="true"><span class="material-symbols-outlined">arrow_outward</span></span>
       </div>
     </article>
@@ -966,7 +1036,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
         <button class="ctrl active"><span class="material-symbols-outlined">chevron_right</span></button>
       </div>
     </div>
-    <div class="ph quote-img filled" style="background-image:url('img/ryan-jana168068.jpg')"></div>
+    <div class="ph quote-img filled" style="background-image:url('/img/ryan-jana168068.jpg')"></div>
   </div>
 </section>
 
@@ -979,15 +1049,15 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
   </div>
   <div class="cards">
     <article class="pcard">
-      <div class="ph thumb filled" style="background-image:url('img/ryan-jana168064-2.jpg')"><span class="arrow"><span class="material-symbols-outlined">arrow_outward</span></span></div>
+      <div class="ph thumb filled" style="background-image:url('/img/ryan-jana168064-2.jpg')"><span class="arrow"><span class="material-symbols-outlined">arrow_outward</span></span></div>
       <h3>Soko — e-commerce app design</h3>
     </article>
     <article class="pcard">
-      <div class="ph thumb filled" style="background-image:url('img/ryan-jana168067.jpg')"><span class="arrow"><span class="material-symbols-outlined">arrow_outward</span></span></div>
+      <div class="ph thumb filled" style="background-image:url('/img/ryan-jana168067.jpg')"><span class="arrow"><span class="material-symbols-outlined">arrow_outward</span></span></div>
       <h3>EagleGlide — e-commerce website</h3>
     </article>
     <article class="pcard">
-      <div class="ph thumb filled" style="background-image:url('img/ryan-jana168068.jpg')"><span class="arrow"><span class="material-symbols-outlined">arrow_outward</span></span></div>
+      <div class="ph thumb filled" style="background-image:url('/img/ryan-jana168068.jpg')"><span class="arrow"><span class="material-symbols-outlined">arrow_outward</span></span></div>
       <h3>Furdia — e-commerce website</h3>
     </article>
   </div>
@@ -1001,11 +1071,11 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
     <p class="lead">We are here to change the narrative. We don't believe in quick fixes; instead, we offer complete transparency and cap our client roster to focus on your business's sustainable growth and lasting success.</p>
   </div>
   <div class="about-card">
-    <div class="ph photo filled" style="background-image:url('img/ryan-jana168067.jpg')"></div>
+    <div class="ph photo filled" style="background-image:url('/img/ryan-jana168067.jpg')"></div>
     <div>
       <h3>A different approach: transparency &amp; real results</h3>
       <p>If you are like many home service contractors, you have likely had poor experiences with agencies that overpromise and underdeliver. We founded Outwork'em Digital to change that narrative. Unlike others, we cap our client roster to ensure you get the attention you deserve, maintain market exclusivity, and focus on your business's sustainable growth with complete transparency. We don't believe in quick fixes — we are here to build lasting success alongside you.</p>
-      <button class="btn-cta">More about us</button>
+      <a class="btn-cta" href="/about-us/">More about us</a>
     </div>
   </div>
 </section>
@@ -1022,10 +1092,10 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
         <span class="platform">Apple Podcasts</span>
         <span class="platform">YouTube</span>
       </div>
-      <button class="btn-cta">Listen Now</button>
+      <a class="btn-cta" href="/podcast/">Listen Now</a>
     </div>
     <div class="podcast-player">
-      <div class="ph episode filled" style="background-image:url('img/ryan-jana168064-2.jpg')">
+      <div class="ph episode filled" style="background-image:url('/img/ryan-jana168064-2.jpg')">
         <span class="play"><span class="material-symbols-outlined">play_arrow</span></span>
       </div>
       <div class="ep-meta">
@@ -1061,14 +1131,14 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
       <button class="ig-follow">Follow</button>
     </div>
     <div class="ig-grid">
-      <div class="ph ig-post filled" style="background-image:url('img/ryan-jana167591.jpg');background-position:center center"><span class="reel"></span></div>
-      <div class="ph ig-post filled" style="background-image:url('img/ryan-jana167865.jpg');background-position:center center"><span class="reel"></span></div>
-      <div class="ph ig-post filled" style="background-image:url('img/ryan-jana166422.jpg');background-position:center center"><span class="reel"></span></div>
-      <div class="ph ig-post filled" style="background-image:url('img/ryan-jana167433.jpg');background-position:center center"><span class="reel"></span></div>
-      <div class="ph ig-post filled" style="background-image:url('img/ryan-jana167549.jpg');background-position:center center"><span class="reel"></span></div>
-      <div class="ph ig-post filled" style="background-image:url('img/ryan-jana166584.jpg');background-position:center center"><span class="reel"></span></div>
-      <div class="ph ig-post filled" style="background-image:url('img/ryan-jana166687.jpg');background-position:center center"><span class="reel"></span></div>
-      <div class="ph ig-post filled" style="background-image:url('img/ryan-jana166717.jpg');background-position:center center"><span class="reel"></span></div>
+      <div class="ph ig-post filled" style="background-image:url('/img/ryan-jana167591.jpg');background-position:center center"><span class="reel"></span></div>
+      <div class="ph ig-post filled" style="background-image:url('/img/ryan-jana167865.jpg');background-position:center center"><span class="reel"></span></div>
+      <div class="ph ig-post filled" style="background-image:url('/img/ryan-jana166422.jpg');background-position:center center"><span class="reel"></span></div>
+      <div class="ph ig-post filled" style="background-image:url('/img/ryan-jana167433.jpg');background-position:center center"><span class="reel"></span></div>
+      <div class="ph ig-post filled" style="background-image:url('/img/ryan-jana167549.jpg');background-position:center center"><span class="reel"></span></div>
+      <div class="ph ig-post filled" style="background-image:url('/img/ryan-jana166584.jpg');background-position:center center"><span class="reel"></span></div>
+      <div class="ph ig-post filled" style="background-image:url('/img/ryan-jana166687.jpg');background-position:center center"><span class="reel"></span></div>
+      <div class="ph ig-post filled" style="background-image:url('/img/ryan-jana166717.jpg');background-position:center center"><span class="reel"></span></div>
     </div>
   </div>
 </section>
@@ -1078,7 +1148,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
   <div class="cta-band">
     <h2>Ready to Outwork Your Competition?</h2>
     <p>Book a free discovery call and get a transparent, results-driven marketing plan built for your business.</p>
-    <button class="btn-cta">Let's Talk</button>
+    <a class="btn-cta" href="/schedule/">Let's Talk</a>
   </div>
 </section>
 
@@ -1087,9 +1157,9 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="f-logo"><img src="img/outworkem-digital-logo-dark-bg.webp" alt="Outwork'em Digital"></div>
+        <div class="f-logo"><img src="/img/outworkem-digital-logo-dark-bg.webp" alt="Outwork'em Digital"></div>
         <div class="f-phone">833-695-1214</div>
-        <button class="f-cta">Book Discovery Call</button>
+        <a class="f-cta" href="/schedule/">Book Discovery Call</a>
         <div class="f-socials">
           <span class="f-social">IG</span>
           <span class="f-social">f</span>
@@ -1106,30 +1176,30 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
       <div class="f-col">
         <div class="f-head">Helpful Links</div>
         <ul>
-          <li><a>Home</a></li>
-          <li><a>Programs &amp; Pricing</a></li>
-          <li><a>Free Consultation</a></li>
-          <li><a>Marketing Academy</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/marketing-programs/">Programs &amp; Pricing</a></li>
+          <li><a href="/schedule/">Free Consultation</a></li>
+          <li><a href="/home-service-marketing-academy/">Marketing Academy</a></li>
         </ul>
       </div>
       <div class="f-col">
         <div class="f-head">Our Services</div>
         <ul class="services-list">
-          <li><a>All Services</a></li>
-          <li><a>Website Design</a></li>
-          <li><a>Organic SEO</a></li>
-          <li><a>Local SEO</a></li>
-          <li><a>Pay-Per-Click Advertising</a></li>
-          <li><a>Local Services Ads</a></li>
-          <li><a>Reputation Management</a></li>
+          <li><a href="/marketing-services/">All Services</a></li>
+          <li><a href="/marketing-services/website-design-services/">Website Design</a></li>
+          <li><a href="/marketing-services/organic-seo-services/">Organic SEO</a></li>
+          <li><a href="/marketing-services/local-seo-services/">Local SEO</a></li>
+          <li><a href="/marketing-services/ppc-advertising-services/">Pay-Per-Click Advertising</a></li>
+          <li><a href="/marketing-services/local-services-ads-2/">Local Services Ads</a></li>
+          <li><a href="/marketing-services/reputation-management-services/">Reputation Management</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 OUTWORK'EM DIGITAL | All Rights Reserved.</span>
       <span class="legal">
-        <a>Privacy Policy</a>
-        <a>Terms &amp; Conditions</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
         <a>Sitemap</a>
       </span>
     </div>
@@ -1140,9 +1210,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
 (function(){
   var html = document.documentElement;
 
-  /* ---- theme: restore from localStorage (applied before paint via data-theme="light" default) ---- */
-  var saved = localStorage.getItem('owd-theme');
-  if(saved === 'dark') html.setAttribute('data-theme','dark');
+  /* theme is resolved by the inline script in <head>, before first paint */
 
   /* ---- toggle ---- */
   var btn = document.getElementById('themeToggle');
@@ -1150,7 +1218,7 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
     var isDark = html.getAttribute('data-theme') === 'dark';
     html.classList.add('switching');
     html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    localStorage.setItem('owd-theme', isDark ? 'light' : 'dark');
+    localStorage.setItem('owd-theme-v2', isDark ? 'light' : 'dark');
     setTimeout(function(){ html.classList.remove('switching'); }, 380);
   });
 
@@ -1183,11 +1251,17 @@ html[data-theme="dark"] .mob-head img.logo-dark{display:block}
     mobCsToggle.classList.toggle('open');
     if(mobCsSub) mobCsSub.classList.toggle('open');
   });
+  var mobAbToggle=document.getElementById('mobAbToggle');
+  var mobAbSub=document.getElementById('mobAbSub');
+  if(mobAbToggle) mobAbToggle.addEventListener('click',function(){
+    mobAbToggle.classList.toggle('open');
+    if(mobAbSub) mobAbSub.classList.toggle('open');
+  });
   if(themeToggleMob) themeToggleMob.addEventListener('click',function(){
     var isDark=html.getAttribute('data-theme')==='dark';
     html.classList.add('switching');
     html.setAttribute('data-theme',isDark?'light':'dark');
-    localStorage.setItem('owd-theme',isDark?'light':'dark');
+    localStorage.setItem('owd-theme-v2',isDark?'light':'dark');
     setTimeout(function(){html.classList.remove('switching');},380);
   });
 
